@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
+import logoImg from '../assets/Logo.png';
 import '../css/custom.css';
 
 function BasicExample() {
@@ -29,11 +30,9 @@ function BasicExample() {
       <Navbar expand="lg" className="text-start nav-body">
         <Navbar.Brand
           href="/"
-          onClick={() => handleNavLinkClick('services')}
-          className={activeNavLink === 'services' ? 'active' : ''}
         >
           <img
-            src="./assets/Logo.png" // Replace with the actual path to your logo image
+            src={logoImg} // Replace with the actual path to your logo image
             alt="MVRVA Transport Logo"
             className="logo-img"
           />
