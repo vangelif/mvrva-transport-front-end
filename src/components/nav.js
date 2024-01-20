@@ -32,7 +32,11 @@ function BasicExample() {
           onClick={() => handleNavLinkClick('services')}
           className={activeNavLink === 'services' ? 'active' : ''}
         >
-          MVRVA Transport
+          <img
+            src="./assets/Logo.png" // Replace with the actual path to your logo image
+            alt="MVRVA Transport Logo"
+            className="logo-img"
+          />
         </Navbar.Brand>
         <Container className="d-flex flex-column">
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
