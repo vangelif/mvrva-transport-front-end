@@ -1,21 +1,43 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import '../css/custom.css';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchServices } from '../redux/servicesSlice';
 
-function BasicExample2() {
+const BasicExample2 = () => {
+  const dispatch = useDispatch();
+  const { data: services, status, error } = useSelector((state) => state.services);
+
+  useEffect(() => {
+    dispatch(fetchServices());
+  }, [dispatch]);
+
+  if (status === 'loading') {
+    return <div>Loading...</div>;
+  }
+
+  if (status === 'failed') {
+    return (
+      <div>
+        Error:
+        {error}
+      </div>
+    );
+  }
+
   return (
-    <Card style={{ width: '18rem' }} className="service-card">
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the cards content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
+    <div>
+      <h1>Services</h1>
+      <ul>
+        {services.map((service) => (
+          <li key={service.id}>
+            {service.name}
+            {' '}
+            -
+            {service.description}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
-}
+};
 
 export default BasicExample2;
