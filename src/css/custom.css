@@ -17,6 +17,15 @@
     color: #007bff; /* Add your preferred active link color */
 }
 
+.sc-container{
+    margin-top: 50px;
+}
+.social-icon{
+    color: #464646;
+    font-size: 12px;
+    padding: 5px;
+}
 .service-card{
-    margin-left: 500px;
+    margin-left: 350px;
+    margin-top: 50px;
 }

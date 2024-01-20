@@ -27,14 +27,14 @@ function BasicExample() {
     <>
       {/* Navbar Component */}
       <Navbar expand="lg" className="text-start nav-body">
+        <Navbar.Brand
+          href="/"
+          onClick={() => handleNavLinkClick('services')}
+          className={activeNavLink === 'services' ? 'active' : ''}
+        >
+          React-Bootstrap
+        </Navbar.Brand>
         <Container className="d-flex flex-column">
-          <Navbar.Brand
-            href="/"
-            onClick={() => handleNavLinkClick('services')}
-            className={activeNavLink === 'services' ? 'active' : ''}
-          >
-            React-Bootstrap
-          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto d-flex flex-column">
@@ -68,39 +68,43 @@ function BasicExample() {
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
+        </Container>
+        <Container className="mt-4 sc-container d-flex flex-column">
+          <div className="text-center">
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-icon"
+              aria-label="Visit Twitter profile"
+            >
+              <FontAwesomeIcon icon={faTwitter} size="2x" />
+            </a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-icon"
+              aria-label="Visit Facebook profile"
+            >
+              <FontAwesomeIcon icon={faFacebook} size="2x" />
+            </a>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-icon"
+              aria-label="Visit GitHub profile"
+            >
+              <FontAwesomeIcon icon={faGithub} size="2x" />
+            </a>
 
-          <Container className="mt-4">
-            <div className="text-center">
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-icon"
-                aria-label="Visit Twitter profile"
-              >
-                <FontAwesomeIcon icon={faTwitter} size="2x" />
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-icon"
-                aria-label="Visit Facebook profile"
-              >
-                <FontAwesomeIcon icon={faFacebook} size="2x" />
-              </a>
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-icon"
-                aria-label="Visit GitHub profile"
-              >
-                <FontAwesomeIcon icon={faGithub} size="2x" />
-              </a>
-
-            </div>
-          </Container>
+          </div>
+          <div className="text-center mt-2">
+            © 2024 MVRVA Transport.
+            <br />
+            All rights reserved.
+          </div>
         </Container>
       </Navbar>
     </>
