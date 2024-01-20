@@ -1,0 +1,22 @@
+.nav-body {
+    position: fixed;
+    top: 0;
+    left: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 20px; /* Add padding as needed */
+    border-right: 1px solid #dee2e6; /* Add border as needed */
+}
+
+/* Add a style for the active link */
+.nav-body a.active {
+    font-weight: bold;
+    color: #007bff; /* Add your preferred active link color */
+}
+
+.service-card{
+    margin-left: 500px;
+}
