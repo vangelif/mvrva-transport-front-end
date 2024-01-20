@@ -43,33 +43,41 @@ function BasicExample() {
                 onClick={() => handleNavLinkClick('services')}
                 className={activeNavLink === 'services' ? 'active' : ''}
               >
-                Services
+                <span className="navlink-text">
+                  Services
+                </span>
               </Nav.Link>
               <Nav.Link
                 href="/reserve-form"
                 onClick={() => handleNavLinkClick('reserve-form')}
                 className={activeNavLink === 'reserve-form' ? 'active' : ''}
               >
-                Reserve form
+                <span className="navlink-text">
+                  Reserve form
+                </span>
               </Nav.Link>
               <Nav.Link
                 href="/my-reservations"
                 onClick={() => handleNavLinkClick('my-reservations')}
                 className={activeNavLink === 'my-reservations' ? 'active' : ''}
               >
-                My reservations
+                <span className="navlink-text">
+                  My reservations
+                </span>
               </Nav.Link>
               <Nav.Link
                 href="/add-reservation"
                 onClick={() => handleNavLinkClick('add-reservation')}
                 className={activeNavLink === 'add-reservation' ? 'active' : ''}
               >
-                Add Reservation
+                <span className="navlink-text">
+                  Add Reservation
+                </span>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
-        <Container className="mt-4 sc-container d-flex flex-column">
+        <Container className="mt-4 py-3 sc-container d-flex flex-column">
           <div className="text-center">
             <a
               href="https://twitter.com"

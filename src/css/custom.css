@@ -1,3 +1,5 @@
+/* Navbar CSS */
+
 .nav-body {
     position: fixed;
     top: 0;
@@ -7,14 +9,9 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    padding: 20px; /* Add padding as needed */
-    border-right: 1px solid #dee2e6; /* Add border as needed */
-}
-
-/* Add a style for the active link */
-.nav-body a.active {
-    font-weight: bold;
-    color: #007bff; /* Add your preferred active link color */
+    padding: 8px; 
+    border-right: 1px solid #dee2e6; 
+    overflow: hidden;
 }
 
 .sc-container{
@@ -25,6 +22,20 @@
     font-size: 12px;
     padding: 5px;
 }
+
+.nav-body a.active {
+    font-weight: bold;
+    color: #ffffff; 
+    background-color: #97C010; 
+    width: calc(100% + 2 * 32px); 
+    transition: 0.3s ease-in-out;
+}
+
+.nav-body a.active .navlink-text{
+    color:#ffffff;
+}
+
+/* Service */
 .service-card{
     margin-left: 350px;
     margin-top: 50px;
