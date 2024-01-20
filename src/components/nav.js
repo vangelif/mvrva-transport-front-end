@@ -56,7 +56,7 @@ function BasicExample() {
                 className={activeNavLink === 'reserve-form' ? 'active' : ''}
               >
                 <span className="navlink-text">
-                  Reserve form
+                  Reserve Form
                 </span>
               </Nav.Link>
               <Nav.Link
@@ -65,7 +65,7 @@ function BasicExample() {
                 className={activeNavLink === 'my-reservations' ? 'active' : ''}
               >
                 <span className="navlink-text">
-                  My reservations
+                  My Reservations
                 </span>
               </Nav.Link>
               <Nav.Link
@@ -111,7 +111,7 @@ function BasicExample() {
             </a>
 
           </div>
-          <div className="text-center mt-2">
+          <div className="text-center mt-2 copy-right-text">
             © 2024 MVRVA Transport.
             <br />
             All rights reserved.
