@@ -32,7 +32,7 @@ function BasicExample() {
           onClick={() => handleNavLinkClick('services')}
           className={activeNavLink === 'services' ? 'active' : ''}
         >
-          React-Bootstrap
+          MVRVA Transport
         </Navbar.Brand>
         <Container className="d-flex flex-column">
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
