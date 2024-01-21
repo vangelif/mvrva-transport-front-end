@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
+import logoImg from '../assets/Logo.png';
 import '../css/custom.css';
 
 function BasicExample() {
@@ -29,10 +30,12 @@ function BasicExample() {
       <Navbar expand="lg" className="text-start nav-body">
         <Navbar.Brand
           href="/"
-          onClick={() => handleNavLinkClick('services')}
-          className={activeNavLink === 'services' ? 'active' : ''}
         >
-          MVRVA Transport
+          <img
+            src={logoImg} // Replace with the actual path to your logo image
+            alt="MVRVA Transport Logo"
+            className="logo-img"
+          />
         </Navbar.Brand>
         <Container className="d-flex flex-column">
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -53,7 +56,7 @@ function BasicExample() {
                 className={activeNavLink === 'reserve-form' ? 'active' : ''}
               >
                 <span className="navlink-text">
-                  Reserve form
+                  Reserve Form
                 </span>
               </Nav.Link>
               <Nav.Link
@@ -62,7 +65,7 @@ function BasicExample() {
                 className={activeNavLink === 'my-reservations' ? 'active' : ''}
               >
                 <span className="navlink-text">
-                  My reservations
+                  My Reservations
                 </span>
               </Nav.Link>
               <Nav.Link
@@ -108,7 +111,7 @@ function BasicExample() {
             </a>
 
           </div>
-          <div className="text-center mt-2">
+          <div className="text-center mt-2 copy-right-text">
             © 2024 MVRVA Transport.
             <br />
             All rights reserved.
