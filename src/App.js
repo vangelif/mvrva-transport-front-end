@@ -6,6 +6,7 @@ import store from './redux/store';
 import BasicExample from './components/nav';
 import ServiceList from './components/services';
 import FormExample from './components/reservation-form';
+import ServiceDetails from './components/serviceDetails';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <BasicExample />
 
           <Routes>
+            <Route path="/services/:id" element={<ServiceDetails />} />
             <Route path="/api/v1/services" element={<ServiceList />} />
             <Route path="/reserve-form" element={<FormExample />} />
             <Route path="/my-reservations" element={<div>Action 3.1 Content</div>} />

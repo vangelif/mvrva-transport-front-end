@@ -74,6 +74,10 @@
         height: 30rem;
         margin-left: -35%;
     }
+
+    .showcase{
+        margin-left: 500px;
+    }
     }
     /* Responsivness for mobile*/
     @media screen and (max-width:991px) and (min-width:320px) {

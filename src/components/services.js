@@ -1,4 +1,6 @@
+// ServiceList.js
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
 import {
   Card, Button, Row, Col,
@@ -51,14 +53,17 @@ const ServiceList = () => {
               <Row xs={1} md={2} lg={3} xl={4} className="d-flex justify-content-between card-body">
                 {group.map((service) => (
                   <Col key={uuidv4()}>
-                    <Card className="card-sizing">
-                      <Card.Img variant="top" src={service.image} alt={service.name} />
-                      <Card.Body>
-                        <Card.Title>{service.name}</Card.Title>
-                        <Card.Text>{service.description}</Card.Text>
-                        <Button variant="primary">Learn More</Button>
-                      </Card.Body>
-                    </Card>
+                    {/* Wrap each card with Link component */}
+                    <Link to={`/services/${service.id}`} className="card-link">
+                      <Card className="card-sizing">
+                        <Card.Img variant="top" src={service.image} alt={service.name} />
+                        <Card.Body>
+                          <Card.Title>{service.name}</Card.Title>
+                          <Card.Text>{service.description}</Card.Text>
+                          <Button variant="primary">Learn More</Button>
+                        </Card.Body>
+                      </Card>
+                    </Link>
                   </Col>
                 ))}
               </Row>
