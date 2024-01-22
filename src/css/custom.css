@@ -62,11 +62,18 @@
         background: #97C010;
         height: 100vh;
         width: 100%;
-        margin-left: 5%;
+        margin-left: 5.5%;
     }
 
-   
+    .card-body{
+        margin-bottom: 20%;
+    }
     
+    .card-sizing{
+        width: 20rem;
+        height: 30rem;
+        margin-left: -35%;
+    }
     }
     /* Responsivness for mobile*/
     @media screen and (max-width:991px) and (min-width:320px) {

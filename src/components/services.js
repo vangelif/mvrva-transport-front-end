@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import { Card, Button } from 'react-bootstrap';
+import {
+  Card, Button, Row, Col,
+} from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { fetchServices } from '../redux/servicesSlice';
@@ -46,16 +48,20 @@ const BasicExample2 = () => {
         {groupedServices.map((group) => (
           <Carousel.Item key={uuidv4()} className="carousel-bg">
             <Carousel.Caption>
-              {group.map((service) => (
-                <Card key={uuidv4()} style={{ width: '18rem', height: '2rem' }}>
-                  <Card.Img variant="top" src={service.image} alt={service.name} />
-                  <Card.Body>
-                    <Card.Title>{service.name}</Card.Title>
-                    <Card.Text>{service.description}</Card.Text>
-                    <Button variant="primary">Learn More</Button>
-                  </Card.Body>
-                </Card>
-              ))}
+              <Row xs={1} md={2} lg={3} xl={4} className="d-flex justify-content-between card-body">
+                {group.map((service) => (
+                  <Col key={uuidv4()}>
+                    <Card className="card-sizing">
+                      <Card.Img variant="top" src={service.image} alt={service.name} />
+                      <Card.Body>
+                        <Card.Title>{service.name}</Card.Title>
+                        <Card.Text>{service.description}</Card.Text>
+                        <Button variant="primary">Learn More</Button>
+                      </Card.Body>
+                    </Card>
+                  </Col>
+                ))}
+              </Row>
             </Carousel.Caption>
           </Carousel.Item>
         ))}
