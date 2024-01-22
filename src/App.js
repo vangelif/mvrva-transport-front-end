@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import BasicExample from './components/nav';
-import BasicExample2 from './components/services';
+import ServiceList from './components/services';
+import FormExample from './components/reservation-form';
 
 function App() {
   return (
@@ -14,11 +15,11 @@ function App() {
           <BasicExample />
 
           <Routes>
-            <Route path="/api/v1/services" element={<BasicExample2 />} />
-            <Route path="/reserve-form" element={<div>Link Content</div>} />
+            <Route path="/api/v1/services" element={<ServiceList />} />
+            <Route path="/reserve-form" element={<FormExample />} />
             <Route path="/my-reservations" element={<div>Action 3.1 Content</div>} />
             <Route path="/add-reservation" element={<div>Link Content</div>} />
-            <Route path="/" element={<BasicExample2 />} />
+            <Route path="/" element={<ServiceList />} />
           </Routes>
         </>
       </Router>
