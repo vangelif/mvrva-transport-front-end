@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { fetchServiceDetails } from '../redux/serviceDetailsSlice';
 
 const ServiceDetails = () => {
@@ -18,7 +18,7 @@ const ServiceDetails = () => {
           await dispatch(fetchServiceDetails(id));
         }
       } catch (error) {
-        // Removed the console.error statement
+        // Handle error if needed
       }
     };
 
@@ -31,6 +31,9 @@ const ServiceDetails = () => {
 
   return (
     <div className="showcase">
+      <Link to="/api/v1/services">
+        <button type="button">Go Back</button>
+      </Link>
       <h1>Show here</h1>
       <h2>{service.name}</h2>
       <p>
