@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import BasicExample from './components/nav';
-import ServiceList from './components/services';
+import ServiceList from './components/services/services';
 import FormExample from './components/reservation-form';
-import ServiceDetails from './components/serviceDetails';
+import ServiceDetails from './components/services/serviceDetails';
 
 function App() {
   return (
