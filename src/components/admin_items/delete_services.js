@@ -28,7 +28,8 @@ const ServiceDeletion = () => {
           <ul>
             {services.map((service) => (
               <li key={service.id}>
-                {service.name}{' '}
+                {service.name}
+                {' '}
                 <button type="button" onClick={() => handleDelete(service.id)}>Delete</button>
               </li>
             ))}
