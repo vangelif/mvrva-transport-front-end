@@ -7,6 +7,8 @@ import BasicExample from './components/nav';
 import ServiceList from './components/services/services';
 import FormExample from './components/reservation-form';
 import ServiceDetails from './components/services/serviceDetails';
+import ProductForm from './components/admin_items/add_services';
+import ServiceList2 from './components/admin_items/delete_services';
 
 function App() {
   return (
@@ -20,7 +22,8 @@ function App() {
             <Route path="/api/v1/services" element={<ServiceList />} />
             <Route path="/reserve-form" element={<FormExample />} />
             <Route path="/my-reservations" element={<div>Action 3.1 Content</div>} />
-            <Route path="/add-reservation" element={<div>Link Content</div>} />
+            <Route path="/add-reservation" element={<ProductForm />} />
+            <Route path="/delete-reservation" element={<ServiceList2 />} />
             <Route path="/" element={<ServiceList />} />
           </Routes>
         </>

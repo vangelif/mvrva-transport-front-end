@@ -11,27 +11,27 @@ function BasicExample() {
   const storedValue = localStorage.getItem('activeNavLink');
   const initialActiveNavLink = storedValue;
   const [activeNavLink, setActiveNavLink] = useState(initialActiveNavLink);
-  const [userRoles, setUserRoles] = useState([]);
-  const [isAdmin, setIsAdmin] = useState(false);
+  // const [userRoles, setUserRoles] = useState([]);
+  // const [isAdmin, setIsAdmin] = useState(false);
 
   const handleNavLinkClick = (navLink) => {
     setActiveNavLink(navLink);
     localStorage.setItem('activeNavLink', navLink);
   };
 
-  useEffect(() => {
-    // Fetch user roles from the API
-    // Replace 'your_api_endpoint' with the actual API endpoint
-    fetch('http://localhost:3000/member_details')
-      .then((response) => response.json())
-      .then((data) => {
-        // Assuming the API response contains an array of user roles
-        setUserRoles(data.roles);
-        setIsAdmin(data.roles.includes('admin'));
-      })
-      .catch((error) => console.error('Error fetching user roles:', error));
-    setIsAdmin(true);
-  }, []);
+  // useEffect(() => {
+  //   // Fetch user roles from the API
+  //   // Replace 'your_api_endpoint' with the actual API endpoint
+  //   fetch('http://localhost:3000/member_details')
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       // Assuming the API response contains an array of user roles
+  //       setUserRoles(data.roles);
+  //       setIsAdmin(data.roles.includes('admin'));
+  //     })
+  //     .catch((error) => console.error('Error fetching user roles:', error));
+  //   setIsAdmin(true);
+  // }, []);
 
   useEffect(() => () => {
     localStorage.removeItem('activeNavLink');
@@ -78,7 +78,25 @@ function BasicExample() {
                   My Reservations
                 </span>
               </Nav.Link>
-              {userRoles.includes('admin') && (
+              <Nav.Link
+                href="/add-reservation"
+                onClick={() => handleNavLinkClick('add-reservation')}
+                className={activeNavLink === 'add-reservation' ? 'active' : ''}
+              >
+                <span className="navlink-text">
+                  Add Services
+                </span>
+              </Nav.Link>
+              <Nav.Link
+                href="/delete-reservation"
+                onClick={() => handleNavLinkClick('delete-reservation')}
+                className={activeNavLink === 'delete-reservation' ? 'active' : ''}
+              >
+                <span className="navlink-text">
+                  Delete Services
+                </span>
+              </Nav.Link>
+              {/* {userRoles.includes('admin') && (
                 <Nav.Link
                   href="/add-reservation"
                   onClick={() => handleNavLinkClick('add-reservation')}
@@ -96,10 +114,22 @@ function BasicExample() {
                   className={activeNavLink === 'add-reservation' ? 'active' : ''}
                 >
                   <span className="navlink-text">
-                    Add Reservation
+                    Add Services
                   </span>
                 </Nav.Link>
               )}
+
+              {isAdmin && (
+              <Nav.Link
+                href="/delete-reservation"
+                onClick={() => handleNavLinkClick('delete-reservation')}
+                className={activeNavLink === 'delete-reservation' ? 'active' : ''}
+              >
+                <span className="navlink-text">
+                  Delete Services
+                </span>
+              </Nav.Link>
+              )} */}
             </Nav>
           </Navbar.Collapse>
         </Container>
