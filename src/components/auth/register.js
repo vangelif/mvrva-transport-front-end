@@ -1,11 +1,10 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 function Register() {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: ""
+    name: '',
+    email: '',
+    password: '',
   });
 
   const { name, email, password } = formData;
@@ -13,14 +12,13 @@ function Register() {
   const onChange = () => {
     setFormData((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value
-    }))
-  }
-  
+      [e.target.name]: e.target.value,
+    }));
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
-    
-  }
+  };
 
   return (
     <div>
@@ -28,15 +26,15 @@ function Register() {
       <form onSubmit={onSubmit}>
         <div>
           <label>Name</label>
-          <input type="text" name="name" value={name} onChange={onChange}/>
+          <input type="text" name="name" value={name} onChange={onChange} />
         </div>
         <div>
           <label>Email</label>
-          <input type="email" name="email" value={email} onChange={onChange}/>
+          <input type="email" name="email" value={email} onChange={onChange} />
         </div>
         <div>
           <label>Password</label>
-          <input type="password" name="password" value={password} onChange={onChange}/>
+          <input type="password" name="password" value={password} onChange={onChange} />
         </div>
         <button type="submit">Register</button>
       </form>
