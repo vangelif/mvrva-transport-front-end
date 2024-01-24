@@ -121,7 +121,7 @@
   .showcase {
     margin-left: 500px;
 
-    color: #fff;
+    color: var(--secondary-color);
   }
 
   /* Service */

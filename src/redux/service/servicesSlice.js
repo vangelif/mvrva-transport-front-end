@@ -15,6 +15,12 @@ export const createService = createAsyncThunk('services/createService', async (s
   return response.data.service; // Assuming the API returns the newly created service
 });
 
+// Thunk to delete a service
+export const deleteService = createAsyncThunk('services/deleteService', async (serviceId) => {
+  await axios.delete(`http://127.0.0.1:3000/api/v1/services/${serviceId}`);
+  return serviceId; // Return the deleted serviceId
+});
+
 const servicesSlice = createSlice({
   name: 'services',
   initialState: {
@@ -38,6 +44,10 @@ const servicesSlice = createSlice({
       })
       .addCase(createService.fulfilled, (state, action) => {
         state.data.push(action.payload); // Add the newly created service to the state
+      })
+      .addCase(deleteService.fulfilled, (state, action) => {
+        // Remove the deleted service from the state
+        state.data = state.data.filter((service) => service.id !== action.payload);
       });
   },
 });
