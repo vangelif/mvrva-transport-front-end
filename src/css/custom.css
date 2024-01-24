@@ -128,11 +128,10 @@
   .service-card {
     margin-left: 350px;
     margin-top: 50px;
+  }
 
-
-  div.add_item{
-      margin-left: 500px;
-    }
+  .card-submit{
+    margin-left: 350px;
   }
 }
 
