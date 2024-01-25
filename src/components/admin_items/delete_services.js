@@ -38,7 +38,7 @@ const ServiceDeletion = () => {
             ))}
           </ul>
           {deletedServiceId && (
-            <DeleteMessage message={`Service with ID ${deletedServiceId} deleted successfully!`} />
+            <DeleteMessage message={`Service with ID ${deletedServiceId} deleted successfully!❌`} />
           )}
         </div>
       )}

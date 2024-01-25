@@ -1,10 +1,11 @@
 import React from 'react';
+import { Alert } from 'react-bootstrap';
 import PropTypes from 'prop-types'; // Import PropTypes
 
 const SuccessComponent = ({ message }) => (
-  <div className="success-message">
+  <Alert variant="success">
     <p>{message}</p>
-  </div>
+  </Alert>
 );
 
 SuccessComponent.propTypes = {

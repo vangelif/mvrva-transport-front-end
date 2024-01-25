@@ -1,11 +1,12 @@
 // SuccessMessage.js
 import React from 'react';
+import { Alert } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 const DeleteMessage = ({ message }) => (
-  <div className="success-message">
+  <Alert variant="danger">
     <p>{message}</p>
-  </div>
+  </Alert>
 );
 
 DeleteMessage.propTypes = {
