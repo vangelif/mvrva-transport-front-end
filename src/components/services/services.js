@@ -25,7 +25,7 @@ const ServiceList = () => {
   }, [dispatch]);
 
   if (status === 'loading') {
-    return <div>Loading...</div>;
+    return <h1 className="text-center">Loading...</h1>;
   }
 
   if (status === 'failed') {
