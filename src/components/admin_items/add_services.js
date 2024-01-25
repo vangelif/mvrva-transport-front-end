@@ -88,7 +88,7 @@ const ServiceCreationForm = ({ userId }) => {
         Create Service
       </Button>
 
-      {serviceAdded && <SuccessComponent message="Service added successfully!" />}
+      {serviceAdded && <SuccessComponent message="✅ Service added successfully!" />}
     </Form>
   );
 };
