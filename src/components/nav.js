@@ -52,6 +52,15 @@ function BasicExample() {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto d-flex flex-column">
               <Nav.Link
+                href="/register"
+                onClick={() => handleNavLinkClick('register')}
+                className={activeNavLink === 'register' ? 'active' : ''}
+              >
+                <span className="navlink-text">
+                  Register
+                </span>
+              </Nav.Link>
+              <Nav.Link
                 href="/api/v1/services"
                 onClick={() => handleNavLinkClick('services')}
                 className={activeNavLink === 'services' ? 'active' : ''}
