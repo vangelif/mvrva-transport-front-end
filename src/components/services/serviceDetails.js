@@ -1,15 +1,19 @@
-// ServiceDetails.js
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
-import { fetchServiceDetails } from '../redux/serviceDetailsSlice';
+import { Button } from 'react-bootstrap';
+import ReservationForm from '../selectedReservation';
+import { fetchServiceDetails } from '../../redux/service/serviceDetailsSlice';
+import { createReservation } from '../../redux/reservationsSlice';
 
 const ServiceDetails = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const service = useSelector((state) => state.serviceDetails.data);
   const status = useSelector((state) => state.serviceDetails.status);
+
+  const [selectedService, setSelectedService] = useState(null);
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -24,6 +28,14 @@ const ServiceDetails = () => {
 
     fetchDetails();
   }, [dispatch, id]);
+
+  const handleConfirmReservation = () => {
+    // Add your logic for confirming the reservation
+    if (selectedService) {
+      dispatch(createReservation(selectedService));
+      // Additional logic if needed after reservation creation
+    }
+  };
 
   if (!id || status === 'loading' || !service) {
     return <div>Loading...</div>;
@@ -45,7 +57,23 @@ const ServiceDetails = () => {
         {service.min_cost}
       </p>
       <img src={service.image} alt="service" />
-      {/* Add more details as needed */}
+      {/* Use Link to navigate to the reservation form route */}
+
+      <Button
+        type="button"
+        variant="primary"
+        onClick={() => setSelectedService(service)}
+      >
+        Reserve
+      </Button>
+
+      {/* Display selected service information */}
+      {selectedService && (
+        <ReservationForm
+          selectedService={selectedService}
+          onConfirmReservation={handleConfirmReservation}
+        />
+      )}
     </div>
   );
 };
