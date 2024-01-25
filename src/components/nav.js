@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { logout, reset } from '../redux/auth/authSlice';
 import logoImg from '../assets/Logo.png';
 import '../css/custom.css';
 
@@ -18,20 +21,29 @@ function BasicExample() {
     setActiveNavLink(navLink);
     localStorage.setItem('activeNavLink', navLink);
   };
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
 
-  useEffect(() => {
-    // Fetch user roles from the API
-    // Replace 'your_api_endpoint' with the actual API endpoint
-    fetch('http://localhost:3000/member_details')
-      .then((response) => response.json())
-      .then((data) => {
-        // Assuming the API response contains an array of user roles
-        setUserRoles(data.roles);
-        setIsAdmin(data.roles.includes('admin'));
-      })
-      .catch((error) => console.error('Error fetching user roles:', error));
-    setIsAdmin(true);
-  }, []);
+  const onLogout = () => {
+    dispatch(logout());
+    dispatch(reset());
+    navigate('/');
+  };
+  
+  // useEffect(() => {
+  //   // Fetch user roles from the API
+  //   // Replace 'your_api_endpoint' with the actual API endpoint
+  //   fetch('http://localhost:3000/member_details')
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       // Assuming the API response contains an array of user roles
+  //       setUserRoles(data.roles);
+  //       setIsAdmin(data.roles.includes('admin'));
+  //     })
+  //     .catch((error) => console.error('Error fetching user roles:', error));
+  //   setIsAdmin(true);
+  // }, []);
 
   useEffect(() => () => {
     localStorage.removeItem('activeNavLink');
@@ -60,6 +72,7 @@ function BasicExample() {
                   Register
                 </span>
               </Nav.Link>
+              <button onClick={onLogout}>Logout</button>
               <Nav.Link
                 href="/api/v1/services"
                 onClick={() => handleNavLinkClick('services')}
