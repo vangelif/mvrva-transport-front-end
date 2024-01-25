@@ -1,39 +1,56 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import { Button, Form } from 'react-bootstrap';
 
-const ReservationForm = ({ selectedService, onConfirmReservation }) => (
-  <div>
-    <h3>Selected Service:</h3>
-    <p>
-      Name:
-      {selectedService.name}
-    </p>
-    <p>
-      Description:
-      {selectedService.description}
-    </p>
-    <p>
-      Min Cost: $
-      {selectedService.min_cost}
-    </p>
-    <Button type="button" variant="success" onClick={onConfirmReservation}>
-      Confirm Reservation
-    </Button>
-  </div>
-);
+const ReservationForm = ({ onConfirmReservation }) => {
+  const selectedService = useSelector((state) => state.selectedService);
+  const [userName, setUserName] = useState('');
+
+  useEffect(() => {
+    const name = localStorage.getItem('userName');
+    if (name) {
+      setUserName(name);
+    }
+  }, []);
+
+  if (!selectedService) {
+    return <div>No service selected</div>;
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onConfirmReservation();
+  };
+
+  return (
+    <Form className="ml-5" onSubmit={handleSubmit}>
+      <h3>Selected Service:</h3>
+      <p>
+        Name:
+        {' '}
+        {userName || 'User'}
+      </p>
+      <p>
+        Description:
+        {' '}
+        {selectedService.description}
+      </p>
+      <p>
+        Min Cost:
+        {' '}
+        $
+        {selectedService.min_cost}
+      </p>
+      <Button type="submit" variant="success">
+        Confirm Reservation
+      </Button>
+    </Form>
+  );
+};
 
 ReservationForm.propTypes = {
-  selectedService: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    min_cost: PropTypes.number.isRequired,
-  }),
   onConfirmReservation: PropTypes.func.isRequired,
 };
 
-// Provide defaultProps if needed
-ReservationForm.defaultProps = {
-  selectedService: null,
-};
 export default ReservationForm;

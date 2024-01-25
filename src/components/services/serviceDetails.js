@@ -1,19 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
-import ReservationForm from '../selectedReservation';
 import { fetchServiceDetails } from '../../redux/service/serviceDetailsSlice';
-import { createReservation } from '../../redux/reservationsSlice';
+import { setSelectedService } from '../../redux/service/selectedServiceSlice';
 
 const ServiceDetails = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const service = useSelector((state) => state.serviceDetails.data);
   const status = useSelector((state) => state.serviceDetails.status);
-
-  const [selectedService, setSelectedService] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -29,16 +27,13 @@ const ServiceDetails = () => {
     fetchDetails();
   }, [dispatch, id]);
 
-  const handleConfirmReservation = () => {
-    // Add your logic for confirming the reservation
-    if (selectedService) {
-      dispatch(createReservation(selectedService));
-      // Additional logic if needed after reservation creation
-    }
+  const handleReserveClick = () => {
+    dispatch(setSelectedService(service));
+    navigate('/reservation-form-selected');
   };
 
   if (!id || status === 'loading' || !service) {
-    return <div>Loading...</div>;
+    return <h1 className="text-center">Loading...</h1>;
   }
 
   return (
@@ -62,18 +57,10 @@ const ServiceDetails = () => {
       <Button
         type="button"
         variant="primary"
-        onClick={() => setSelectedService(service)}
+        onClick={handleReserveClick}
       >
         Reserve
       </Button>
-
-      {/* Display selected service information */}
-      {selectedService && (
-        <ReservationForm
-          selectedService={selectedService}
-          onConfirmReservation={handleConfirmReservation}
-        />
-      )}
     </div>
   );
 };
