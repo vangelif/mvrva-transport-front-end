@@ -4,9 +4,9 @@ import './css/custom.css';
 
 function App() {
   return (
-    <section className='app'>
-            <Sidebar />
-            <Main />
+    <section className="app">
+      <Sidebar />
+      <Main />
     </section>
   );
 }

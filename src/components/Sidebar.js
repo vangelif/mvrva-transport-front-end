@@ -38,7 +38,7 @@ function Sidebar() {
   }, []);
 
   return (
-    <div className='sidebar'>
+    <div className="sidebar">
       <Navbar expand="lg" className="text-start nav-body" style={{ zIndex: 9999, backgroundColor: 'grey' }}>
         <Navbar.Brand href="/">
           <img

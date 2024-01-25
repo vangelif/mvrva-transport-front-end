@@ -7,7 +7,7 @@
 }
 
 /* Navbar CSS responsiveness for desktop */
-@media screen and (min-width: 992px) {
+  
   .nav-body {
     position: fixed;
     top: 0;
@@ -56,13 +56,14 @@
   }
 
   /* Services CSS */
-  .carousel-body {
-    height: 95vh;
-    width: 90%;
-    margin-left: 10%;
+  
+.carousel-body {
+    /* height: 95vh;
+    width: 90%; */
+    /* margin-left: 10%; */
+    background: red;
     overflow: hidden;
-  }
-
+  } 
   .service-card {
     margin-left: 350px;
     margin-top: 50px;
@@ -79,13 +80,10 @@
     margin-bottom: 20%;
   }
 
-  .carousel-control-prev {
-    position: fixed;
-    top: 50%;
-    left: 13.5%;
+  span.carousel-control-prev {
+    
+    
     background-color: #97c010;
-    height: 70px;
-    width: 90px;
     border-top-right-radius: 35px;  /* Adjust the value as needed */
     border-bottom-right-radius: 35px;
     font-size: 12px;  /* Adjust the value as needed */
@@ -144,64 +142,4 @@
     margin-left: 280px;
     margin-top: 250px;
   }
-}
 
-/* Responsivness for mobile */
-
-@media screen and (max-width: 768px) and (min-width: 320px) {
-  /* navbar */
-  .nav-body {
-    background: transparent;
-  }
-
-  .navlink-text {
-    font-size: 12px;
-    font-weight: 600;
-  }
-
-  button.navbar-toggler {
-    margin-right: 40rem;
-    margin-top: 3rem;
-    border: none;
-  }
-
-  span.navlink-text {
-    margin-right: 30rem;
-  }
-
-  .nav-body a.active {
-    font-weight: bold;
-    color: #fff;
-    background-color: #97c010;
-    transition: 0.3s ease-in-out;
-  }
-
-  .nav-body a.active .navlink-text {
-    color: var(--main-color);
-  }
-
-  /* logo */
-  .logo-img {
-    display: none;
-  }
-
-  /* social media icons */
-  .sc-container {
-    display: none;
-  }
-
-  .social-icon {
-    display: none;
-  }
-
-  .copy-right-text {
-    display: none;
-  }
-
-
-  /* Service */
-  .service-card {
-    margin-left: 350px;
-    margin-top: 50px;
-  }
-}

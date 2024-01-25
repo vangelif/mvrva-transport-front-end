@@ -48,9 +48,9 @@ const ServiceList = () => {
 
   return (
     <>
+      <h1 className="text-center">OFFERED SERVICES</h1>
+      <span className="text-center d-block">Explore our services from below</span>
       <Carousel activeIndex={index} onSelect={handleSelect} className="carousel-body">
-      <h1 className='text-center'>OFFERED SERVICES</h1>
-        <span className='text-center d-block'>Explore our services from below</span>
         {groupedServices.map((group) => (
           <Carousel.Item key={uuidv4()} className="carousel-bg">
             <Carousel.Caption>

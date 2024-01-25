@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from 'react-redux';
-import store from './redux/store';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import store from './redux/store';
 import ServiceList from './components/services/ServiceList';
 import FormExample from './components/reservation-form';
 import ServiceDetails from './components/services/ServiceDetails';
@@ -12,8 +12,8 @@ import './css/custom.css';
 
 function Main() {
   return (
-            <Provider store={store}>
-    <section className="main">
+    <Provider store={store}>
+      <section className="main">
         <Router>
           <>
             <Routes>
@@ -28,8 +28,8 @@ function Main() {
             </Routes>
           </>
         </Router>
-    </section>
-        </Provider>
+      </section>
+    </Provider>
   );
 }
 
