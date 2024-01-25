@@ -82,13 +82,32 @@
   .carousel-control-prev {
     position: fixed;
     top: 50%;
-    left: 14.8%;
+    left: 13.5%;
     background-color: #97c010;
-    height: 45px;
+    height: 70px;
     width: 90px;
     border-top-right-radius: 35px;  /* Adjust the value as needed */
     border-bottom-right-radius: 35px;
     font-size: 12px;  /* Adjust the value as needed */
+  }
+
+  .app {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  .sidebar {
+    width: 284px;
+    background-color: #fff;
+    color: white;
+  }
+
+  .main {
+    flex-grow: 1;
+    padding: 20px;
   }
 
   .carousel-control-next {
@@ -96,7 +115,7 @@
     top: 50%;
     right: 0;
     background-color: #97c010;
-    height: 45px;
+    height: 70px;
     width: 90px;
     border-top-left-radius: 35px;  /* Adjust the value as needed */
     border-bottom-left-radius: 35px;
