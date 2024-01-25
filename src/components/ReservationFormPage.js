@@ -13,6 +13,7 @@ const ReservationFormPage = () => {
     <div>
       <h1 className="ml-5">
         Reserve:
+        {' '}
         {selectedService.name}
       </h1>
       <ReservationForm service={selectedService || { name: '', description: '', price: '' }} />
