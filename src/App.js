@@ -11,6 +11,7 @@ import ServiceDetails from './components/services/serviceDetails';
 import ServiceDeletion from './components/admin_items/delete_services';
 import ServiceCreationForm from './components/admin_items/add_services';
 import ReservationFormPage from './components/ReservationFormPage';
+import MyReservations from './components/MyReservations';
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
               <Route path="/services/:id" element={<ServiceDetails />} />
               <Route path="/reservation-form-selected" element={<ReservationFormPage />} />
               <Route path="/reserve-form" element={<ReservationForm />} />
-              <Route path="/my-reservations" element={<div>Action 3.1 Content</div>} />
+              <Route path="/my-reservations" element={<MyReservations />} />
               <Route path="/add-reservation" element={<ServiceCreationForm />} />
               <Route path="/delete-reservation" element={<ServiceDeletion />} />
               <Route path="/" element={<ServiceList />} />

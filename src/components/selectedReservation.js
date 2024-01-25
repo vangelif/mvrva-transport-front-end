@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { Button, Form, Row, Col } from 'react-bootstrap';
+import {
+  Button, Form, Row, Col,
+} from 'react-bootstrap';
 
 const ReservationForm = ({ onConfirmReservation }) => {
   const selectedService = useSelector((state) => state.selectedService);

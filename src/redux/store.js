@@ -6,6 +6,7 @@ import servicesReducer from './service/servicesSlice';
 import serviceDetailsReducer from './service/serviceDetailsSlice';
 import memberReducer from './adminRouteSlice';
 import selectedServiceReducer from './service/selectedServiceSlice';
+import reservationsReducer from './reservationsSlice';
 
 const persistConfig = {
   key: 'root',
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   serviceDetails: serviceDetailsReducer,
   member: memberReducer,
   selectedService: selectedServiceReducer,
+  reservations: reservationsReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
