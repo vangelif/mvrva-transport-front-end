@@ -10,6 +10,7 @@ import ServiceList from './components/services';
 import FormExample from './components/reservation-form';
 import ServiceDetails from './components/serviceDetails';
 import Register from './components/auth/register';
+import Login from './components/auth/login';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
 
           <Routes>
             <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/services/:id" element={<ServiceDetails />} />
             <Route path="/api/v1/services" element={<ServiceList />} />
             <Route path="/reserve-form" element={<FormExample />} />

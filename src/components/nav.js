@@ -72,6 +72,15 @@ function BasicExample() {
                   Register
                 </span>
               </Nav.Link>
+              <Nav.Link
+                href="/login"
+                onClick={() => handleNavLinkClick('login')}
+                className={activeNavLink === 'login' ? 'active' : ''}
+              >
+                <span className="navlink-text">
+                  Login
+                </span>
+              </Nav.Link>
               <button onClick={onLogout}>Logout</button>
               <Nav.Link
                 href="/api/v1/services"
