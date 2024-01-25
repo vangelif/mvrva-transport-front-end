@@ -120,7 +120,6 @@
 
   .showcase {
     margin-left: 500px;
-
     color: var(--secondary-color);
   }
 
@@ -132,6 +131,11 @@
 
   .card-submit{
     margin-left: 350px;
+  }
+
+  .add-service-submit{
+    margin-left: 280px;
+    margin-top: 250px;
   }
 }
 

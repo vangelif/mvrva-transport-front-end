@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types'; // Import PropTypes
 import { useDispatch } from 'react-redux';
+import { Form, Button } from 'react-bootstrap';
+import SuccessComponent from '../messages/serviceSuccess';
 import { createService } from '../../redux/service/servicesSlice';
 
 const ServiceCreationForm = ({ userId }) => {
+  const [serviceAdded, setServiceAdded] = useState(false);
   const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
@@ -28,55 +31,65 @@ const ServiceCreationForm = ({ userId }) => {
     setFormData({
       name: '', description: '', image: '', min_cost: 0,
     });
+
+    setTimeout(() => {
+      // After the service is added successfully, setServiceAdded to true
+      setServiceAdded(true);
+    }, 1000);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="card-submit">
-      <div>
-        <label htmlFor="name">Name:</label>
-        <input
+    <Form onSubmit={handleSubmit} className="add-service-submit">
+      <Form.Group controlId="name">
+        <Form.Label>Name:</Form.Label>
+        <Form.Control
           type="text"
-          id="name"
           name="name"
           value={formData.name}
           onChange={handleChange}
           required
         />
-      </div>
-      <div>
-        <label htmlFor="description">Description:</label>
-        <textarea
-          id="description"
+      </Form.Group>
+
+      <Form.Group controlId="description">
+        <Form.Label>Description:</Form.Label>
+        <Form.Control
+          as="textarea"
           name="description"
           value={formData.description}
           onChange={handleChange}
           required
         />
-      </div>
-      <div>
-        <label htmlFor="image">Image URL:</label>
-        <input
+      </Form.Group>
+
+      <Form.Group controlId="image">
+        <Form.Label>Image URL:</Form.Label>
+        <Form.Control
           type="text"
-          id="image"
           name="image"
           value={formData.image}
           onChange={handleChange}
           required
         />
-      </div>
-      <div>
-        <label htmlFor="min_cost">Minimum Cost:</label>
-        <input
+      </Form.Group>
+
+      <Form.Group controlId="min_cost">
+        <Form.Label>Minimum Cost:</Form.Label>
+        <Form.Control
           type="number"
-          id="min_cost"
           name="min_cost"
           value={formData.min_cost}
           onChange={handleChange}
           required
         />
-      </div>
-      <button type="submit">Create Service</button>
-    </form>
+      </Form.Group>
+
+      <Button variant="primary" type="submit">
+        Create Service
+      </Button>
+
+      {serviceAdded && <SuccessComponent message="Service added successfully!" />}
+    </Form>
   );
 };
 

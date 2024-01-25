@@ -1,12 +1,14 @@
 // ServicesList.js
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import DeleteMessage from '../messages/deleteServiceSuccess';
 import { fetchServices, deleteService } from '../../redux/service/servicesSlice';
 
 const ServiceDeletion = () => {
   const dispatch = useDispatch();
   const services = useSelector((state) => state.services.data);
   const status = useSelector((state) => state.services.status);
+  const [deletedServiceId, setDeletedServiceId] = useState(null);
 
   useEffect(() => {
     if (status === 'idle') {
@@ -16,6 +18,7 @@ const ServiceDeletion = () => {
 
   const handleDelete = (serviceId) => {
     dispatch(deleteService(serviceId));
+    setDeletedServiceId(serviceId);
   };
 
   return (
@@ -34,6 +37,9 @@ const ServiceDeletion = () => {
               </li>
             ))}
           </ul>
+          {deletedServiceId && (
+            <DeleteMessage message={`Service with ID ${deletedServiceId} deleted successfully!`} />
+          )}
         </div>
       )}
     </div>
