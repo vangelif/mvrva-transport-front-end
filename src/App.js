@@ -1,10 +1,14 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './redux/store';
 import BasicExample from './components/nav';
+import Register from './components/auth/register';
+import Login from './components/auth/login';
 import ServiceList from './components/services/services';
 import ReservationForm from './components/reservation-form';
 import ServiceDetails from './components/services/serviceDetails';
@@ -20,10 +24,13 @@ function App() {
         <Router>
           <>
             <BasicExample />
+            <ToastContainer />
 
             <Routes>
-              <Route path="/api/v1/services" element={<ServiceList />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
               <Route path="/services/:id" element={<ServiceDetails />} />
+              <Route path="/api/v1/services" element={<ServiceList />} />
               <Route path="/reservation-form-selected" element={<ReservationFormPage />} />
               <Route path="/reserve-form" element={<ReservationForm />} />
               <Route path="/my-reservations" element={<MyReservations />} />

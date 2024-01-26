@@ -5,6 +5,7 @@ import { combineReducers } from 'redux';
 import servicesReducer from './service/servicesSlice';
 import serviceDetailsReducer from './service/serviceDetailsSlice';
 import memberReducer from './adminRouteSlice';
+import authReducer from './auth/authSlice';
 import selectedServiceReducer from './service/selectedServiceSlice';
 import reservationsReducer from './reservationsSlice';
 
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   member: memberReducer,
   selectedService: selectedServiceReducer,
   reservations: reservationsReducer,
+  auth: authReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { logout, reset } from '../redux/auth/authSlice';
 import logoImg from '../assets/Logo.png';
 import '../css/custom.css';
 
@@ -17,6 +20,15 @@ function BasicExample() {
   const handleNavLinkClick = (navLink) => {
     setActiveNavLink(navLink);
     localStorage.setItem('activeNavLink', navLink);
+  };
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  // const { user } = useSelector((state) => state.auth);
+
+  const onLogout = () => {
+    dispatch(logout());
+    dispatch(reset());
+    navigate('/');
   };
 
   // useEffect(() => {
@@ -51,6 +63,25 @@ function BasicExample() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto d-flex flex-column">
+              <Nav.Link
+                href="/register"
+                onClick={() => handleNavLinkClick('register')}
+                className={activeNavLink === 'register' ? 'active' : ''}
+              >
+                <span className="navlink-text">
+                  Register
+                </span>
+              </Nav.Link>
+              <Nav.Link
+                href="/login"
+                onClick={() => handleNavLinkClick('login')}
+                className={activeNavLink === 'login' ? 'active' : ''}
+              >
+                <span className="navlink-text">
+                  Login
+                </span>
+              </Nav.Link>
+              <button type="button" onClick={onLogout}>Logout</button>
               <Nav.Link
                 href="/api/v1/services"
                 onClick={() => handleNavLinkClick('services')}
