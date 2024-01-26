@@ -20,6 +20,7 @@ function Sidebar() {
   const handleNavLinkClick = (navLink) => {
     setActiveNavLink(navLink);
     localStorage.setItem('activeNavLink', navLink);
+    navigate(`/${navLink}`);
   };
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ function Sidebar() {
   const onLogout = () => {
     dispatch(logout());
     dispatch(reset());
-    navigate('/');
+    navigate('/*');
   };
 
   // useEffect(() => {
