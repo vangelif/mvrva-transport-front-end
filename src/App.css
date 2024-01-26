@@ -7,15 +7,6 @@
   pointer-events: none;
 }
 
-.ml-5 {
-  margin-left: 20rem;
-}
-
-.form-background {
-  background-color: #97c010;
-  margin-left: 245px;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
