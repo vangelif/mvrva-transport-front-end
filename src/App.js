@@ -4,8 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import { store, persistor } from './redux/store';
+import store from './redux/store';
 import BasicExample from './components/nav';
 import Register from './components/auth/register';
 import Login from './components/auth/login';
@@ -20,27 +19,25 @@ import MyReservations from './components/MyReservations';
 function App() {
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <Router>
-          <>
-            <BasicExample />
-            <ToastContainer />
+      <Router>
+        <>
+          <BasicExample />
+          <ToastContainer />
 
-            <Routes>
-              <Route path="/register" element={<Register />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/services/:id" element={<ServiceDetails />} />
-              <Route path="/api/v1/services" element={<ServiceList />} />
-              <Route path="/reservation-form-selected" element={<ReservationFormPage />} />
-              <Route path="/reserve-form" element={<ReservationForm />} />
-              <Route path="/my-reservations" element={<MyReservations />} />
-              <Route path="/add-reservation" element={<ServiceCreationForm />} />
-              <Route path="/delete-reservation" element={<ServiceDeletion />} />
-              <Route path="/" element={<ServiceList />} />
-            </Routes>
-          </>
-        </Router>
-      </PersistGate>
+          <Routes>
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/services/:id" element={<ServiceDetails />} />
+            <Route path="/api/v1/services" element={<ServiceList />} />
+            <Route path="/reservation-form-selected" element={<ReservationFormPage />} />
+            <Route path="/reserve-form" element={<ReservationForm />} />
+            <Route path="/my-reservations" element={<MyReservations />} />
+            <Route path="/add-reservation" element={<ServiceCreationForm />} />
+            <Route path="/delete-reservation" element={<ServiceDeletion />} />
+            <Route path="/" element={<ServiceList />} />
+          </Routes>
+        </>
+      </Router>
     </Provider>
   );
 }
