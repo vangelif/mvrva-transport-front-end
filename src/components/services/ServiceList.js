@@ -25,7 +25,7 @@ const ServiceList = () => {
   }, [dispatch]);
 
   if (status === 'loading') {
-    return <div>Loading...</div>;
+    return <h1 className="text-center">Loading...</h1>;
   }
 
   if (status === 'failed') {
@@ -48,6 +48,8 @@ const ServiceList = () => {
 
   return (
     <>
+      <h1 className="text-center">OFFERED SERVICES</h1>
+      <span className="text-center d-block">Explore our services from below</span>
       <Carousel activeIndex={index} onSelect={handleSelect} className="carousel-body">
         {groupedServices.map((group) => (
           <Carousel.Item key={uuidv4()} className="carousel-bg">
@@ -58,7 +60,7 @@ const ServiceList = () => {
                     {/* Wrap each card with Link component */}
                     <Link to={`/services/${service.id}`} className="card-link">
                       <Card className="card-sizing">
-                        <Card.Img variant="top" src={service.image} alt={service.name} />
+                        <Card.Img variant="top" src={service.image} alt={service.name} style={{ width: '200px', height: '200px' }} />
                         <Card.Body>
                           <Card.Title>{service.name}</Card.Title>
                           <Card.Text>{service.description}</Card.Text>
