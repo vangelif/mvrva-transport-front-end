@@ -10,7 +10,6 @@ export const createReservation = createAsyncThunk(
         'http://localhost:3000/api/v1/reservations',
         { reservation },
       );
-      console.log('Added successfully!');
       return response.data;
     } catch (err) {
       return rejectWithValue(err.response.data);
