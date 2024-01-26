@@ -22,6 +22,22 @@
     overflow: hidden;
   }
 
+.app-container {
+  display: flex;
+}
+
+.navbar-container {
+  width: 284px; /* Set the width of the navbar */
+  background-color: #fff; /* Example background color */
+  color: white; /* Example text color */
+}
+
+/* MainContent.css */
+.main-content-container {
+  flex-grow: 1; /* Allow main content to grow and take remaining space */
+  padding: 20px; /* Example padding for main content */
+}
+
   .logo-img {
     height: 150px; /* Adjust the height as needed */
     width: auto; /* Maintain the aspect ratio */
@@ -82,7 +98,7 @@
   .carousel-control-prev {
     position: fixed;
     top: 50%;
-    left: 14.8%;
+    left: 19.8%;
     background-color: #97c010;
     height: 45px;
     width: 90px;
@@ -163,7 +179,16 @@
 
   /* logo */
   .logo-img {
-    display: none;
+    display: inline-block;
+    height: 150px; /* Adjust the height as needed */
+    width: auto; /* Maintain the aspect ratio */
+    margin-left: 26px;
+  }
+
+  .menu-main {
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
   }
 
   /* social media icons */
