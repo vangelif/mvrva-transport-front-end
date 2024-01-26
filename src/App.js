@@ -11,7 +11,7 @@ import Register from './components/auth/register';
 import Login from './components/auth/login';
 import ServiceList from './components/services/services';
 import ReservationForm from './components/reservation-form';
-import ServiceDetails from './components/services/serviceDetails';
+import ServiceDetails from './components/services/ServiceDetails';
 import ServiceDeletion from './components/admin_items/delete_services';
 import ServiceCreationForm from './components/admin_items/add_services';
 import ReservationFormPage from './components/ReservationFormPage';
