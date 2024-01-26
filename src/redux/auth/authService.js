@@ -13,13 +13,13 @@ const register = async (userData) => {
 };
 
 const login = async (userData) => {
-  const response = await axios.post(`${API_URL}sign_in`, userData);
+    const response = await axios.post(`${API_URL}sign_in`, userData);
 
-  if (response.data) {
-    localStorage.setItem('user', JSON.stringify(response.data));
-  }
+    if (response.data) {
+        localStorage.setItem('user', JSON.stringify(response.data));
+    }
 
-  return response.data;
+    return response.data;
 };
 
 const logout = () => {
