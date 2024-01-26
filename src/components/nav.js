@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -23,14 +23,14 @@ function BasicExample() {
   };
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.auth);
+  // const { user } = useSelector((state) => state.auth);
 
   const onLogout = () => {
     dispatch(logout());
     dispatch(reset());
     navigate('/');
   };
-  
+
   // useEffect(() => {
   //   // Fetch user roles from the API
   //   // Replace 'your_api_endpoint' with the actual API endpoint
@@ -81,7 +81,7 @@ function BasicExample() {
                   Login
                 </span>
               </Nav.Link>
-              <button onClick={onLogout}>Logout</button>
+              <button type="button" onClick={onLogout}>Logout</button>
               <Nav.Link
                 href="/api/v1/services"
                 onClick={() => handleNavLinkClick('services')}
