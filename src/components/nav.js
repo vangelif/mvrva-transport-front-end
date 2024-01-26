@@ -83,7 +83,7 @@ function BasicExample() {
               </Nav.Link>
               <button type="button" onClick={onLogout}>Logout</button>
               <Nav.Link
-                href="/api/v1/services"
+                href="/services"
                 onClick={() => handleNavLinkClick('services')}
                 className={activeNavLink === 'services' ? 'active' : ''}
               >

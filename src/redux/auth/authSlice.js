@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import authServices from './authService';
 
@@ -38,7 +39,22 @@ export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
 });
 
 export const logout = createAsyncThunk('auth/logout', async () => {
-  await authServices.logout();
+  const localuser = JSON.parse(localStorage.getItem('user'));
+  const token = localuser && localuser.Authorization;
+
+  try {
+    const response = await axios.delete('http://localhost:3000/users/sign_out', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (response.status === 200) {
+      localStorage.removeItem('user');
+    }
+    return null;
+  } catch (error) {
+    throw new Error(error.response.data.status.message || 'Logout failed');
+  }
 });
 
 export const authSlice = createSlice({

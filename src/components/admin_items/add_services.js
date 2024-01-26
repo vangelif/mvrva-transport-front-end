@@ -5,7 +5,7 @@ import { Form, Button } from 'react-bootstrap';
 import SuccessComponent from '../messages/serviceSuccess';
 import { createService } from '../../redux/service/servicesSlice';
 
-const ServiceCreationForm = ({ userId }) => {
+const ServiceCreationForm = () => {
   const [serviceAdded, setServiceAdded] = useState(false);
   const dispatch = useDispatch();
 
@@ -16,6 +16,8 @@ const ServiceCreationForm = ({ userId }) => {
     min_cost: 0,
   });
 
+  const localuser = JSON.parse(localStorage.getItem('user'));
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -25,7 +27,7 @@ const ServiceCreationForm = ({ userId }) => {
     e.preventDefault();
 
     // Include the user's ID when creating a service
-    const serviceData = { ...formData, user_id: userId };
+    const serviceData = { ...formData, user_id: localuser.user.id };
 
     dispatch(createService(serviceData));
     setFormData({

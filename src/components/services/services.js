@@ -45,7 +45,7 @@ const ServiceList = () => {
   for (let i = 0; i < services.length; i += servicesPerItem) {
     groupedServices.push(services.slice(i, i + servicesPerItem));
   }
-
+  console.log(groupedServices);
   return (
     <>
       <Carousel activeIndex={index} onSelect={handleSelect} className="carousel-body">

@@ -29,8 +29,8 @@ function App() {
             <Routes>
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/services" element={<ServiceList />} />
               <Route path="/services/:id" element={<ServiceDetails />} />
-              <Route path="/api/v1/services" element={<ServiceList />} />
               <Route path="/reservation-form-selected" element={<ReservationFormPage />} />
               <Route path="/reserve-form" element={<ReservationForm />} />
               <Route path="/my-reservations" element={<MyReservations />} />
