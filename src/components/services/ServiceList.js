@@ -49,7 +49,7 @@ const ServiceList = () => {
   return (
     <>
       <h1 className="text-center">OFFERED SERVICES</h1>
-      <span className="text-center d-block">Explore our services from below</span>
+      <span className="text-center d-block text-grey">Explore our services from below</span>
       <Carousel activeIndex={index} onSelect={handleSelect} className="carousel-body">
         {groupedServices.map((group) => (
           <Carousel.Item key={uuidv4()} className="carousel-bg">
@@ -60,10 +60,14 @@ const ServiceList = () => {
                     {/* Wrap each card with Link component */}
                     <Link to={`/services/${service.id}`} className="card-link">
                       <Card className="card-sizing">
-                        <Card.Img variant="top" src={service.image} alt={service.name} style={{ width: '200px', height: '200px' }} />
+                        <Card.Img variant="top" src={service.image} alt={service.name} style={{ width: '200px', height: '200px', borderRadius: '50%' }} />
                         <Card.Body>
-                          <Card.Title>{service.name}</Card.Title>
-                          <Card.Text>{service.description}</Card.Text>
+                        <Card.Title className="custom-title-style">
+                          <strong>{service.name}</strong>
+                        </Card.Title>
+                        <Card.Text style={{ color: 'grey', fontSize: '0.8em' }}>
+                          {service.description}
+                        </Card.Text>
                           <Container className="mt-4 py-3 sc-container d-flex flex-column">
                             <div className="text-center">
                               <a
