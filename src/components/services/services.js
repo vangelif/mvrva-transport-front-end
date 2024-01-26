@@ -9,7 +9,7 @@ import {
 import { faTwitter, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { fetchServices } from '../redux/servicesSlice';
+import { fetchServices } from '../../redux/service/servicesSlice';
 
 const ServiceList = () => {
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ const ServiceList = () => {
   }, [dispatch]);
 
   if (status === 'loading') {
-    return <div>Loading...</div>;
+    return <h1 className="text-center">Loading...</h1>;
   }
 
   if (status === 'failed') {

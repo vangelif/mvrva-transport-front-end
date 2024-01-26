@@ -14,8 +14,8 @@ function BasicExample() {
   const storedValue = localStorage.getItem('activeNavLink');
   const initialActiveNavLink = storedValue;
   const [activeNavLink, setActiveNavLink] = useState(initialActiveNavLink);
-  const [userRoles, setUserRoles] = useState([]);
-  const [isAdmin, setIsAdmin] = useState(false);
+  // const [userRoles, setUserRoles] = useState([]);
+  // const [isAdmin, setIsAdmin] = useState(false);
 
   const handleNavLinkClick = (navLink) => {
     setActiveNavLink(navLink);
@@ -109,7 +109,25 @@ function BasicExample() {
                   My Reservations
                 </span>
               </Nav.Link>
-              {userRoles.includes('admin') && (
+              <Nav.Link
+                href="/add-reservation"
+                onClick={() => handleNavLinkClick('add-reservation')}
+                className={activeNavLink === 'add-reservation' ? 'active' : ''}
+              >
+                <span className="navlink-text">
+                  Add Services
+                </span>
+              </Nav.Link>
+              <Nav.Link
+                href="/delete-reservation"
+                onClick={() => handleNavLinkClick('delete-reservation')}
+                className={activeNavLink === 'delete-reservation' ? 'active' : ''}
+              >
+                <span className="navlink-text">
+                  Delete Services
+                </span>
+              </Nav.Link>
+              {/* {userRoles.includes('admin') && (
                 <Nav.Link
                   href="/add-reservation"
                   onClick={() => handleNavLinkClick('add-reservation')}
@@ -127,10 +145,22 @@ function BasicExample() {
                   className={activeNavLink === 'add-reservation' ? 'active' : ''}
                 >
                   <span className="navlink-text">
-                    Add Reservation
+                    Add Services
                   </span>
                 </Nav.Link>
               )}
+
+              {isAdmin && (
+              <Nav.Link
+                href="/delete-reservation"
+                onClick={() => handleNavLinkClick('delete-reservation')}
+                className={activeNavLink === 'delete-reservation' ? 'active' : ''}
+              >
+                <span className="navlink-text">
+                  Delete Services
+                </span>
+              </Nav.Link>
+              )} */}
             </Nav>
           </Navbar.Collapse>
         </Container>

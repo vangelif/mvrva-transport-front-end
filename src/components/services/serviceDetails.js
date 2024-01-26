@@ -1,15 +1,17 @@
-// ServiceDetails.js
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Link } from 'react-router-dom';
-import { fetchServiceDetails } from '../redux/serviceDetailsSlice';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
+import { fetchServiceDetails } from '../../redux/service/serviceDetailsSlice';
+import { setSelectedService } from '../../redux/service/selectedServiceSlice';
 
 const ServiceDetails = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const service = useSelector((state) => state.serviceDetails.data);
   const status = useSelector((state) => state.serviceDetails.status);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -25,8 +27,13 @@ const ServiceDetails = () => {
     fetchDetails();
   }, [dispatch, id]);
 
+  const handleReserveClick = () => {
+    dispatch(setSelectedService(service));
+    navigate('/reservation-form-selected');
+  };
+
   if (!id || status === 'loading' || !service) {
-    return <div>Loading...</div>;
+    return <h1 className="text-center">Loading...</h1>;
   }
 
   return (
@@ -45,7 +52,15 @@ const ServiceDetails = () => {
         {service.min_cost}
       </p>
       <img src={service.image} alt="service" />
-      {/* Add more details as needed */}
+      {/* Use Link to navigate to the reservation form route */}
+
+      <Button
+        type="button"
+        variant="primary"
+        onClick={handleReserveClick}
+      >
+        Reserve
+      </Button>
     </div>
   );
 };
