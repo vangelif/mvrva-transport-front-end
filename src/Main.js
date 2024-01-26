@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import store from './redux/store';
 import ServiceList from './components/services/ServiceList';
 import FormExample from './components/reservation-form';
-import ServiceDetails from "./components/services/ServiceDetails.js";
+import ServiceDetails from './components/services/ServiceDetails.jsx';
 import ServiceDeletion from './components/admin_items/delete_services';
 import ServiceCreationForm from './components/admin_items/add_services';
 import ReservationFormPage from './components/selectedResFormPage';
