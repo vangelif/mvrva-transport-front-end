@@ -1,90 +1,96 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import { Form, Row, Col } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
-import { createReservation } from '../redux/reservationsSlice';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Row from 'react-bootstrap/Row';
 
-function ReservationForm() {
+function FormExample() {
   const [validated, setValidated] = useState(false);
-  const [services, setServices] = useState([]);
 
-  // Fetch services when component mounts
-  useEffect(() => {
-    fetch('http://localhost:3000/api/v1/services')
-      .then((response) => response.json())
-      .then((data) => setServices(data.services));
-  }, []);
-
-  const dispatch = useDispatch();
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
+  const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
+      event.preventDefault();
       event.stopPropagation();
-    } else {
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
-
-      dispatch(createReservation(data));
-
-      // Clear the form
-      form.reset();
-      setValidated(false);
     }
 
     setValidated(true);
   };
 
   return (
-    <Form noValidate validated={validated} onSubmit={handleSubmit} className="form-background d-flex flex-column justify-content-center align-items-center vh-100">
-      <Row>
-        <Col lg={4}>
-          <Form.Group className="mb-3" controlId="pickupAddress">
-            <Form.Control required type="text" placeholder="Pickup Address" className="form-control" name="pickup_address" />
-          </Form.Group>
-        </Col>
-        <Col lg={4}>
-          <Form.Group className="mb-3" controlId="dropAddress">
-            <Form.Control required type="text" placeholder="Drop Address" className="form-control" name="drop_address" />
-          </Form.Group>
-        </Col>
-        <Col lg={4}>
-          <Form.Group className="mb-3" controlId="description">
-            <Form.Control required type="text" placeholder="Description" className="form-control" name="description" />
-          </Form.Group>
-        </Col>
+    <Form noValidate validated={validated} onSubmit={handleSubmit}>
+      <Row className="mb-3">
+        <Form.Group as={Col} md="4" controlId="validationCustom01">
+          <Form.Label>First name</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            placeholder="First name"
+            defaultValue="Mark"
+          />
+          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group as={Col} md="4" controlId="validationCustom02">
+          <Form.Label>Last name</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            placeholder="Last name"
+            defaultValue="Otto"
+          />
+          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group as={Col} md="4" controlId="validationCustomUsername">
+          <Form.Label>Username</Form.Label>
+          <InputGroup hasValidation>
+            <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
+            <Form.Control
+              type="text"
+              placeholder="Username"
+              aria-describedby="inputGroupPrepend"
+              required
+            />
+            <Form.Control.Feedback type="invalid">
+              Please choose a username.
+            </Form.Control.Feedback>
+          </InputGroup>
+        </Form.Group>
       </Row>
-      <Row>
-        <Col lg={4}>
-          <Form.Group className="mb-3" controlId="contact">
-            <Form.Control required type="text" placeholder="Contact" className="form-control" name="contact" />
-          </Form.Group>
-        </Col>
-        <Col lg={4}>
-          <Form.Group className="mb-3" controlId="pickupDate">
-            <Form.Control required type="date" placeholder="Pickup Date" className="form-control" name="pickup_date" />
-          </Form.Group>
-        </Col>
-        <Col lg={4}>
-          <Form.Group className="mb-3" controlId="serviceId">
-            <Form.Control as="select" required className="form-control" name="service_id">
-              <option value="">Select a service</option>
-              {Array.isArray(services) && services.map((service) => (
-                <option value={service.id} key={service.id}>
-                  {service.name}
-                </option>
-              ))}
-            </Form.Control>
-          </Form.Group>
-        </Col>
+      <Row className="mb-3">
+        <Form.Group as={Col} md="6" controlId="validationCustom03">
+          <Form.Label>City</Form.Label>
+          <Form.Control type="text" placeholder="City" required />
+          <Form.Control.Feedback type="invalid">
+            Please provide a valid city.
+          </Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group as={Col} md="3" controlId="validationCustom04">
+          <Form.Label>State</Form.Label>
+          <Form.Control type="text" placeholder="State" required />
+          <Form.Control.Feedback type="invalid">
+            Please provide a valid state.
+          </Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group as={Col} md="3" controlId="validationCustom05">
+          <Form.Label>Zip</Form.Label>
+          <Form.Control type="text" placeholder="Zip" required />
+          <Form.Control.Feedback type="invalid">
+            Please provide a valid zip.
+          </Form.Control.Feedback>
+        </Form.Group>
       </Row>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
+      <Form.Group className="mb-3">
+        <Form.Check
+          required
+          label="Agree to terms and conditions"
+          feedback="You must agree before submitting."
+          feedbackType="invalid"
+        />
+      </Form.Group>
+      <Button type="submit">Submit form</Button>
     </Form>
   );
 }
 
-export default ReservationForm;
+export default FormExample;
