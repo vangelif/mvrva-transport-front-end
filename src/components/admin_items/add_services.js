@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types'; // Import PropTypes
 import { useDispatch } from 'react-redux';
 import { Form, Button } from 'react-bootstrap';
 import SuccessComponent from '../messages/serviceSuccess';
@@ -93,11 +92,6 @@ const ServiceCreationForm = () => {
       {serviceAdded && <SuccessComponent message="✅ Service added successfully!" />}
     </Form>
   );
-};
-
-// Add PropTypes for the userId prop
-ServiceCreationForm.propTypes = {
-  userId: PropTypes.string.isRequired,
 };
 
 export default ServiceCreationForm;
