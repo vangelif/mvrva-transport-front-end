@@ -5,7 +5,7 @@ import {
   Button, Form, Row, Col,
 } from 'react-bootstrap';
 
-const ReservationForm = ({ onConfirmReservation }) => {
+const SelectedReservation = ({ onConfirmReservation }) => {
   const selectedService = useSelector((state) => state.selectedService);
   const [userName, setUserName] = useState('');
 
@@ -79,8 +79,8 @@ const ReservationForm = ({ onConfirmReservation }) => {
   );
 };
 
-ReservationForm.propTypes = {
+SelectedReservation.propTypes = {
   onConfirmReservation: PropTypes.func.isRequired,
 };
 
-export default ReservationForm;
+export default SelectedReservation;

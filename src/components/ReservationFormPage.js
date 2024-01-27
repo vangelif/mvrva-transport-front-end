@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import ReservationForm from './selectedReservation';
+import SelectedReservation from './SelectedReservation';
 
 const ReservationFormPage = () => {
   const selectedService = useSelector((state) => state.selectedService);
@@ -16,7 +16,7 @@ const ReservationFormPage = () => {
         {' '}
         {selectedService.name}
       </h1>
-      <ReservationForm service={selectedService || { name: '', description: '', price: '' }} />
+      <SelectedReservation service={selectedService || { name: '', description: '', price: '' }} />
     </div>
   );
 };
