@@ -11,19 +11,18 @@ import logoImg from '../assets/Logo.png';
 import '../css/custom.css';
 
 function BasicExample() {
+  const navigate = useNavigate(); // Moved useNavigate to the beginning
+
   const storedValue = localStorage.getItem('activeNavLink');
   const initialActiveNavLink = storedValue;
   const [activeNavLink, setActiveNavLink] = useState(initialActiveNavLink);
-  // const [userRoles, setUserRoles] = useState([]);
-  // const [isAdmin, setIsAdmin] = useState(false);
 
   const handleNavLinkClick = (navLink) => {
     setActiveNavLink(navLink);
     localStorage.setItem('activeNavLink', navLink);
   };
-  const navigate = useNavigate();
+
   const dispatch = useDispatch();
-  // const { user } = useSelector((state) => state.auth);
 
   const onLogout = () => {
     dispatch(logout());
@@ -31,23 +30,18 @@ function BasicExample() {
     navigate('/');
   };
 
-  // useEffect(() => {
-  //   // Fetch user roles from the API
-  //   // Replace 'your_api_endpoint' with the actual API endpoint
-  //   fetch('http://localhost:3000/member_details')
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       // Assuming the API response contains an array of user roles
-  //       setUserRoles(data.roles);
-  //       setIsAdmin(data.roles.includes('admin'));
-  //     })
-  //     .catch((error) => console.error('Error fetching user roles:', error));
-  //   setIsAdmin(true);
-  // }, []);
+  const localUser = JSON.parse(localStorage.getItem('user'));
+  const userRole = localUser && localUser.user && localUser.user.role;
 
-  useEffect(() => () => {
+  useEffect(() => {
     localStorage.removeItem('activeNavLink');
   }, []);
+
+  if (!userRole) {
+    // Redirect to login page or handle not logged in state
+    navigate('/login');
+    return null;
+  }
 
   return (
     <>
@@ -81,86 +75,73 @@ function BasicExample() {
                   Login
                 </span>
               </Nav.Link>
-              <button type="button" onClick={onLogout}>Logout</button>
+              <button type="button" onClick={onLogout}>
+                Logout
+              </button>
               <Nav.Link
-                href="/services"
-                onClick={() => handleNavLinkClick('services')}
+                href="/api/v1/services"
+                onClick={() => {
+                  handleNavLinkClick('services');
+                  navigate('/api/v1/services');
+                }}
                 className={activeNavLink === 'services' ? 'active' : ''}
               >
                 <span className="navlink-text">
                   Services
                 </span>
               </Nav.Link>
-              <Nav.Link
-                href="/reserve-form"
-                onClick={() => handleNavLinkClick('reserve-form')}
-                className={activeNavLink === 'reserve-form' ? 'active' : ''}
-              >
-                <span className="navlink-text">
-                  Reserve Form
-                </span>
-              </Nav.Link>
-              <Nav.Link
-                href="/my-reservations"
-                onClick={() => handleNavLinkClick('my-reservations')}
-                className={activeNavLink === 'my-reservations' ? 'active' : ''}
-              >
-                <span className="navlink-text">
-                  My Reservations
-                </span>
-              </Nav.Link>
-              <Nav.Link
-                href="/add-reservation"
-                onClick={() => handleNavLinkClick('add-reservation')}
-                className={activeNavLink === 'add-reservation' ? 'active' : ''}
-              >
-                <span className="navlink-text">
-                  Add Services
-                </span>
-              </Nav.Link>
-              <Nav.Link
-                href="/delete-reservation"
-                onClick={() => handleNavLinkClick('delete-reservation')}
-                className={activeNavLink === 'delete-reservation' ? 'active' : ''}
-              >
-                <span className="navlink-text">
-                  Delete Services
-                </span>
-              </Nav.Link>
-              {/* {userRoles.includes('admin') && (
-                <Nav.Link
-                  href="/add-reservation"
-                  onClick={() => handleNavLinkClick('add-reservation')}
-                  className={activeNavLink === 'add-reservation' ? 'active' : ''}
-                >
-                  <span className="navlink-text">
-                    Add Reservation
-                  </span>
-                </Nav.Link>
+              {(userRole === 'user' || userRole === 'admin') && (
+                <>
+                  <Nav.Link
+                    href="/reserve-form"
+                    onClick={() => {
+                      handleNavLinkClick('reserve-form');
+                      navigate('/reserve-form');
+                    }}
+                    className={activeNavLink === 'reserve-form' ? 'active' : ''}
+                  >
+                    <span className="navlink-text">
+                      Reserve Form
+                    </span>
+                  </Nav.Link>
+                  <Nav.Link
+                    href="/my-reservations"
+                    onClick={() => {
+                      handleNavLinkClick('my-reservations');
+                      navigate('/my-reservations');
+                    }}
+                    className={activeNavLink === 'my-reservations' ? 'active' : ''}
+                  >
+                    <span className="navlink-text">
+                      My Reservations
+                    </span>
+                  </Nav.Link>
+                </>
               )}
-              {isAdmin && (
-                <Nav.Link
-                  href="/add-reservation"
-                  onClick={() => handleNavLinkClick('add-reservation')}
-                  className={activeNavLink === 'add-reservation' ? 'active' : ''}
-                >
-                  <span className="navlink-text">
-                    Add Services
-                  </span>
-                </Nav.Link>
+              {userRole === 'admin' && (
+                <>
+                  <Nav.Link
+                    href="/add-reservation"
+                    onClick={() => {
+                      handleNavLinkClick('add-reservation');
+                      navigate('/add-reservation');
+                    }}
+                    className={activeNavLink === 'add-reservation' ? 'active' : ''}
+                  >
+                    <span className="navlink-text">Add Services</span>
+                  </Nav.Link>
+                  <Nav.Link
+                    href="/delete-reservation"
+                    onClick={() => {
+                      handleNavLinkClick('delete-reservation');
+                      navigate('/delete-reservation');
+                    }}
+                    className={activeNavLink === 'delete-reservation' ? 'active' : ''}
+                  >
+                    <span className="navlink-text">Delete Services</span>
+                  </Nav.Link>
+                </>
               )}
-
-              {isAdmin && (
-              <Nav.Link
-                href="/delete-reservation"
-                onClick={() => handleNavLinkClick('delete-reservation')}
-                className={activeNavLink === 'delete-reservation' ? 'active' : ''}
-              >
-                <span className="navlink-text">
-                  Delete Services
-                </span>
-              </Nav.Link>
-              )} */}
             </Nav>
           </Navbar.Collapse>
         </Container>
