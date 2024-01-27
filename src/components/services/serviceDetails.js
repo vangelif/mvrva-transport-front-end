@@ -1,12 +1,6 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Link, useNavigate } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
-import { fetchServiceDetails } from '../../redux/service/serviceDetailsSlice';
-import { setSelectedService } from '../../redux/service/selectedServiceSlice';
+import React from 'react'
 
-function ServiceDetails() {
+const ServiceDetails = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const service = useSelector((state) => state.serviceDetails.data);
@@ -66,7 +60,7 @@ function ServiceDetails() {
       )}
     </div>
   );
-}
+};
 
 ServiceDetails.propTypes = {
   params: PropTypes.shape({
@@ -78,4 +72,4 @@ ServiceDetails.defaultProps = {
   params: {},
 };
 
-export default ServiceDetails;
+export default ServiceDetails
