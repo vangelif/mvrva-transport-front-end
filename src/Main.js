@@ -14,7 +14,7 @@ import ServiceDeletion from './components/admin_items/delete_services';
 import ServiceCreationForm from './components/admin_items/add_services';
 import ReservationFormPage from './components/ReservationFormPage';
 // import SelectedReservation from './components/selectedReservation';
-import ServiceDetails from './components/services/ServiceDetails';
+import ServiceDetails from './components/services/ServiceDetails.js';
 import SuccessComponent from './components/messages/serviceSuccess';
 import './css/custom.css';
 import Sidebar from './components/Sidebar';
