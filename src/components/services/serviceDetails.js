@@ -6,7 +6,7 @@ import { Button } from 'react-bootstrap';
 import { fetchServiceDetails } from '../../redux/service/serviceDetailsSlice';
 import { setSelectedService } from '../../redux/service/selectedServiceSlice';
 
-const ServiceDetails = () => {
+function ServiceDetails() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const service = useSelector((state) => state.serviceDetails.data);
@@ -66,7 +66,7 @@ const ServiceDetails = () => {
       )}
     </div>
   );
-};
+}
 
 ServiceDetails.propTypes = {
   params: PropTypes.shape({
