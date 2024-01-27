@@ -48,6 +48,7 @@ const ServiceDeletion = () => {
           >
               <Accordion.Header>{service.name}</Accordion.Header>
               <Accordion.Body>
+                <em>Created at {service.created_at} by admin with ID: {service.user_id} and costs ${service.min_cost}</em><br /><br />
                 <p>{service.description}</p>
                 <button type="button" onClick={() => handleDelete(service.id)} style={{ backgroundColor: 'var(--primary-color)', color: '#fff', border: 'none', paddingBlock: '0.7%', paddingInline: '0.7%', borderRadius: '10%' }}>
                   Delete
