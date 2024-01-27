@@ -10,7 +10,6 @@ const ServiceDeletion = () => {
   const services = useSelector((state) => state.services.data);
   const status = useSelector((state) => state.services.status);
   const [deletedServiceId, setDeletedServiceId] = useState(null);
-  const [activeAccordion, setActiveAccordion] = useState(null);
 
   useEffect(() => {
     if (status === 'idle') {
@@ -23,10 +22,6 @@ const ServiceDeletion = () => {
     setDeletedServiceId(serviceId);
   };
 
-  const handleAccordionClick = (id) => {
-    setActiveAccordion(id === activeAccordion ? null : id);
-  };
-  console.log(services);
   return (
     <div className="card-submit">
       {deletedServiceId && (
@@ -42,9 +37,6 @@ const ServiceDeletion = () => {
             <Accordion.Item
               key={service.id}
               eventKey={service.id.toString()}
-              className={`accordion ${activeAccordion === service.id ? 'active' : ''}`}
-              onClick={() => handleAccordionClick(service.id)}
-              tabIndex={0}
             >
               <Accordion.Header>{service.name}</Accordion.Header>
               <Accordion.Body>
