@@ -105,14 +105,14 @@ const ServiceDetails = () => {
   );
 };
 
-ServiceDetails.propTypes = {
-  params: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-  }),
-};
+// ServiceDetails.propTypes = {
+//   params: PropTypes.shape({
+//     id: PropTypes.string.isRequired,
+//   }),
+// };
 
-ServiceDetails.defaultProps = {
-  params: {},
-};
+// ServiceDetails.defaultProps = {
+//   params: {},
+// };
 
 export default ServiceDetails;
