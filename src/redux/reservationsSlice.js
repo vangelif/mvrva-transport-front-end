@@ -45,6 +45,26 @@ export const fetchReservations = createAsyncThunk(
   },
 );
 
+export const deleteReservation = createAsyncThunk(
+  'reservations/delete',
+  async (reservationId, { rejectWithValue }) => {
+    const localuser = JSON.parse(localStorage.getItem('user'));
+    const token = localuser && localuser.Authorization;
+
+    try {
+      await axios.delete(`http://localhost:3000/api/v1/reservations/${reservationId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log('Deleted successfully!');
+      return reservationId; // Assuming you want to return the deleted reservation ID
+    } catch (err) {
+      return rejectWithValue(err.response.data);
+    }
+  },
+);
+
 export const reservationsSlice = createSlice({
   name: 'reservations',
   initialState: { entities: [], loading: 'idle', error: null },
@@ -70,6 +90,18 @@ export const reservationsSlice = createSlice({
         state.entities = action.payload;
       })
       .addCase(fetchReservations.rejected, (state, action) => {
+        state.loading = 'idle';
+        state.error = action.payload;
+      })
+      .addCase(deleteReservation.pending, (state) => {
+        state.loading = 'loading';
+      })
+      .addCase(deleteReservation.fulfilled, (state, action) => {
+        state.loading = 'idle';
+        // Remove the deleted reservation from entities
+        state.entities = state.entities.filter((reservation) => reservation.id !== action.payload);
+      })
+      .addCase(deleteReservation.rejected, (state, action) => {
         state.loading = 'idle';
         state.error = action.payload;
       });

@@ -1,7 +1,7 @@
-import { Card } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchReservations } from '../redux/reservationsSlice'; // Import fetchReservations action
+import { fetchReservations, deleteReservation } from '../redux/reservationsSlice'; // Import fetchReservations action
 
 const MyReservations = () => {
   const dispatch = useDispatch();
@@ -13,9 +13,16 @@ const MyReservations = () => {
 
   const reservations = useSelector((state) => state.reservations.entities);
 
+  const deleteStatus = useSelector((state) => state.reservations.loading);
+
+  const handleDeleteReservation = (reservationId) => {
+    dispatch(deleteReservation(reservationId));
+  };
+
   return (
     <div className="reservation">
       <h1>Reservations</h1>
+      {deleteStatus === 'loading' && <p>Deleting...</p>}
       {reservations.length === 0 ? (
         <p>No reservations available.</p>
       ) : (
@@ -53,6 +60,12 @@ const MyReservations = () => {
                   {' '}
                   {reservation.pickup_date || 'N/A'}
                 </Card.Text>
+                <Button
+                  variant="danger"
+                  onClick={() => handleDeleteReservation(reservation.id)}
+                >
+                  Delete
+                </Button>
               </Card.Body>
             </Card>
           </div>
