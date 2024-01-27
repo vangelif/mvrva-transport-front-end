@@ -62,12 +62,12 @@ const ServiceList = () => {
                       <Card className="card-sizing">
                         <Card.Img variant="top" src={service.image} alt={service.name} style={{ width: '200px', height: '200px', borderRadius: '50%' }} />
                         <Card.Body>
-                        <Card.Title className="custom-title-style">
-                          <strong>{service.name}</strong>
-                        </Card.Title>
-                        <Card.Text style={{ color: 'grey', fontSize: '0.8em' }}>
-                          {service.description}
-                        </Card.Text>
+                          <Card.Title className="custom-title-style">
+                            <strong>{service.name}</strong>
+                          </Card.Title>
+                          <Card.Text style={{ color: 'grey', fontSize: '0.8em' }}>
+                            {service.description}
+                          </Card.Text>
                           <Container className="mt-4 py-3 sc-container d-flex flex-column">
                             <div className="text-center">
                               <a

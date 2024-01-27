@@ -14,6 +14,8 @@ function Sidebar() {
   const storedValue = localStorage.getItem('activeNavLink');
   const initialActiveNavLink = storedValue;
   const [activeNavLink, setActiveNavLink] = useState(initialActiveNavLink);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   // const [userRoles, setUserRoles] = useState([]);
   // const [isAdmin, setIsAdmin] = useState(false);
 
@@ -22,8 +24,6 @@ function Sidebar() {
     localStorage.setItem('activeNavLink', navLink);
     navigate(`/${navLink}`);
   };
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
   // const { user } = useSelector((state) => state.auth);
 
   const onLogout = () => {

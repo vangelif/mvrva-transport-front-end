@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Row, Col, Button } from 'react-bootstrap';
-import { fetchServiceDetails } from '../../redux/service/serviceDetailsSlice';
-import { setSelectedService } from '../../redux/service/selectedServiceSlice';
 import { FaRegArrowAltCircleRight } from 'react-icons/fa';
 import { GoGear } from 'react-icons/go';
+import { fetchServiceDetails } from '../../redux/service/serviceDetailsSlice';
+import { setSelectedService } from '../../redux/service/selectedServiceSlice';
 
 const ServiceDetails = () => {
   const dispatch = useDispatch();
@@ -41,22 +41,31 @@ const ServiceDetails = () => {
   return (
     <Row className="service-details">
       <Col md={8}>
-        <img src={service.image} alt="service" style= {{ width: '80%', height: '70vh', borderRadius: "50%" }} />
+        <img src={service.image} alt="service" style={{ width: '80%', height: '70vh', borderRadius: '50%' }} />
       </Col>
       <Col md={4}>
-        <div className='right-side-details'>
-          <h2 className='bigger-stronger-heading'>{service.name}</h2>
-          <span className="smaller-min-cost"> - ${service.min_cost} Minimum Deposit Upon Reservation of Offered Service</span>
+        <div className="right-side-details">
+          <h2 className="bigger-stronger-heading">{service.name}</h2>
+          <span className="smaller-min-cost">
+            {' '}
+            - $
+            {service.min_cost}
+            {' '}
+            Minimum Deposit Upon Reservation of Offered Service
+          </span>
           <p>{service.description}</p>
           <Link to="/api/v1/services" className="discover-link">Discover More Services</Link>
           <br />
           <Button
-          type="button"
-          variant="primary"
-          onClick={handleReserveClick}
-          className="bigger-reserve-button"
+            type="button"
+            variant="primary"
+            onClick={handleReserveClick}
+            className="bigger-reserve-button"
           >
-         <GoGear className="reserve-icon" /> Reserve <FaRegArrowAltCircleRight className="arrow-icon" />
+            <GoGear className="reserve-icon" />
+            {' '}
+            Reserve
+            <FaRegArrowAltCircleRight className="arrow-icon" />
           </Button>
         </div>
       </Col>

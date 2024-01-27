@@ -10,4 +10,4 @@ const selectedServiceSlice = createSlice({
 
 export const { setSelectedService } = selectedServiceSlice.actions;
 
-export default selectedServiceSlice.reducer
+export default selectedServiceSlice.reducer;

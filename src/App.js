@@ -8,7 +8,7 @@
 //     <div className="app-container">
 //       <BasicExample />
 //       <MainContent />
-//     </div>    
+//     </div>
 //   );
 // }
 
@@ -19,7 +19,7 @@ import './css/custom.css';
 
 function App() {
   return (
-      <Main />
+    <Main />
   );
 }
 
