@@ -22,83 +22,82 @@
     overflow: hidden;
   }
 
-.app-container {
-  display: flex;
-}
+  .app-container {
+    display: flex;
+  }
 
-.app {
-  height: 100vh;
-  width: 100vw;
-  overflow: auto;
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-}
+  .app {
+    height: 100vh;
+    width: 100vw;
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+  }
 
-.sidebar {
-  width: 284px;
-  height: 100vh;
-  background-color: #fff;
-  color: white;
-  padding: 0;
-  margin: 0;
-}
+  .sidebar {
+    width: 284px;
+    height: 100vh;
+    background-color: #fff;
+    color: white;
+    padding: 0;
+    margin: 0;
+  }
 
-.service-details {
-  padding-top: 7%;
-  padding-left: 15%;
-  margin-left: 200px;
-  color: var(--secondary-color);
-}
+  .service-details {
+    padding-top: 7%;
+    padding-left: 15%;
+    margin-left: 200px;
+    color: var(--secondary-color);
+  }
 
-.right-side-details {
-  width: 100%;
-  height: 100vh;
-}
+  .right-side-details {
+    width: 100%;
+    height: 100vh;
+  }
 
-.bigger-stronger-heading {
-  font-size: 2em; /* Adjust the font size as needed */
-  font-weight: bold;
-}
+  .bigger-stronger-heading {
+    font-size: 2em; /* Adjust the font size as needed */
+    font-weight: bold;
+  }
 
-.smaller-min-cost {
-  font-size: 0.8em; /* Adjust the font size as needed */
-}
+  .smaller-min-cost {
+    font-size: 0.8em; /* Adjust the font size as needed */
+  }
 
-.discover-link {
-  text-decoration: none;
-  color: blue; /* Adjust the color as needed */
-}
+  .discover-link {
+    text-decoration: none;
+    color: blue; /* Adjust the color as needed */
+  }
 
-.bigger-reserve-button {
-  font-size: 1.8em !important; /* Adjust the font size as needed */
-  background-color: #97c010 !important;
-  padding-block: 5% !important;
-  /* padding-inline: 2% !important; */
-  color: #fff; /* Adjust the text color as needed */
-  border: none !important; /* Remove the border */
-  /* border-radius: 50% !important; /* Adjust the border-radi */
-}
+  .bigger-reserve-button {
+    font-size: 1.8em !important; /* Adjust the font size as needed */
+    background-color: #97c010 !important;
+    padding-block: 5% !important;
+    color: #fff; /* Adjust the text color as needed */
+    border: none !important; /* Remove the border */
+  }
 
-.reserve-icon {
-  margin-right: 5px; /* Adjust the margin as needed */
-}
+  .reserve-icon {
+    margin-right: 5px; /* Adjust the margin as needed */
+  }
 
-.arrow-icon {
-  margin-left: 5px; /* Adjust the margin as needed */
-}
+  .arrow-icon {
+    margin-left: 5px; /* Adjust the margin as needed */
+  }
 
-.navbar-container {
-  width: 284px; /* Set the width of the navbar */
-  background-color: #fff; /* Example background color */
-  color: white; /* Example text color */
-}
+  .navbar-container {
+    width: 284px; /* Set the width of the navbar */
+    background-color: #fff; /* Example background color */
+    color: white; /* Example text color */
+  }
 
-/* MainContent.css */
-.main-content-container {
-  flex-grow: 1; /* Allow main content to grow and take remaining space */
-  /*padding: 20px;  Example padding for main content */
-}
+  /* MainContent.css */
+  .main-content-container {
+    flex-grow: 1; /* Allow main content to grow and take remaining space */
+
+    /* padding: 20px;  Example padding for main content */
+  }
 
   .logo-img {
     height: 150px; /* Adjust the height as needed */
@@ -137,6 +136,7 @@
   .carousel-body {
     height: 95vh;
     width: 100%;
+
     /* margin-left: 10%; */
     overflow: hidden;
   }
@@ -150,6 +150,7 @@
     background: var(--main-color);
     height: 100vh;
     width: 100%;
+
     /* margin-left: 5.5%; */
   }
 
@@ -158,9 +159,7 @@
   }
 
   .carousel-control-prev {
-    /* position: fixed; */
     top: 50%;
-    /* left: 20.8%; */
     background-color: #97c010;
     height: 45px;
     width: 90px;
@@ -170,7 +169,6 @@
   }
 
   .carousel-control-next {
-    /* position: fixed; */
     top: 50%;
     background-color: #97c010;
     height: 45px;
