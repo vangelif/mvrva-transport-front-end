@@ -15,7 +15,7 @@ import ServiceCreationForm from './components/admin_items/add_services';
 import ReservationFormPage from './components/ReservationFormPage';
 import MyReservations from './components/MyReservations';
 import SuccessComponent from './components/messages/serviceSuccess';
-import ServiceDetails from './components/services/ServiceDetails';
+import ServiceDetails from './components/services/serviceDetails';
 
 function App() {
   return (

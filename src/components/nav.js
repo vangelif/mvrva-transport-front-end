@@ -37,11 +37,11 @@ function BasicExample() {
     localStorage.removeItem('activeNavLink');
   }, []);
 
-  if (!userRole) {
-    // Redirect to login page or handle not logged in state
-    navigate('/login');
-    return null;
-  }
+  // if (!userRole) {
+  //   // Redirect to login page or handle not logged in state
+  //   navigate('/login');
+  //   return null;
+  // }
 
   return (
     <>
