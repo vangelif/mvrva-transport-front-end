@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   Button, Form, Row, Col, Alert,
 } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { createReservation, fetchReservations } from '../redux/reservationsSlice';
 import { fetchServices } from '../redux/service/servicesSlice';
@@ -11,6 +12,7 @@ function ReservationForm() {
   const [services, setServices] = useState([]);
   const dispatch = useDispatch();
   const error = useSelector((state) => state.reservations.error);
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     dispatch(fetchReservations());
@@ -39,6 +41,9 @@ function ReservationForm() {
       dispatch(createReservation(data)).then(() => {
         form.reset();
         setValidated(false);
+
+        // Use navigate to redirect to the thank you page after a successful reservation
+        navigate('/thankyou');
       });
     }
 
@@ -52,8 +57,6 @@ function ReservationForm() {
       onSubmit={handleSubmit}
       className="form-background d-flex flex-column justify-content-center align-items-center vh-100"
     >
-      {error && <Alert variant="danger">{error}</Alert>}
-
       <Row>
         <Col lg={4}>
           <Form.Group className="mb-3" controlId="pickupAddress">
@@ -99,6 +102,12 @@ function ReservationForm() {
       <Button variant="primary" type="submit">
         Submit
       </Button>
+      {error && <Alert variant="danger">{error}</Alert>}
+      {validated && !error && (
+        <Alert variant="danger">
+          Your reservation has not been created. Please check the details properly.
+        </Alert>
+      )}
     </Form>
   );
 }
