@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import SelectedReservation from './SelectedReservation';
+import SelectedReservation from './SelectedReservation.js';
 
 const ReservationFormPage = () => {
   const selectedService = useSelector((state) => state.selectedService);
