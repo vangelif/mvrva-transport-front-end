@@ -15,6 +15,7 @@ import ServiceDeletion from './components/admin_items/delete_services';
 import ServiceCreationForm from './components/admin_items/add_services';
 import ReservationFormPage from './components/ReservationFormPage';
 import MyReservations from './components/MyReservations';
+import SuccessComponent from './components/messages/serviceSuccess';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="/my-reservations" element={<MyReservations />} />
             <Route path="/add-reservation" element={<ServiceCreationForm />} />
             <Route path="/delete-reservation" element={<ServiceDeletion />} />
+            <Route path="/reservation-confirmation" element={<SuccessComponent />} />
             <Route path="/" element={<ServiceList />} />
           </Routes>
         </>

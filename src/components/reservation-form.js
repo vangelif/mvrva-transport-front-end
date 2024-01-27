@@ -12,7 +12,7 @@ function ReservationForm() {
   const [services, setServices] = useState([]);
   const dispatch = useDispatch();
   const error = useSelector((state) => state.reservations.error);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchReservations());
@@ -43,7 +43,7 @@ function ReservationForm() {
         setValidated(false);
 
         // Use navigate to redirect to the thank you page after a successful reservation
-        navigate('/thankyou');
+        navigate('/reservation-confirmation');
       });
     }
 
