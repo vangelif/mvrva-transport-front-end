@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import store from './redux/store';
 import ServiceList from './components/services/ServiceList';
-import FormExample from './components/reservation-form';
+import ReservationForm from './components/ReservationForm';
 import ServiceDeletion from './components/admin_items/delete_services';
 import ServiceCreationForm from './components/admin_items/add_services';
 import ReservationFormPage from './components/selectedResFormPage';
@@ -27,7 +27,7 @@ function Main() {
                   <Route path="/api/v1/services" element={<ServiceList />} />
                   <Route path="/services/:id" element={<ServiceDetails />} />
                   <Route path="/reservation-form-selected" element={<ReservationFormPage />} />
-                  <Route path="/reserve-form" element={<FormExample />} />
+                  <Route path="/reserve-form" element={<ReservationForm />} />
                   <Route path="/my-reservations" element={<div>Action 3.1 Content</div>} />
                   <Route path="/add-reservation" element={<ServiceCreationForm />} />
                   <Route path="/delete-reservation" element={<ServiceDeletion />} />

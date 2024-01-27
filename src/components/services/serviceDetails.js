@@ -1,3 +1,4 @@
+// service details:
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
@@ -38,6 +39,8 @@ const ServiceDetails = () => {
     return <h1 className="text-center">Loading...</h1>;
   }
 
+  const localUser = JSON.parse(localStorage.getItem('user'));
+  const userRole = localUser && localUser.user && localUser.user.role;
   return (
     <Row className="service-details">
       <Col md={8}>
@@ -56,6 +59,7 @@ const ServiceDetails = () => {
           <p>{service.description}</p>
           <Link to="/api/v1/services" className="discover-link">Discover More Services</Link>
           <br />
+          {userRole === 'user' && (
           <Button
             type="button"
             variant="primary"
@@ -67,10 +71,37 @@ const ServiceDetails = () => {
             Reserve
             <FaRegArrowAltCircleRight className="arrow-icon" />
           </Button>
+          )}
         </div>
       </Col>
 
     </Row>
+  // <div className="showcase">
+  //   <Link to="/api/v1/services">
+  //     <button type="button">Go Back</button>
+  //   </Link>
+  //   <h1>Show here</h1>
+  //   <h2>{service.name}</h2>
+  //   <p>
+  //     Description:
+  //     {service.description}
+  //   </p>
+  //   <p>
+  //     Min Cost: $
+  //     {service.min_cost}
+  //   </p>
+  //   <img src={service.image} alt="service" />
+  //   {/* Use Link to navigate to the reservation form route */}
+  //   {userRole === 'user' && (
+  //   <Button
+  //     type="button"
+  //     variant="primary"
+  //     onClick={handleReserveClick}
+  //   >
+  //     Reserve
+  //   </Button>
+  //   )}
+  // </div>
   );
 };
 
