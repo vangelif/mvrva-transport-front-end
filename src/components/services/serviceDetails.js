@@ -36,6 +36,8 @@ const ServiceDetails = () => {
     return <h1 className="text-center">Loading...</h1>;
   }
 
+  const localUser = JSON.parse(localStorage.getItem('user'));
+  const userRole = localUser && localUser.user && localUser.user.role;
   return (
     <div className="showcase">
       <Link to="/api/v1/services">
@@ -53,7 +55,7 @@ const ServiceDetails = () => {
       </p>
       <img src={service.image} alt="service" />
       {/* Use Link to navigate to the reservation form route */}
-
+      {userRole === 'user' && (
       <Button
         type="button"
         variant="primary"
@@ -61,6 +63,7 @@ const ServiceDetails = () => {
       >
         Reserve
       </Button>
+      )}
     </div>
   );
 };

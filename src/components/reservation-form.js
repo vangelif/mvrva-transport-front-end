@@ -1,21 +1,28 @@
-import { useState, useEffect } from 'react';
-import Button from 'react-bootstrap/Button';
-import { Form, Row, Col } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
-import { createReservation } from '../redux/reservationsSlice';
+import React, { useState, useEffect } from 'react';
+import {
+  Button, Form, Row, Col, Alert,
+} from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { createReservation, fetchReservations } from '../redux/reservationsSlice';
+import { fetchServices } from '../redux/service/servicesSlice';
 
 function ReservationForm() {
   const [validated, setValidated] = useState(false);
   const [services, setServices] = useState([]);
-
-  // Fetch services when component mounts
-  useEffect(() => {
-    fetch('http://localhost:3000/api/v1/services')
-      .then((response) => response.json())
-      .then((data) => setServices(data.services));
-  }, []);
-
   const dispatch = useDispatch();
+  const error = useSelector((state) => state.reservations.error);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(fetchReservations());
+
+    dispatch(fetchServices()).then((response) => {
+      if (response.payload) {
+        setServices(response.payload);
+      }
+    });
+  }, [dispatch]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -25,20 +32,31 @@ function ReservationForm() {
       event.stopPropagation();
     } else {
       const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
+      let data = Object.fromEntries(formData);
 
-      dispatch(createReservation(data));
+      if (data.service_id) {
+        data = { ...data, service_id: Number(data.service_id) };
+      }
 
-      // Clear the form
-      form.reset();
-      setValidated(false);
+      dispatch(createReservation(data)).then(() => {
+        form.reset();
+        setValidated(false);
+
+        // Use navigate to redirect to the thank you page after a successful reservation
+        navigate('/reservation-confirmation');
+      });
     }
 
     setValidated(true);
   };
 
   return (
-    <Form noValidate validated={validated} onSubmit={handleSubmit} className="form-background d-flex flex-column justify-content-center align-items-center vh-100">
+    <Form
+      noValidate
+      validated={validated}
+      onSubmit={handleSubmit}
+      className="form-background d-flex flex-column justify-content-center align-items-center vh-100"
+    >
       <Row>
         <Col lg={4}>
           <Form.Group className="mb-3" controlId="pickupAddress">
@@ -71,11 +89,12 @@ function ReservationForm() {
           <Form.Group className="mb-3" controlId="serviceId">
             <Form.Control as="select" required className="form-control" name="service_id">
               <option value="">Select a service</option>
-              {Array.isArray(services) && services.map((service) => (
-                <option value={service.id} key={service.id}>
-                  {service.name}
-                </option>
-              ))}
+              {Array.isArray(services)
+                && services.map((service) => (
+                  <option value={service.id} key={service.id}>
+                    {service.name}
+                  </option>
+                ))}
             </Form.Control>
           </Form.Group>
         </Col>
@@ -83,6 +102,12 @@ function ReservationForm() {
       <Button variant="primary" type="submit">
         Submit
       </Button>
+      {error && <Alert variant="danger">{error}</Alert>}
+      {validated && !error && (
+        <Alert variant="danger">
+          Your reservation has not been created. Please check the details properly.
+        </Alert>
+      )}
     </Form>
   );
 }
