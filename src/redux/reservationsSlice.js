@@ -18,7 +18,6 @@ export const createReservation = createAsyncThunk(
           },
         },
       );
-      console.log('Added successfully!');
       return response.data;
     } catch (err) {
       return rejectWithValue(err.response.data);
@@ -57,7 +56,6 @@ export const deleteReservation = createAsyncThunk(
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log('Deleted successfully!');
       return reservationId; // Assuming you want to return the deleted reservation ID
     } catch (err) {
       return rejectWithValue(err.response.data);
