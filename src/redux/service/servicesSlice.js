@@ -7,7 +7,7 @@ const localuser = JSON.parse(localStorage.getItem('user'));
 const token = localuser && localuser.Authorization;
 // Thunk to fetch services from Rails API
 export const fetchServices = createAsyncThunk('services/fetchServices', async () => {
-  const response = await axios.get('http://127.0.0.1:3000/api/v1/services', {
+  const response = await axios.get('http://127.0.0.1:4000/api/v1/services', {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -18,7 +18,7 @@ export const fetchServices = createAsyncThunk('services/fetchServices', async ()
 
 // Thunk to create a new service
 export const createService = createAsyncThunk('services/createService', async (serviceData) => {
-  const response = await axios.post('http://127.0.0.1:3000/api/v1/services', serviceData, {
+  const response = await axios.post('http://127.0.0.1:4000/api/v1/services', serviceData, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -28,7 +28,7 @@ export const createService = createAsyncThunk('services/createService', async (s
 
 // Thunk to delete a service
 export const deleteService = createAsyncThunk('services/deleteService', async (serviceId) => {
-  await axios.delete(`http://127.0.0.1:3000/api/v1/services/${serviceId}`, {
+  await axios.delete(`http://127.0.0.1:4000/api/v1/services/${serviceId}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
