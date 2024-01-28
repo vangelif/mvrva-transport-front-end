@@ -32,7 +32,7 @@ const ServiceDetails = () => {
 
   const handleReserveClick = () => {
     dispatch(setSelectedService(service));
-    navigate('/reservation-form-selected');
+    navigate(`/service/${id}/reservation`);
   };
 
   if (!id || status === 'loading' || !service) {
@@ -59,7 +59,7 @@ const ServiceDetails = () => {
           <p>{service.description}</p>
           <Link to="/api/v1/services" className="discover-link">Discover More Services</Link>
           <br />
-          {userRole === 'user' && (
+          {(userRole === 'user' || userRole === 'admin') && (
           <Button
             type="button"
             variant="primary"

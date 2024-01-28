@@ -1,86 +1,116 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 import {
-  Button, Form, Row, Col,
+  Button, Form, Row, Col, Alert,
 } from 'react-bootstrap';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { createReservation, fetchReservations } from '../redux/reservationsSlice';
+import { fetchServices } from '../redux/service/servicesSlice';
 
-const SelectedReservation = ({ onConfirmReservation }) => {
-  const selectedService = useSelector((state) => state.selectedService);
-  const [userName, setUserName] = useState('');
+function SelectedReservation() {
+  const [validated, setValidated] = useState(false);
+  // const [services, setServices] = useState([]);
+  const dispatch = useDispatch();
+  const error = useSelector((state) => state.reservations.error);
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const localUser = JSON.parse(localStorage.getItem('user'));
+  const userName = localUser.user.name;
 
   useEffect(() => {
-    const name = localStorage.getItem('userName');
-    if (name) {
-      setUserName(name);
-    }
-  }, []);
+    dispatch(fetchReservations());
 
-  const handleSubmit = (event) => {
+    dispatch(fetchServices()).then((response) => {
+      if (response.payload) {
+        // setServices(response.payload);
+      }
+    });
+  }, [dispatch]);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    onConfirmReservation();
+
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.stopPropagation();
+    } else {
+      const formData = new FormData(form);
+      let data = Object.fromEntries(formData);
+
+      data = { ...data, service_id: id, client_name: userName };
+
+      dispatch(createReservation(data)).then(() => {
+        form.reset();
+        setValidated(false);
+
+        // Use navigate to redirect to the thank you page after a successful reservation
+        navigate('/my-reservations');
+      });
+    }
+
+    setValidated(true);
   };
 
-  if (!selectedService) {
-    return <div>No service selected</div>;
-  }
-
   return (
-    <Form className="ml-5" onSubmit={handleSubmit}>
-      <h3>Selected Service:</h3>
-      <p>
-        Name:
-        {' '}
-        {userName || 'User'}
-      </p>
+    <Form
+      noValidate
+      validated={validated}
+      onSubmit={handleSubmit}
+      className="form-background d-flex flex-column justify-content-center align-items-center vh-100"
+    >
       <Row>
-        <Col>
-          <Form.Group controlId="pickupAddress">
-            <Form.Label>Pickup Address</Form.Label>
-            <Form.Control required type="text" placeholder="Enter Pickup Address" />
+        <Col lg={4}>
+          <Form.Group className="mb-3" controlId="pickupAddress">
+            <Form.Control required type="text" placeholder="Pickup Address" className="form-control" name="pickup_address" />
           </Form.Group>
         </Col>
-        <Col>
-          <Form.Group controlId="dropAddress">
-            <Form.Label>Drop Address</Form.Label>
-            <Form.Control required type="text" placeholder="Enter Drop Address" />
+        <Col lg={4}>
+          <Form.Group className="mb-3" controlId="dropAddress">
+            <Form.Control required type="text" placeholder="Drop Address" className="form-control" name="drop_address" />
+          </Form.Group>
+        </Col>
+        <Col lg={4}>
+          <Form.Group className="mb-3" controlId="description">
+            <Form.Control required type="text" placeholder="Description" className="form-control" name="description" />
           </Form.Group>
         </Col>
       </Row>
       <Row>
-        <Col>
-          <Form.Group controlId="contact">
-            <Form.Label>Contact</Form.Label>
-            <Form.Control required type="text" placeholder="Enter Contact" />
+        <Col lg={4}>
+          <Form.Group className="mb-3" controlId="contact">
+            <Form.Control required type="text" placeholder="Contact" className="form-control" name="contact" />
           </Form.Group>
         </Col>
-        <Col>
-          <Form.Group controlId="pickupDate">
-            <Form.Label>Pickup Date</Form.Label>
-            <Form.Control required type="date" placeholder="Enter Pickup Date" />
+        <Col lg={4}>
+          <Form.Group className="mb-3" controlId="pickupDate">
+            <Form.Control required type="date" placeholder="Pickup Date" className="form-control" name="pickup_date" />
           </Form.Group>
         </Col>
+        {/* <Col lg={4}>
+          <Form.Group className="mb-3" controlId="serviceId">
+            <Form.Control as="select" required className="form-control" name="service_id">
+              <option value="">Select a service</option>
+              {Array.isArray(services)
+                && services.map((service) => (
+                  <option value={service.id} key={service.id}>
+                    {service.name}
+                  </option>
+                ))}
+            </Form.Control>
+          </Form.Group>
+        </Col> */}
       </Row>
-      <p>
-        Description:
-        {' '}
-        {selectedService.description}
-      </p>
-      <p>
-        Min Cost:
-        {' '}
-        $
-        {selectedService.min_cost}
-      </p>
-      <Button type="submit" variant="success">
-        Confirm Reservation
+      <Button variant="primary" type="submit">
+        Submit
       </Button>
+      {error && <Alert variant="danger">{error}</Alert>}
+      {validated && !error && (
+        <Alert variant="danger">
+          Your reservation has not been created. Please check the details properly.
+        </Alert>
+      )}
     </Form>
   );
-};
-
-SelectedReservation.propTypes = {
-  onConfirmReservation: PropTypes.func.isRequired,
-};
+}
 
 export default SelectedReservation;
