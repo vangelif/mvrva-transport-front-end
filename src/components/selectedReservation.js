@@ -17,9 +17,6 @@ function ReservationForm() {
   const localUser = JSON.parse(localStorage.getItem('user'));
   const userName = localUser.user.name;
 
-  console.log('id', id);
-  console.log('userName', userName);
-
   useEffect(() => {
     dispatch(fetchReservations());
 
@@ -41,7 +38,6 @@ function ReservationForm() {
       let data = Object.fromEntries(formData);
 
       data = { ...data, service_id: id, client_name: userName };
-      console.log('data', data);
 
       dispatch(createReservation(data)).then(() => {
         form.reset();
