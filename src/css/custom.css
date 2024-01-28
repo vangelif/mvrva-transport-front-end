@@ -192,7 +192,7 @@
   /* Service */
 
   .card-submit {
-    margin-left: 350px;
+    margin: 10% 15%;
   }
 
   .add-service-submit {
@@ -266,5 +266,9 @@
   .service-card {
     margin-left: 350px;
     margin-top: 50px;
+  }
+
+  .card-submit {
+    margin: 10% 5%;
   }
 }
