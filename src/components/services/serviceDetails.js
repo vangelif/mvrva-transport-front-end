@@ -32,7 +32,7 @@ const ServiceDetails = () => {
 
   const handleReserveClick = () => {
     dispatch(setSelectedService(service));
-    navigate('/reservation-form-selected');
+    navigate(`/service/${id}/reservation`);
   };
 
   if (!id || status === 'loading' || !service) {

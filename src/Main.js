@@ -14,7 +14,7 @@ import ServiceDeletion from './components/admin_items/delete_services';
 import ServiceCreationForm from './components/admin_items/add_services';
 import ReservationFormPage from './components/ReservationFormPage';
 import SuccessComponent from './components/messages/serviceSuccess';
-import ServiceDetails from './components/services/ServiceDetails';
+import ServiceDetails from './components/services/serviceDetails';
 import './css/custom.css';
 import Sidebar from './components/Sidebar';
 
@@ -35,7 +35,7 @@ function Main() {
                   <Route path="/login" element={<Login />} />
                   <Route path="/api/v1/services" element={<ServiceList />} />
                   <Route path="/services/:id" element={<ServiceDetails />} />
-                  <Route path="/reservation-form-selected" element={<ReservationFormPage />} />
+                  <Route path="/service/:id/reservation" element={<ReservationFormPage />} />
                   <Route path="/reserve-form" element={<ReservationForm />} />
                   <Route path="/my-reservations" element={<MyReservations />} />
                   <Route path="/add-reservation" element={<ServiceCreationForm />} />

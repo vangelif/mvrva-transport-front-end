@@ -13,6 +13,8 @@ function ReservationForm() {
   const dispatch = useDispatch();
   const error = useSelector((state) => state.reservations.error);
   const navigate = useNavigate();
+  const localUser = JSON.parse(localStorage.getItem('user'));
+  const userName = localUser.user.name;
 
   useEffect(() => {
     dispatch(fetchReservations());
@@ -35,7 +37,7 @@ function ReservationForm() {
       let data = Object.fromEntries(formData);
 
       if (data.service_id) {
-        data = { ...data, service_id: Number(data.service_id) };
+        data = { ...data, service_id: Number(data.service_id), client_name: userName };
       }
 
       dispatch(createReservation(data)).then(() => {
