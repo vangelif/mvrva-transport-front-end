@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createReservation, fetchReservations } from '../redux/reservationsSlice';
 import { fetchServices } from '../redux/service/servicesSlice';
 
-function ReservationForm() {
+function SelectedReservation() {
   const [validated, setValidated] = useState(false);
   const [services, setServices] = useState([]);
   const dispatch = useDispatch();
@@ -44,7 +44,7 @@ function ReservationForm() {
         setValidated(false);
 
         // Use navigate to redirect to the thank you page after a successful reservation
-        navigate('/reservation-confirmation');
+        navigate('/my-reservations');
       });
     }
 
@@ -113,4 +113,4 @@ function ReservationForm() {
   );
 }
 
-export default ReservationForm;
+export default SelectedReservation;

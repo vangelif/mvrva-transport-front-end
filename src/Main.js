@@ -12,7 +12,8 @@ import MyReservations from './components/MyReservations';
 import ReservationForm from './components/ReservationForm';
 import ServiceDeletion from './components/admin_items/delete_services';
 import ServiceCreationForm from './components/admin_items/add_services';
-import ReservationFormPage from './components/ReservationFormPage';
+// import ReservationFormPage from './components/ReservationFormPage';
+import SelectedReservation from './components/selectedReservation';
 import SuccessComponent from './components/messages/serviceSuccess';
 import ServiceDetails from './components/services/serviceDetails';
 import './css/custom.css';
@@ -35,7 +36,7 @@ function Main() {
                   <Route path="/login" element={<Login />} />
                   <Route path="/api/v1/services" element={<ServiceList />} />
                   <Route path="/services/:id" element={<ServiceDetails />} />
-                  <Route path="/service/:id/reservation" element={<ReservationFormPage />} />
+                  <Route path="/service/:id/reservation" element={<SelectedReservation />} />
                   <Route path="/reserve-form" element={<ReservationForm />} />
                   <Route path="/my-reservations" element={<MyReservations />} />
                   <Route path="/add-reservation" element={<ServiceCreationForm />} />

@@ -45,7 +45,7 @@ function ReservationForm() {
         setValidated(false);
 
         // Use navigate to redirect to the thank you page after a successful reservation
-        navigate('/reservation-confirmation');
+        navigate('/my-reservations');
       });
     }
 
