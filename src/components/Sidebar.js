@@ -58,27 +58,33 @@ function Sidebar() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto d-flex flex-column">
-                <Nav.Link
-                  href="/register"
-                  onClick={() => handleNavLinkClick('register')}
-                  className={activeNavLink === 'register' ? 'active' : ''}
-                >
-                  <span className="navlink-text">
-                    Register
-                  </span>
-                </Nav.Link>
-                <Nav.Link
-                  href="/login"
-                  onClick={() => handleNavLinkClick('login')}
-                  className={activeNavLink === 'login' ? 'active' : ''}
-                >
-                  <span className="navlink-text">
-                    Login
-                  </span>
-                </Nav.Link>
+                {(!userRole) && (
+                <>
+                  <Nav.Link
+                    href="/register"
+                    onClick={() => handleNavLinkClick('register')}
+                    className={activeNavLink === 'register' ? 'active' : ''}
+                  >
+                    <span className="navlink-text">
+                      Register
+                    </span>
+                  </Nav.Link>
+                  <Nav.Link
+                    href="/login"
+                    onClick={() => handleNavLinkClick('login')}
+                    className={activeNavLink === 'login' ? 'active' : ''}
+                  >
+                    <span className="navlink-text">
+                      Login
+                    </span>
+                  </Nav.Link>
+                </>
+                )}
+                {(userRole === 'user' || userRole === 'admin') && (
                 <button type="button" onClick={onLogout}>
                   Logout
                 </button>
+                )}
                 <Nav.Link
                   href="/api/v1/services"
                   onClick={() => {

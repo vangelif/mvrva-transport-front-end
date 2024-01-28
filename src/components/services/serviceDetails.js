@@ -59,7 +59,7 @@ const ServiceDetails = () => {
           <p>{service.description}</p>
           <Link to="/api/v1/services" className="discover-link">Discover More Services</Link>
           <br />
-          {userRole === 'user' && (
+          {(userRole === 'user' || userRole === 'admin') && (
           <Button
             type="button"
             variant="primary"
