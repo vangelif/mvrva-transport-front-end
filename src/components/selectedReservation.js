@@ -9,7 +9,7 @@ import { fetchServices } from '../redux/service/servicesSlice';
 
 function SelectedReservation() {
   const [validated, setValidated] = useState(false);
-  const [services, setServices] = useState([]);
+  // const [services, setServices] = useState([]);
   const dispatch = useDispatch();
   const error = useSelector((state) => state.reservations.error);
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ function SelectedReservation() {
 
     dispatch(fetchServices()).then((response) => {
       if (response.payload) {
-        setServices(response.payload);
+        // setServices(response.payload);
       }
     });
   }, [dispatch]);
