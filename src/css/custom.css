@@ -115,7 +115,6 @@ overflow: hidden;
   color: white;
 }
 
-
 /* MainContent.css */
 .main-content-container {
   flex-grow: 1; /* Allow main content to grow and take remaining space */
