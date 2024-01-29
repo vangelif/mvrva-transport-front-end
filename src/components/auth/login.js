@@ -62,12 +62,18 @@ function Login() {
       <h2>Login Form</h2>
       <form onSubmit={onSubmit}>
         <div>
-          <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" value={email} onChange={onChange} />
+          <label htmlFor="email">
+            Email:
+            <br />
+            <input type="email" name="email" id="email" value={email} onChange={onChange} />
+          </label>
         </div>
         <div>
-          <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" value={password} onChange={onChange} />
+          <label htmlFor="password">
+            Password:
+            <br />
+            <input type="password" name="password" id="password" value={password} onChange={onChange} />
+          </label>
         </div>
         <button type="submit">Login</button>
       </form>
