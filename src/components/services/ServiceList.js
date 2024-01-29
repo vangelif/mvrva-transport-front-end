@@ -66,9 +66,9 @@ const ServiceList = () => {
   }
 
   const truncateDescription = (text, maxLength) => {
-    const words = text.split(' ');
+    const words = text.split('');
     if (words.length > maxLength) {
-      return `${words.slice(0, maxLength).join(' ')}...`;
+      return `${words.slice(0, maxLength).join('')}...`;
     }
     return text;
   };
@@ -82,7 +82,7 @@ const ServiceList = () => {
   return (
     <>
       <div className="service-component">
-        <div className="service-header mt-3">
+        <div className="service-header">
           <h1 className="text-center">OFFERED SERVICES</h1>
           <span className="text-center d-block text-grey">Explore our services from below</span>
         </div>
@@ -92,7 +92,7 @@ const ServiceList = () => {
               <Carousel.Caption>
                 <Row className="d-flex justify-content-between card-body">
                   {group.map((service) => (
-                    <Col key={uuidv4()} xs={12} sm={6} md={2} lg={6} xl={4}>
+                    <Col key={uuidv4()} xs={12} sm={6} md={2} lg={6} xl={4} xxl={4}>
                       {/* Wrap each card with Link component */}
                       <Card className="card-sizing">
                         <Link to={`/services/${service.id}`} className="card-link">
@@ -103,11 +103,11 @@ const ServiceList = () => {
                                 <Card.Title className="custom-title-style">
                                   <strong>{service.name}</strong>
                                 </Card.Title>
-                                <Card.Text style={{ color: 'grey', fontSize: '0.8em' }} className="custom-card-text">
-                                  {truncateDescription(service.description, 20)}
+                                <Card.Text className="custom-card-text">
+                                  {truncateDescription(service.description, 100)}
                                   <div>
                                     {' '}
-                                    {service.description.split(' ').length > 20 && (
+                                    {service.description.split(' ').length > 100 && (
                                     <Link to={`/services/${service.id}`} className="learn-more-link">
                                       Learn More
                                     </Link>
