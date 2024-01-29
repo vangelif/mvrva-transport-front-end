@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Button, Form, Row, Col, Alert,
+  Button, Form, Row, Col, Alert, Container,
 } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -38,51 +38,53 @@ function SelectedReservation() {
   };
 
   return (
-    <Form
-      noValidate
-      validated={validated}
-      onSubmit={handleSubmit}
-      className="form-background d-flex flex-column justify-content-center align-items-center vh-100"
-    >
-      <Row>
-        <Col lg={4}>
-          <Form.Group className="mb-3" controlId="pickupAddress">
-            <Form.Control required type="text" placeholder="Pickup Address" className="form-control" name="pickup_address" />
-          </Form.Group>
-        </Col>
-        <Col lg={4}>
-          <Form.Group className="mb-3" controlId="dropAddress">
-            <Form.Control required type="text" placeholder="Drop Address" className="form-control" name="drop_address" />
-          </Form.Group>
-        </Col>
-        <Col lg={4}>
-          <Form.Group className="mb-3" controlId="description">
-            <Form.Control required type="text" placeholder="Description" className="form-control" name="description" />
-          </Form.Group>
-        </Col>
-      </Row>
-      <Row>
-        <Col lg={4}>
-          <Form.Group className="mb-3" controlId="contact">
-            <Form.Control required type="text" placeholder="Contact" className="form-control" name="contact" />
-          </Form.Group>
-        </Col>
-        <Col lg={4}>
-          <Form.Group className="mb-3" controlId="pickupDate">
-            <Form.Control required type="date" placeholder="Pickup Date" className="form-control" name="pickup_date" />
-          </Form.Group>
-        </Col>
-      </Row>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-      {error && <Alert variant="danger">{error}</Alert>}
-      {validated && !error && (
+    <Container className="vh-100 d-flex justify-content-center align-items-center p-5 form-container">
+      <Form
+        noValidate
+        validated={validated}
+        onSubmit={handleSubmit}
+        className="form-background p-5 w-100"
+      >
+        <Row>
+          <Col xs={12}>
+            <Form.Group className="mb-3" controlId="pickupAddress">
+              <Form.Control required type="text" placeholder="Pickup Address" className="form-control form-control-lg" name="pickup_address" />
+            </Form.Group>
+          </Col>
+          <Col xs={12}>
+            <Form.Group className="mb-3" controlId="dropAddress">
+              <Form.Control required type="text" placeholder="Drop Address" className="form-control form-control-lg" name="drop_address" />
+            </Form.Group>
+          </Col>
+          <Col xs={12}>
+            <Form.Group className="mb-3" controlId="description">
+              <Form.Control required type="text" placeholder="Description" className="form-control form-control-lg" name="description" />
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12}>
+            <Form.Group className="mb-3" controlId="contact">
+              <Form.Control required type="text" placeholder="Contact" className="form-control form-control-lg" name="contact" />
+            </Form.Group>
+          </Col>
+          <Col xs={12}>
+            <Form.Group className="mb-3" controlId="pickupDate">
+              <Form.Control required type="date" placeholder="Pickup Date" className="form-control form-control-lg" name="pickup_date" />
+            </Form.Group>
+          </Col>
+        </Row>
+        <Button variant="primary" className="btn-lg" type="submit">
+          Submit
+        </Button>
+        {error && <Alert variant="danger">{error}</Alert>}
+        {validated && !error && (
         <Alert variant="danger">
           Your reservation has not been created. Please check the details properly.
         </Alert>
-      )}
-    </Form>
+        )}
+      </Form>
+    </Container>
   );
 }
 
