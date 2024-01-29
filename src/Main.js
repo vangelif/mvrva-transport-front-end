@@ -25,11 +25,11 @@ function Main() {
       <Router>
         <Container fluid className="app">
           <Row>
-            <Col md={1}>
+            <Col xs={1} md={2} lg={2} xl={2}>
               <Sidebar />
               <ToastContainer />
             </Col>
-            <Col md={11}>
+            <Col xs={1} md={2} lg={10} xl={10}>
               <>
                 <Routes>
                   <Route path="/register" element={<Register />} />

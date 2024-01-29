@@ -5,12 +5,13 @@
   --border-color: #dee2e6;
 }
 
+
 /* Navbar CSS responsiveness for desktop */
-@media screen and (min-width: 992px) {
+/* @media screen and (min-width: 992px) { */
   .nav-body {
     position: fixed;
     top: 0;
-    left: 20px;
+    left: 0px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -23,25 +24,20 @@
 
   .app-container {
     display: flex;
+    overflow: hidden;
   }
 
-  .app {
+  /* .app {
     height: 100vh;
     width: 100vw;
     overflow: auto;
     margin: 0;
     padding: 0;
     text-decoration: none;
-  }
+  } */
 
-  .sidebar {
-    width: 284px;
-    height: 100vh;
-    background-color: #fff;
-    color: white;
-    padding: 0;
-    margin: 0;
-  }
+
+ 
 
   .service-details {
     padding-top: 7%;
@@ -82,13 +78,13 @@
   }
 
   .arrow-icon {
-    margin-left: 5px; /* Adjust the margin as needed */
+    margin-left: 5px;
   }
 
   .navbar-container {
-    width: 284px; /* Set the width of the navbar */
-    background-color: #fff; /* Example background color */
-    color: white; /* Example text color */
+    width: 284px; 
+    background-color: #fff; 
+    color: white; 
   }
 
   /* MainContent.css */
@@ -109,10 +105,6 @@
     font-weight: 800;
   }
 
-  .sc-container {
-    margin-top: 50px;
-  }
-
   .social-icon {
     color: var(--secondary-color);
     font-size: 12px;
@@ -126,35 +118,49 @@
     width: calc(100% + 2 * 132px);
     transition: 0.3s ease-in-out;
   }
-
+  
   .nav-body a.active .navlink-text {
     color: var(--main-color);
   }
 
-  /* Services CSS */
-  .carousel-body {
-    height: 95vh;
-    width: 100%;
+  /* Services CSS  Service List*/
 
-    /* margin-left: 10%; */
-    overflow: hidden;
-  }
-
-  .service-card {
-    margin-left: 350px;
-    margin-top: 50px;
+  .carousel-body{
+    height: 80vh;
   }
 
   .carousel-bg {
     background: var(--main-color);
-    height: 100vh;
+    height: 90vh;
     width: 100%;
-
-    /* margin-left: 5.5%; */
+    /* background: red; */
   }
 
   .card-body {
-    margin-bottom: 20%;
+    margin-bottom: 15%;
+  }
+
+  .card-sizing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  }
+
+  .card-link{
+    text-decoration: none;
+  }
+
+  /* .card-space{
+    padding: 50px;
+  } */
+
+  .custom-title-style{
+    color:red;
+  }
+
+  .sc-container {
+    margin-top: 50px;
   }
 
   .carousel-control-prev {
@@ -162,7 +168,8 @@
     background-color: #97c010;
     height: 45px;
     width: 90px;
-    border-top-right-radius: 35px;  /* Adjust the value as needed */
+    margin-left: -6.3%;
+    border-top-right-radius: 35px; 
     border-bottom-right-radius: 35px;
     font-size: 12px;  /* Adjust the value as needed */
   }
@@ -170,6 +177,7 @@
   .carousel-control-next {
     top: 50%;
     background-color: #97c010;
+    margin-right: -0.8%;
     height: 45px;
     width: 90px;
     border-top-left-radius: 35px;  /* Adjust the value as needed */
@@ -177,29 +185,7 @@
     font-size: 12px;  /* Adjust the value as needed */
   }
 
-  .card-sizing {
-    width: 20rem;
-    height: 30rem;
-    margin-left: -35%;
-    border: none;
-  }
-
-  .showcase {
-    margin-left: 500px;
-    color: var(--secondary-color);
-  }
-
-  /* Service */
-
-  .card-submit {
-    margin: 10% 15%;
-  }
-
-  .add-service-submit {
-    margin-left: 280px;
-    margin-top: 250px;
-  }
-}
+/* } */
 
 /* Responsivness for mobile */
 
