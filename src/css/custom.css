@@ -35,16 +35,16 @@
   text-decoration: none;
 }
 
-#root{
+#root {
   width: 100vw;
 }
 
-.sidebar-container{
+.sidebar-container {
   width: 15vw;
   min-height: 100vh;
 }
 
-.main-container{
+.main-container {
   width: 85vw;
   min-height: 100vh;
 }
@@ -193,7 +193,7 @@
   font-size: 12px;  /* Adjust the value as needed */
 }
 
-.service-component{
+.service-component {
   width: 80vw;
 }
 
