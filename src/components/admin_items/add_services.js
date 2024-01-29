@@ -38,7 +38,8 @@ const ServiceCreationForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit} className="add-service-submit">
+    <div class="card-service">
+      <Form onSubmit={handleSubmit} className="add-service-submit">
       <Form.Group controlId="name">
         <Form.Label>Name:</Form.Label>
         <Form.Control
@@ -83,12 +84,14 @@ const ServiceCreationForm = () => {
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
+      <Button variant="primary" className="submit-btn" type="submit">
         Create Service
       </Button>
 
       {serviceAdded && <SuccessComponent message="✅ Service added successfully!" />}
     </Form>
+    </div>  
+    
   );
 };
 
