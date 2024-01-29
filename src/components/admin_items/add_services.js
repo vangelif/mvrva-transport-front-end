@@ -15,8 +15,6 @@ const ServiceCreationForm = () => {
     min_cost: 0,
   });
 
-  const localuser = JSON.parse(localStorage.getItem('user'));
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -26,9 +24,8 @@ const ServiceCreationForm = () => {
     e.preventDefault();
 
     // Include the user's ID when creating a service
-    const serviceData = { ...formData, user_id: localuser.user.id };
 
-    dispatch(createService(serviceData));
+    dispatch(createService(formData));
     setFormData({
       name: '', description: '', image: '', min_cost: 0,
     });

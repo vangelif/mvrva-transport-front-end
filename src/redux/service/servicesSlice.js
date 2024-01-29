@@ -39,7 +39,7 @@ export const deleteService = createAsyncThunk('services/deleteService', async (s
 const servicesSlice = createSlice({
   name: 'services',
   initialState: {
-    data: '',
+    data: [],
     status: 'idle',
     error: null,
   },

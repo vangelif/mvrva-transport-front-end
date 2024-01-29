@@ -1,34 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   Button, Form, Row, Col, Alert,
 } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { createReservation, fetchReservations } from '../redux/reservationsSlice';
-import { fetchServices } from '../redux/service/servicesSlice';
+import { createReservation } from '../redux/reservationsSlice';
 
 function SelectedReservation() {
   const [validated, setValidated] = useState(false);
-  const [services, setServices] = useState([]);
   const dispatch = useDispatch();
   const error = useSelector((state) => state.reservations.error);
   const navigate = useNavigate();
   const { id } = useParams();
   const localUser = JSON.parse(localStorage.getItem('user'));
   const userName = localUser.user.name;
-
-  console.log('id', id);
-  console.log('userName', userName);
-
-  useEffect(() => {
-    dispatch(fetchReservations());
-
-    dispatch(fetchServices()).then((response) => {
-      if (response.payload) {
-        setServices(response.payload);
-      }
-    });
-  }, [dispatch]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
