@@ -53,6 +53,8 @@ function ReservationForm() {
   };
 
   return (
+    <>
+    <h2 className="mb-5">Reservation Form:</h2>
     <Form
       noValidate
       validated={validated}
@@ -60,34 +62,34 @@ function ReservationForm() {
       className="form-background d-flex flex-column justify-content-center align-items-center vh-100"
     >
       <Row>
-        <Col lg={4}>
+        <Col lg={4} md={7}>
           <Form.Group className="mb-3" controlId="pickupAddress">
             <Form.Control required type="text" placeholder="Pickup Address" className="form-control" name="pickup_address" />
           </Form.Group>
         </Col>
-        <Col lg={4}>
+        <Col lg={4} md={7}>
           <Form.Group className="mb-3" controlId="dropAddress">
             <Form.Control required type="text" placeholder="Drop Address" className="form-control" name="drop_address" />
           </Form.Group>
         </Col>
-        <Col lg={4}>
+        <Col lg={4} md={7}>
           <Form.Group className="mb-3" controlId="description">
             <Form.Control required type="text" placeholder="Description" className="form-control" name="description" />
           </Form.Group>
         </Col>
       </Row>
       <Row>
-        <Col lg={4}>
+        <Col lg={4} md={7}>
           <Form.Group className="mb-3" controlId="contact">
             <Form.Control required type="text" placeholder="Contact" className="form-control" name="contact" />
           </Form.Group>
         </Col>
-        <Col lg={4}>
+        <Col lg={4} md={7}>
           <Form.Group className="mb-3" controlId="pickupDate">
             <Form.Control required type="date" placeholder="Pickup Date" className="form-control" name="pickup_date" />
           </Form.Group>
         </Col>
-        <Col lg={4}>
+        <Col lg={4} md={7}>
           <Form.Group className="mb-3" controlId="serviceId">
             <Form.Control as="select" required className="form-control" name="service_id">
               <option value="">Select a service</option>
@@ -101,7 +103,7 @@ function ReservationForm() {
           </Form.Group>
         </Col>
       </Row>
-      <Button variant="primary" type="submit">
+      <Button variant="primary" className="submit-btn" type="submit">
         Submit
       </Button>
       {error && <Alert variant="danger">{error}</Alert>}
@@ -111,6 +113,7 @@ function ReservationForm() {
         </Alert>
       )}
     </Form>
+    </>
   );
 }
 

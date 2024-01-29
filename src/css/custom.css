@@ -5,11 +5,6 @@
   --border-color: #dee2e6;
 }
 
-/*
-.burger-mobile {
-  display: none;
-} */
-
 /* Navbar CSS responsiveness for desktop */
 .nav-body {
   z-index: 9999;
@@ -23,22 +18,17 @@
   overflow: hidden;
 }
 
-.sidebar {
+.desktop-navlinks {
   border-right: 1px solid var(--border-color);
   height: 100%;
 }
-
-/* .app-container {
-display: flex;
-overflow: hidden;
-} */
 
 .app {
   display: flex;
   flex-direction: row;
   height: 100vh;
   width: 100vw;
-  overflow: auto;
+  overflow: hidden;
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -118,8 +108,6 @@ overflow: hidden;
 /* MainContent.css */
 .main-content-container {
   flex-grow: 1; /* Allow main content to grow and take remaining space */
-
-  /* padding: 20px;  Example padding for main content */
 }
 
 .logo-img {
@@ -231,38 +219,13 @@ overflow: hidden;
   border-color: #97c010;
 }
 
-/* @media (max-width: 1200px) { */
-
-/* .logo-img {
-    margin-bottom: 9rem;
-  }
+.card-service{
+  padding: 10% 5%;
 }
 
-.carousel-control-next {
-  top: 50%;
-  background-color: #97c010;
-  margin-right: 0%;
-  height: 35px;
-  width: 70px;
-  font-size: 10px;
+.reservation{
+  padding: 10% 5%;
 }
-
-.custom-title-style {
-  font-size: 16px;
-}
-
-.custom-card-text.card-text {
-  font-size: 10px;
-  width: 100%;
-}
-
-.service-component {
-  width: 80vw;
-}
-
-.logo-img {
-  margin-bottom: 9rem;
-} */
 
 .burger-mobile {
   display: none;
@@ -272,8 +235,6 @@ overflow: hidden;
   .nav-body {
     z-index: 9999;
     background: transparent;
-
-    /* height: 100%; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -281,11 +242,6 @@ overflow: hidden;
     font-size: 10px;
     overflow: hidden;
   }
-
-  /*
-  .sidebar {
-    height: 2vh;
-  } */
 
   .copy-right-text {
     display: block;
@@ -310,12 +266,6 @@ overflow: hidden;
     width: 100vw;
   }
 
-  .sidebar-container {
-    /* width: 100vw; */
-
-    /* height: 80px; */
-  }
-
   .main-container {
     width: 100vw;
     min-height: 100vh;
@@ -328,6 +278,13 @@ overflow: hidden;
 
   /* Carousel design */
 
+
+  .carousel-bg {
+    background: var(--main-color);
+    height: 70vh;
+    width: 100%;
+  }
+  
   .carousel-control-prev {
     display: none;
   }
@@ -362,11 +319,20 @@ overflow: hidden;
 
   .burger-mobile {
     display: block;
+    margin: 35% 35%;
+    font-size: 30px;
   }
 
   .desktop-navlinks {
     display: none;
   }
+
+  .card-service{
+    padding: 10% 5%;
+  }
+
+  .reservation{
+    padding: 10% 5%;
+  }
 }
 
-/* Responsivness for mobile */

@@ -92,7 +92,7 @@ const ServiceList = () => {
               <Carousel.Caption>
                 <Row className="d-flex justify-content-between card-body">
                   {group.map((service) => (
-                    <Col key={uuidv4()} xs={12} sm={6} md={2} lg={6} xl={4} xxl={4}>
+                    <Col key={uuidv4()} xs={12} sm={10} md={10} lg={6} xl={4} xxl={4}>
                       {/* Wrap each card with Link component */}
                       <Card className="card-sizing">
                         <Link to={`/services/${service.id}`} className="card-link">
