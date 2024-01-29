@@ -38,60 +38,60 @@ const ServiceCreationForm = () => {
   };
 
   return (
-    <div class="card-service">
+    <div className="card-service">
       <Form onSubmit={handleSubmit} className="add-service-submit">
-      <Form.Group controlId="name">
-        <Form.Label>Name:</Form.Label>
-        <Form.Control
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-      </Form.Group>
+        <Form.Group controlId="name">
+          <Form.Label>Name:</Form.Label>
+          <Form.Control
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
 
-      <Form.Group controlId="description">
-        <Form.Label>Description:</Form.Label>
-        <Form.Control
-          as="textarea"
-          name="description"
-          value={formData.description}
-          onChange={handleChange}
-          required
-        />
-      </Form.Group>
+        <Form.Group controlId="description">
+          <Form.Label>Description:</Form.Label>
+          <Form.Control
+            as="textarea"
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
 
-      <Form.Group controlId="image">
-        <Form.Label>Image URL:</Form.Label>
-        <Form.Control
-          type="text"
-          name="image"
-          value={formData.image}
-          onChange={handleChange}
-          required
-        />
-      </Form.Group>
+        <Form.Group controlId="image">
+          <Form.Label>Image URL:</Form.Label>
+          <Form.Control
+            type="text"
+            name="image"
+            value={formData.image}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
 
-      <Form.Group controlId="min_cost">
-        <Form.Label>Minimum Cost:</Form.Label>
-        <Form.Control
-          type="number"
-          name="min_cost"
-          value={formData.min_cost}
-          onChange={handleChange}
-          required
-        />
-      </Form.Group>
+        <Form.Group controlId="min_cost">
+          <Form.Label>Minimum Cost:</Form.Label>
+          <Form.Control
+            type="number"
+            name="min_cost"
+            value={formData.min_cost}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
 
-      <Button variant="primary" className="submit-btn" type="submit">
-        Create Service
-      </Button>
+        <Button variant="primary" className="submit-btn" type="submit">
+          Create Service
+        </Button>
 
-      {serviceAdded && <SuccessComponent message="✅ Service added successfully!" />}
-    </Form>
-    </div>  
-    
+        {serviceAdded && <SuccessComponent message="✅ Service added successfully!" />}
+      </Form>
+    </div>
+
   );
 };
 
