@@ -26,13 +26,10 @@ function SelectedReservation() {
       let data = Object.fromEntries(formData);
 
       data = { ...data, service_id: id, client_name: userName };
-      console.log('data', data);
 
       dispatch(createReservation(data)).then(() => {
         form.reset();
         setValidated(false);
-
-        // Use navigate to redirect to the thank you page after a successful reservation
         navigate('/my-reservations');
       });
     }
@@ -75,19 +72,6 @@ function SelectedReservation() {
             <Form.Control required type="date" placeholder="Pickup Date" className="form-control" name="pickup_date" />
           </Form.Group>
         </Col>
-        {/* <Col lg={4}>
-          <Form.Group className="mb-3" controlId="serviceId">
-            <Form.Control as="select" required className="form-control" name="service_id">
-              <option value="">Select a service</option>
-              {Array.isArray(services)
-                && services.map((service) => (
-                  <option value={service.id} key={service.id}>
-                    {service.name}
-                  </option>
-                ))}
-            </Form.Control>
-          </Form.Group>
-        </Col> */}
       </Row>
       <Button variant="primary" type="submit">
         Submit

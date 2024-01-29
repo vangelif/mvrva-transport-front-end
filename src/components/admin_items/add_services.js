@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 import SuccessComponent from '../messages/serviceSuccess';
 import { createService } from '../../redux/service/servicesSlice';
@@ -7,6 +8,7 @@ import { createService } from '../../redux/service/servicesSlice';
 const ServiceCreationForm = () => {
   const [serviceAdded, setServiceAdded] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: '',
@@ -23,17 +25,16 @@ const ServiceCreationForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Include the user's ID when creating a service
-
     dispatch(createService(formData));
     setFormData({
       name: '', description: '', image: '', min_cost: 0,
     });
 
     setTimeout(() => {
-      // After the service is added successfully, setServiceAdded to true
       setServiceAdded(true);
     }, 1000);
+
+    navigate('/');
   };
 
   return (
