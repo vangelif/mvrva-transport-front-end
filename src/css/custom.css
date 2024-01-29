@@ -4,6 +4,10 @@
 --secondary-color: #464646;
 --border-color: #dee2e6;
 }
+/* 
+.burger-mobile {
+  display: none;
+} */
 
 /* Navbar CSS responsiveness for desktop */
 .nav-body {
@@ -206,7 +210,7 @@ font-size: 12px;  /* Adjust the value as needed */
 width: 85vw;
 }
 
-@media (min-width: 1200px) and (max-width: 1710px) {
+/* @media (min-width: 1200px) and (max-width: 1710px) { */
 /* Layout */
 
 .sidebar-container {
@@ -254,9 +258,9 @@ width: 100%;
 .logo-img {
   margin-bottom: 9rem;
 }
-}
+/* } */
 
-@media (min-width: 992px) and (max-width: 1199px){
+/* @media (min-width: 992px) and (max-width: 1199px){ */
   /* Layout */
 
 .sidebar-container {
@@ -304,9 +308,13 @@ width: 80vw;
 .logo-img {
   margin-bottom: 9rem;
 }
+/* } */
+
+.burger-mobile {
+  display: none;
 }
 
-@media (min-width: 768px) and (max-width: 991px){
+@media (max-width: 768px){
   
   .nav-body {
     z-index: 9999;
@@ -321,19 +329,20 @@ width: 80vw;
     }
 
     .sidebar{
-      border: 1px solid var(--primary-color);
-      height: 7.8vh;
+      /* border: 1px solid var(--primary-color); */
+      height: 2vh;
       }
     
     .copy-right-text{
-      display: none;
+      display: block;
     }
     .sc-container .icons{
-      display: none;
+      display: block;
     }
+    
     .app {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     min-height: 100vh;
     width: 100vw;
     overflow: auto;
@@ -347,8 +356,8 @@ width: 80vw;
     }
     
     .sidebar-container {
-    width: 100vw;
-    height: 80px;
+    /* width: 100vw; */
+    /* height: 80px; */
     
     }
     
@@ -380,91 +389,27 @@ width: 80vw;
   width: 100%;
   }
   
+.navlink-text {
+  font-weight: 300;
+  font-size: 1.2em;
+}
+
   .service-component {
   width: 80vw;
   }
   
   .logo-img {
-    margin-bottom: 9rem;
+    margin-bottom: 2rem;
+    width: 50px;
+    height: 50px;
+
   }
-}
-
-@media (min-width: 576px) {
-/* Styles for small devices (tablets) */
-}
-
-@media (max-width: 575px) {
-/* Styles for extra small devices (portrait phones) */
+  .burger-mobile {
+    display: block;
+  }
+  .desktop-navlinks {
+    display: none;
+  }
 }
 
 /* Responsivness for mobile */
-
-@media screen and (max-width: 768px) and (min-width: 320px) {
-/* navbar */
-.nav-body {
-  background: transparent;
-}
-
-.navlink-text {
-  font-size: 12px;
-  font-weight: 600;
-}
-
-button.navbar-toggler {
-  margin-right: 40rem;
-  margin-top: 3rem;
-  border: none;
-}
-
-span.navlink-text {
-  margin-right: 30rem;
-}
-
-.nav-body a.active {
-  font-weight: bold;
-  color: #fff;
-  background-color: #97c010;
-  transition: 0.3s ease-in-out;
-}
-
-.nav-body a.active .navlink-text {
-  color: var(--main-color);
-}
-
-/* logo */
-.logo-img {
-  display: inline-block;
-  height: 150px; /* Adjust the height as needed */
-  width: auto; /* Maintain the aspect ratio */
-  margin-left: 26px;
-}
-
-.menu-main {
-  display: flex;
-  align-items: stretch;
-  flex-direction: row;
-}
-
-/* social media icons */
-.sc-container {
-  display: none;
-}
-
-.social-icon {
-  display: none;
-}
-
-.copy-right-text {
-  display: none;
-}
-
-/* Service */
-.service-card {
-  margin-left: 350px;
-  margin-top: 50px;
-
-  .custom-title-style .card-submit {
-    margin: 10% 5%;
-  }
-}
-}
