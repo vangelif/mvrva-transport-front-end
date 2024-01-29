@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { Form, Button, FloatingLabel } from 'react-bootstrap';
 import { register, reset } from '../../redux/auth/authSlice';
 import Authspinner from './authspinner';
 
@@ -62,33 +63,40 @@ function Register() {
   }
 
   return (
-    <div style={{ marginLeft: '300px' }}>
-      <h2>Register Form</h2>
-      <form onSubmit={onSubmit}>
-        <div>
-          <label htmlFor="name">
-            Name:
-            <br />
-            <input type="text" name="name" id="name" value={name} onChange={onChange} />
-          </label>
-        </div>
-        <div>
-          <label htmlFor="email">
-            Email:
-            <br />
-            <input type="email" name="email" id="email" value={email} onChange={onChange} />
-          </label>
-        </div>
-        <div>
-          <label htmlFor="password">
-            Password:
-            <br />
-            <input type="password" name="password" id="password" value={password} onChange={onChange} />
-          </label>
-        </div>
-        <button type="submit">Register</button>
-      </form>
-    </div>
+    <>
+      <section className="register-tab">
+        <h1 className="text-center" style={{ marginBottom: '5%' }}>Register</h1>
+        <Form onSubmit={onSubmit}>
+          <FloatingLabel
+            controlId="floatingInput"
+            label="Your Name"
+            className="mb-3"
+            value={name}
+          >
+            <Form.Control name="name" type="name" onChange={onChange} placeholder="Place your name" />
+          </FloatingLabel>
+          <FloatingLabel
+            controlId="floatingInput"
+            label="Email Address"
+            className="mb-3"
+            value={email}
+          >
+            <Form.Control name="email" type="email" onChange={onChange} placeholder="Place your email" />
+          </FloatingLabel>
+          <FloatingLabel
+            controlId="floatingInput"
+            label="Password"
+            className="mb-3"
+            value={password}
+          >
+            <Form.Control name="password" type="password" onChange={onChange} placeholder="Place your password" />
+          </FloatingLabel>
+          <Button variant="primary" type="submit" style={{ marginTop: '5%', backgroundColor: 'var(--primary-color)', borderColor: 'var(--primary-color)' }}>
+            Register
+          </Button>
+        </Form>
+      </section>
+    </>
   );
 }
 
