@@ -19,10 +19,10 @@
   overflow: hidden;
 }
 
-/* .app-container {
-  display: flex;
-  overflow: hidden;
-} */
+
+.bg-green {
+  background-color: #97c010 !important;
+}
 
 .app {
   display: flex;

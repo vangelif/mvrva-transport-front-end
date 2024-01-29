@@ -74,7 +74,7 @@ function SelectedReservation() {
             </Form.Group>
           </Col>
         </Row>
-        <Button variant="primary" className="btn-lg" type="submit">
+        <Button variant="primary" className="btn-lg bg-green" type="submit">
           Submit
         </Button>
         {error && <Alert variant="danger">{error}</Alert>}

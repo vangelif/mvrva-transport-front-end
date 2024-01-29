@@ -110,7 +110,7 @@ function ReservationForm() {
             </Form.Group>
           </Col>
         </Row>
-        <Button variant="primary" type="submit" className="btn-lg">
+        <Button variant="primary" type="submit" className="btn-lg bg-green">
           Submit
         </Button>
         {error && <Alert variant="danger">{error}</Alert>}
