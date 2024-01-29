@@ -49,9 +49,10 @@
 }
 
 .service-details {
-  padding-top: 7%;
-  padding-left: 15%;
-  margin-left: 200px;
+  /* padding-top: 7%;
+  padding-left: 4%; */
+  padding: 5% 7%;
+  /* margin-left: 200px; */
   color: var(--secondary-color);
 }
 
@@ -66,17 +67,24 @@
 }
 
 .bigger-stronger-heading {
-  font-size: 2em; /* Adjust the font size as needed */
+  font-size: 2em;
   font-weight: bold;
+  padding: 5% 0%;
 }
 
 .smaller-min-cost {
-  font-size: 0.8em; /* Adjust the font size as needed */
+  font-size: 0.8em;
+  padding: 5% 0%;
+}
+
+.service-description {
+  padding: 5% 0%;
 }
 
 .discover-link {
   text-decoration: none;
-  color: blue; /* Adjust the color as needed */
+  color: blue;
+  padding: 5% 0%;
 }
 
 .bigger-reserve-button {
@@ -88,7 +96,7 @@
 }
 
 .reserve-icon {
-  margin-right: 5px; /* Adjust the margin as needed */
+  margin-right: 5px; 
 }
 
 .arrow-icon {
@@ -197,7 +205,6 @@
 .carousel-control-next {
   top: 50%;
   background-color: #97c010;
-  margin-right: -6.2%;
   height: 45px;
   width: 90px;
   border-top-left-radius: 35px;  /* Adjust the value as needed */
@@ -230,6 +237,11 @@
 .burger-mobile {
   display: none;
 }
+
+.reservation-form {
+  padding: 10% 5%;
+}
+
 
 @media (max-width: 768px) {
   .nav-body {
@@ -328,11 +340,28 @@
   }
 
   .card-service{
-    padding: 10% 5%;
+    padding: 20% 5%;
   }
 
   .reservation{
-    padding: 10% 5%;
+    padding: 20% 5%;
   }
+  .reservation-form {
+    padding: 20% 5%;
+  }
+
+  .service-details {
+    padding: 20% 7% !important;
+  }
+
+ .service-details .service-image {
+    width: 100% !important;
+    height: 30vh !important;
+  }
+
+  .service-description {
+    font-size: 0.8em !important;
+  }
+
 }
 
