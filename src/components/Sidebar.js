@@ -46,18 +46,18 @@ function Sidebar() {
   return (
     <>
       <div className="sidebar">
-        <Navbar expand="lg" className="text-start nav-body" style={{ zIndex: 9999, backgroundColor: 'grey' }}>
-          <Navbar.Brand href="/">
-            <img
-              src={logoImg}
-              alt="MVRVA Transport Logo"
-              className="logo-img"
-            />
-          </Navbar.Brand>
+        <Navbar expand="lg" className="text-start nav-body">
           <Container className="d-flex flex-column">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="me-auto d-flex flex-column">
+              <Nav className="me-auto d-flex flex-column ">
+                <Navbar.Brand href="/">
+                  <img
+                    src={logoImg}
+                    alt="MVRVA Transport Logo"
+                    className="logo-img"
+                  />
+                </Navbar.Brand>
                 {(!userRole) && (
                 <>
                   <Nav.Link
