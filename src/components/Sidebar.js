@@ -10,6 +10,11 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { logout, reset } from '../redux/auth/authSlice';
 import logoImg from '../assets/Logo.png';
+import { IoMdExit, IoIosPaper } from "react-icons/io";
+import { IoListCircleSharp } from "react-icons/io5";
+import { MdManageAccounts, MdSupervisorAccount } from "react-icons/md";
+import { FaTruckPlane } from "react-icons/fa6";
+import { BsDatabaseFillAdd, BsTrash3 } from "react-icons/bs";
 import '../css/custom.css';
 
 function Sidebar() {
@@ -49,6 +54,9 @@ function Sidebar() {
   //   return null;
   // }
 
+console.log(userRole);
+console.log("EMAIL: ", localUser?.user?.email);
+
   return (
     <>
       <section className="desktop-navlinks">
@@ -70,6 +78,7 @@ function Sidebar() {
                     className={activeNavLink === 'register' ? 'active' : ''}
                   >
                     <span className="navlink-text">
+                      <MdManageAccounts className="register-icon" />{' '}
                       Register
                     </span>
                   </Nav.Link>
@@ -79,16 +88,17 @@ function Sidebar() {
                     className={activeNavLink === 'login' ? 'active' : ''}
                   >
                     <span className="navlink-text">
+                      <MdSupervisorAccount className="login-icon" />{' '}
                       Login
                     </span>
                   </Nav.Link>
                 </>
               )}
-              {(userRole === 'user' || userRole === 'admin') && (
-                <button type="button" onClick={onLogout}>
-                  Logout
-                </button>
-              )}
+              {/* {(userRole === 'user' || userRole === 'admin') && (
+            
+                  <IoMdExit className="logout-icon" onClick={onLogout} />
+            
+              )} */}
               <Nav.Link
                 href="/api/v1/services"
                 onClick={() => {
@@ -98,6 +108,7 @@ function Sidebar() {
                 className={activeNavLink === 'services' ? 'active' : ''}
               >
                 <span className="navlink-text">
+                  <FaTruckPlane className="services-icon" />{' '}
                   Services
                 </span>
               </Nav.Link>
@@ -112,6 +123,7 @@ function Sidebar() {
                     className={activeNavLink === 'reserve-form' ? 'active' : ''}
                   >
                     <span className="navlink-text">
+                    <IoIosPaper />{' '}
                       Reserve Form
                     </span>
                   </Nav.Link>
@@ -124,6 +136,7 @@ function Sidebar() {
                     className={activeNavLink === 'my-reservations' ? 'active' : ''}
                   >
                     <span className="navlink-text">
+                    <IoListCircleSharp />{' '}
                       My Reservations
                     </span>
                   </Nav.Link>
@@ -139,7 +152,10 @@ function Sidebar() {
                     }}
                     className={activeNavLink === 'add-reservation' ? 'active' : ''}
                   >
-                    <span className="navlink-text">Add Services</span>
+                    <span className="navlink-text">
+                    <BsDatabaseFillAdd />{' '}
+                    Add Services
+                    </span>
                   </Nav.Link>
                   <Nav.Link
                     href="/delete-reservation"
@@ -149,14 +165,22 @@ function Sidebar() {
                     }}
                     className={activeNavLink === 'delete-reservation' ? 'active' : ''}
                   >
-                    <span className="navlink-text">Delete Services</span>
+                    <span className="navlink-text">
+                    <BsTrash3 />{' '}
+                    Delete Services</span>
                   </Nav.Link>
                 </>
               )}
             </Nav>
             {/* </Navbar.Collapse> */}
           </Container>
-          <Container className="mt-4 py-3 sc-container d-flex flex-column">
+          <Container className="mt-1 py-3 sc-container d-flex flex-column">
+          {(userRole === 'user' || userRole === 'admin') && (
+            
+            <><IoMdExit className="logout-icon" onClick={onLogout} /><span>EXIT</span></>
+      
+        )}
+          <em className="mb-1" style={{ fontSize: '1em' }}>{localUser && `Logged-in user: ${localUser.user.name}`}</em>
             <div className="text-center icons">
               <a
                 href="https://twitter.com"
