@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Col, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -12,7 +12,6 @@ import MyReservations from './components/MyReservations';
 import ReservationForm from './components/ReservationForm';
 import ServiceDeletion from './components/admin_items/delete_services';
 import ServiceCreationForm from './components/admin_items/add_services';
-// import ReservationFormPage from './components/ReservationFormPage';
 import SelectedReservation from './components/selectedReservation';
 import SuccessComponent from './components/messages/serviceSuccess';
 import ServiceDetails from './components/services/serviceDetails';
@@ -24,29 +23,25 @@ function Main() {
     <Provider store={store}>
       <Router>
         <Container fluid className="app">
-          <Row>
-            <Col xs={1} md={2} lg={2} xl={2}>
-              <Sidebar />
-              <ToastContainer />
-            </Col>
-            <Col xs={1} md={2} lg={10} xl={10}>
-              <>
-                <Routes>
-                  <Route path="/register" element={<Register />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/api/v1/services" element={<ServiceList />} />
-                  <Route path="/services/:id" element={<ServiceDetails />} />
-                  <Route path="/service/:id/reservation" element={<SelectedReservation />} />
-                  <Route path="/reserve-form" element={<ReservationForm />} />
-                  <Route path="/my-reservations" element={<MyReservations />} />
-                  <Route path="/add-reservation" element={<ServiceCreationForm />} />
-                  <Route path="/delete-reservation" element={<ServiceDeletion />} />
-                  <Route path="/reservation-confirmation" element={<SuccessComponent />} />
-                  <Route path="/*" element={<ServiceList />} />
-                </Routes>
-              </>
-            </Col>
-          </Row>
+          <section className="sidebar-container">
+            <Sidebar />
+          </section>
+          <ToastContainer />
+          <section className="main-container">
+            <Routes>
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/api/v1/services" element={<ServiceList />} />
+              <Route path="/services/:id" element={<ServiceDetails />} />
+              <Route path="/service/:id/reservation" element={<SelectedReservation />} />
+              <Route path="/reserve-form" element={<ReservationForm />} />
+              <Route path="/my-reservations" element={<MyReservations />} />
+              <Route path="/add-reservation" element={<ServiceCreationForm />} />
+              <Route path="/delete-reservation" element={<ServiceDeletion />} />
+              <Route path="/reservation-confirmation" element={<SuccessComponent />} />
+              <Route path="/*" element={<ServiceList />} />
+            </Routes>
+          </section>
         </Container>
       </Router>
     </Provider>
