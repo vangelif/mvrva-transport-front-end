@@ -66,16 +66,16 @@ function Register() {
       <h2>Register Form</h2>
       <form onSubmit={onSubmit}>
         <div>
-          {/* <label>Name</label> */}
-          <input type="text" name="name" value={name} onChange={onChange} />
+          <label htmlFor="name">Name</label>
+          <input type="text" name="name" id="name" value={name} onChange={onChange} />
         </div>
         <div>
-          {/* <label>Email</label> */}
-          <input type="email" name="email" value={email} onChange={onChange} />
+          <label htmlFor="email">Email</label>
+          <input type="email" name="email" id="email" value={email} onChange={onChange} />
         </div>
         <div>
-          {/* <label>Password</label> */}
-          <input type="password" name="password" value={password} onChange={onChange} />
+          <label htmlFor="password">Password</label>
+          <input type="password" name="password" id="password" value={password} onChange={onChange} />
         </div>
         <button type="submit">Register</button>
       </form>

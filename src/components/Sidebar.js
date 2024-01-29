@@ -46,7 +46,7 @@ function Sidebar() {
   return (
     <>
       <div className="sidebar">
-        <Navbar expand="lg" className="text-start nav-body" style={{ zIndex: 9999, backgroundColor: 'white' }}>
+        <Navbar expand="lg" className="text-start nav-body">
           <Container className="d-flex flex-column">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">

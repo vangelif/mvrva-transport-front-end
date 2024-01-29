@@ -7,6 +7,8 @@
 
 /* Navbar CSS responsiveness for desktop */
 .nav-body {
+  z-index: 9999;
+  background: white;
   position: fixed;
   top: 0;
   left: 0;
