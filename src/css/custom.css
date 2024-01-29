@@ -105,7 +105,6 @@ overflow: hidden;
   margin-left: 5px;
 }
 
-
 .card-submit {
   margin: 10% 5%;
 }
@@ -233,8 +232,9 @@ overflow: hidden;
   border-color: #97c010;
 }
 
-@media (max-width: 1200px) {
-  .logo-img {
+/* @media (max-width: 1200px) { */
+
+/* .logo-img {
     margin-bottom: 9rem;
   }
 }
@@ -264,8 +264,6 @@ overflow: hidden;
 .logo-img {
   margin-bottom: 9rem;
 } */
-
-/* } */
 
 .burger-mobile {
   display: none;
