@@ -54,13 +54,13 @@ function ReservationForm() {
 
   return (
     <>
-    <h2 className="mb-5">Reservation Form:</h2>
+    <section className='reservation-form'>
     <Form
       noValidate
       validated={validated}
       onSubmit={handleSubmit}
-      className="form-background d-flex flex-column justify-content-center align-items-center vh-100"
     >
+    <h2 className="mb-5">Reservation Form:</h2>
       <Row>
         <Col lg={4} md={7}>
           <Form.Group className="mb-3" controlId="pickupAddress">
@@ -113,6 +113,7 @@ function ReservationForm() {
         </Alert>
       )}
     </Form>
+    </section>
     </>
   );
 }
