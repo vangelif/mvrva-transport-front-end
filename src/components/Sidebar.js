@@ -46,10 +46,10 @@ function Sidebar() {
   return (
     <>
       <div className="sidebar">
-        <Navbar expand="lg" className="text-start nav-body">
+        <Navbar expand="lg" className="text-start nav-body d-flex flex-column">
           <Container className="d-flex flex-column">
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
+            <Navbar.Toggle aria-controls="basic-navbar-nav d-flex flex-column justify-content-center align-items-center" />
+            <Navbar.Collapse id="basic-navbar-nav d-flex flex-column justify-content-center align-items-center">
               <Nav className="me-auto d-flex flex-column ">
                 <Navbar.Brand href="/">
                   <img
@@ -153,7 +153,7 @@ function Sidebar() {
             </Navbar.Collapse>
           </Container>
           <Container className="mt-4 py-3 sc-container d-flex flex-column">
-            <div className="text-center">
+            <div className="text-center icons">
               <a
                 href="https://twitter.com"
                 target="_blank"
@@ -182,7 +182,7 @@ function Sidebar() {
                 <FontAwesomeIcon icon={faGithub} size="2x" />
               </a>
             </div>
-            <div className="text-center mt-2 copy-right-text">
+            <div className="text-center mt-4 copy-right-text">
               © 2024 MVRVA Transport.
               <br />
               All rights reserved.
