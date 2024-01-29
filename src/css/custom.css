@@ -9,9 +9,6 @@
 .nav-body {
   z-index: 9999;
   background: white;
-  position: fixed;
-  top: 0;
-  left: 0;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -22,19 +19,35 @@
   overflow: hidden;
 }
 
-.app-container {
+/* .app-container {
   display: flex;
   overflow: hidden;
+} */
+
+.app {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
 }
 
-/* .app {
-    height: 100vh;
-    width: 100vw;
-    overflow: auto;
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-  } */
+#root{
+  width: 100vw;
+}
+
+.sidebar-container{
+  width: 20vw;
+  min-height: 100vh;
+}
+
+.main-container{
+  width: 80vw;
+  min-height: 100vh;
+}
 
 .service-details {
   padding-top: 7%;
@@ -178,6 +191,10 @@
   border-top-left-radius: 35px;  /* Adjust the value as needed */
   border-bottom-left-radius: 35px;
   font-size: 12px;  /* Adjust the value as needed */
+}
+
+.service-component{
+  width: 80vw;
 }
 
 @media (max-width: 1200px) {

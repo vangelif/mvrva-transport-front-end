@@ -12,7 +12,6 @@ import MyReservations from './components/MyReservations';
 import ReservationForm from './components/ReservationForm';
 import ServiceDeletion from './components/admin_items/delete_services';
 import ServiceCreationForm from './components/admin_items/add_services';
-// import ReservationFormPage from './components/ReservationFormPage';
 import SelectedReservation from './components/selectedReservation';
 import SuccessComponent from './components/messages/serviceSuccess';
 import ServiceDetails from './components/services/serviceDetails';
@@ -24,13 +23,11 @@ function Main() {
     <Provider store={store}>
       <Router>
         <Container fluid className="app">
-          <Row>
-            <Col xs={1} md={2} lg={2} xl={2}>
+          <section className="sidebar-container">
               <Sidebar />
+              </section>
               <ToastContainer />
-            </Col>
-            <Col xs={1} md={2} lg={10} xl={10}>
-              <>
+              <section className="main-container">
                 <Routes>
                   <Route path="/register" element={<Register />} />
                   <Route path="/login" element={<Login />} />
@@ -44,9 +41,7 @@ function Main() {
                   <Route path="/reservation-confirmation" element={<SuccessComponent />} />
                   <Route path="/*" element={<ServiceList />} />
                 </Routes>
-              </>
-            </Col>
-          </Row>
+                </section>
         </Container>
       </Router>
     </Provider>
