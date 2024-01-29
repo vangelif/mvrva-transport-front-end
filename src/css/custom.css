@@ -206,6 +206,33 @@
   width: 80vw;
 }
 
+.card-service {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-around;
+}
+
+.add-service-submit {
+  margin-left: 15%;
+  margin-right: 15%;
+  display: flex;
+  flex-direction: column;
+
+  /* margin-left: 280px;
+  margin-top: 250px; */
+}
+
+.submit-btn {
+  margin-top: 10%;
+  margin-bottom: 15%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #97c010;
+  border-color: #97c010;
+}
+
 @media (max-width: 1200px) {
   .logo-img {
     margin-bottom: 9rem;
