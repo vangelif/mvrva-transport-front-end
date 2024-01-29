@@ -22,6 +22,8 @@ const ServiceDeletion = () => {
     setDeletedServiceId(serviceId);
   };
 
+  console.log(services);
+
   return (
     <div className="card-submit">
       {deletedServiceId && (
@@ -42,10 +44,11 @@ const ServiceDeletion = () => {
               <Accordion.Body>
                 <em>
                   Created at
+                  {' '}
                   {service.created_at}
                   {' '}
-                  by admin with ID:
-                  {service.user_id}
+                  {/* by admin with ID:
+                  {service.user_id} */}
                   {' '}
                   and costs $
                   {service.min_cost}

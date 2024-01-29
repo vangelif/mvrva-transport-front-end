@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { Form, Button, FloatingLabel } from 'react-bootstrap';
 import { login, reset } from '../../redux/auth/authSlice';
 import Authspinner from './authspinner';
 
@@ -33,14 +34,15 @@ function Login() {
     }
   }, [user, isSuccess, isError, message, navigate, dispatch]);
 
-  const onChange = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value,
+      [name]: value,
     }));
   };
 
-  const onSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const userData = {
@@ -58,26 +60,33 @@ function Login() {
   }
 
   return (
-    <div style={{ marginLeft: '300px' }}>
-      <h2>Login Form</h2>
-      <form onSubmit={onSubmit}>
-        <div>
-          <label htmlFor="email">
-            Email:
-            <br />
-            <input type="email" name="email" id="email" value={email} onChange={onChange} />
-          </label>
-        </div>
-        <div>
-          <label htmlFor="password">
-            Password:
-            <br />
-            <input type="password" name="password" id="password" value={password} onChange={onChange} />
-          </label>
-        </div>
-        <button type="submit">Login</button>
-      </form>
-    </div>
+    <>
+      <section className="login-tab">
+        <h1 className="text-center" style={{ marginBottom: '5%' }}>Login</h1>
+        <Form onSubmit={handleSubmit}>
+
+          <FloatingLabel
+            controlId="floatingInput"
+            label="Email address"
+            className="mb-3"
+            value={email}
+          >
+            <Form.Control name="email" type="email" onChange={handleChange} placeholder="name@example.com" />
+          </FloatingLabel>
+
+          <FloatingLabel
+            controlId="floatingPassword"
+            label="Password"
+            value={password}
+          >
+            <Form.Control name="password" type="password" onChange={handleChange} placeholder="Password" />
+          </FloatingLabel>
+          <Button variant="primary" type="submit" style={{ marginTop: '5%', backgroundColor: 'var(--primary-color)', borderColor: 'var(--primary-color)' }}>
+            Login
+          </Button>
+        </Form>
+      </section>
+    </>
   );
 }
 
