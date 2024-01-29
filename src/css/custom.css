@@ -7,7 +7,6 @@
 
 
 /* Navbar CSS responsiveness for desktop */
-/* @media screen and (min-width: 992px) { */
   .nav-body {
     position: fixed;
     top: 0;
@@ -35,9 +34,6 @@
     padding: 0;
     text-decoration: none;
   } */
-
-
- 
 
   .service-details {
     padding-top: 7%;
@@ -98,6 +94,7 @@
     height: 150px; /* Adjust the height as needed */
     width: auto; /* Maintain the aspect ratio */
     margin-left: 26px; /* Optional: Add margin for spacing */
+    margin-bottom: 15rem;
   }
 
   .navlink-text {
@@ -151,18 +148,13 @@
     text-decoration: none;
   }
 
-  /* .card-space{
-    padding: 50px;
-  } */
-
   .custom-title-style{
-    color:red;
+    color:var(--secondary-color);
   }
 
-  .sc-container {
-    margin-top: 50px;
-  }
-
+.carousel-indicators .active {
+    background-color: var(--primary-color);
+}
   .carousel-control-prev {
     top: 50%;
     background-color: #97c010;
@@ -185,7 +177,29 @@
     font-size: 12px;  /* Adjust the value as needed */
   }
 
-/* } */
+
+@media (max-width: 1200px) {
+  .logo-img{
+    margin-bottom: 9rem;
+  }
+
+}
+
+@media (min-width: 992px) {
+  /* Styles for large devices (large desktops) */
+}
+
+@media (min-width: 768px) {
+  /* Styles for medium devices (desktops) */
+}
+
+@media (min-width: 576px) {
+  /* Styles for small devices (tablets) */
+}
+
+@media (max-width: 575px) {
+  /* Styles for extra small devices (portrait phones) */
+}
 
 /* Responsivness for mobile */
 
@@ -252,9 +266,10 @@
   .service-card {
     margin-left: 350px;
     margin-top: 50px;
-  }
+  .custom-title-style
 
   .card-submit {
     margin: 10% 5%;
   }
+}
 }

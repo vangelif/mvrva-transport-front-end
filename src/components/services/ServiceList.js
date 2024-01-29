@@ -24,6 +24,10 @@ const ServiceList = () => {
     if (screenWidth < 576) {
       setServicesPerItem(1); // Show 1 service per item for extra small screens
     } else if (screenWidth < 768) {
+      setServicesPerItem(1); // Show 2 services per item for small screens
+    } else if (screenWidth < 992) {
+      setServicesPerItem(1); // Show 2 services per item for small screens
+    } else if (screenWidth < 1200) {
       setServicesPerItem(2); // Show 2 services per item for small screens
     } else {
       setServicesPerItem(3); // Show 3 services per item for medium and larger screens
@@ -88,18 +92,18 @@ const ServiceList = () => {
               <Carousel.Caption>
                 <Row className="d-flex justify-content-between card-body">
                   {group.map((service) => (
-                    <Col key={uuidv4()} xs={12} sm={6} md={4} lg={4} xl={4}>
+                    <Col key={uuidv4()} xs={12} sm={6} md={2} lg={6} xl={4}>
                       {/* Wrap each card with Link component */}
                       <Card className="card-sizing">
                         <Link to={`/services/${service.id}`} className="card-link">
                           <>
                             <div className="card-space p-4">
-                              <Card.Img variant="top" src={service.image} alt={service.name} style={{ width: '200px', height: '200px', borderRadius: '50%' }} />
+                              <Card.Img variant="top" src={service.image} alt={service.name} style={{ height: '200px' }} />
                               <Card.Body>
                                 <Card.Title className="custom-title-style">
                                   <strong>{service.name}</strong>
                                 </Card.Title>
-                                <Card.Text style={{ color: 'grey', fontSize: '0.8em' }}>
+                                <Card.Text style={{ color: 'grey', fontSize: '0.8em' }} className="custom-card-text">
                                   {truncateDescription(service.description, 20)}
                                   <div>
                                     {' '}
