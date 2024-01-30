@@ -104,10 +104,10 @@ const ServiceList = () => {
                                   <strong>{service?.name}</strong>
                                 </Card.Title>
                                 <Card.Text className="custom-card-text">
-                                  {truncateDescription(service?.description, 100)}
+                                  {truncateDescription(service?.description, 30)}
                                   <div>
                                     {' '}
-                                    {service?.description?.split(' ').length > 100 && (
+                                    {service?.description?.split(' ').length > 30 && (
                                     <Link to={service ? `/services/${service.id}` : '/services'} className="learn-more-link">
                                       Learn More
                                     </Link>
