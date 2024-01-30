@@ -82,6 +82,8 @@ Clone this repository to your desired folder:
 git clone git@github.com:Al-Amin-Khan-Shakil/mvrva-transport-front-end.git
 ```
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ### Prerequisites
 
 In order to run this project you need:
@@ -121,9 +123,24 @@ Use this project in the browsers of desktops and mobile devices
 - LinkedIn: [LinkedIn](https://linkedin.com/in/victor-kanyi)
 
 👤 **Vangelis**
+
 - [@github](https://github.com/vangelif)
 - [@twitter](https://twitter.com/vangfot)
 - [@linkedin](https://www.linkedin.com/in/vangfot/)
+
+👤 **Robert Kanyoro**
+
+- GitHub: [@Kanyorok](https://github.com/Kanyorok)
+- Twitter: [@CarlosMbugua](https://twitter.com/CarlosMbugua)
+- LinkedIn: [Robert Mbugua](https://www.linkedin.com/in/robert-mbugua-kanyoro/)
+
+👤 **Author - Md Mahadi Hasan Rifat**
+
+- GitHub: (https://github.com/Rifat8080)
+- Twitter: (https://twitter.com/mdmahadirifat98)
+- LinkedIn: (https://www.linkedin.com/in/md-mahadi-hasan-rifat-8b7851265/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
 
