@@ -140,6 +140,13 @@ Use this project in the browsers of desktops and mobile devices
 - Twitter: (https://twitter.com/mdmahadirifat98)
 - LinkedIn: (https://www.linkedin.com/in/md-mahadi-hasan-rifat-8b7851265/)
 
+👤 **Al Amin Khan Shakil**
+
+- GitHub: [Al Amin Khan Shakil](https://github.com/Al-Amin-Khan-Shakil)
+- Twitter: [Al Amin Khan Shakil](https://twitter.com/AlAminKhan85004)
+- LinkedIn: [Al Amin Khan Shakil](https://www.linkedin.com/in/al-amin-khan-shakil/)
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
