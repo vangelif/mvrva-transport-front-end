@@ -154,6 +154,7 @@
 .carousel-body {
   /* height: 60vh; */
   height: 80vh;
+
   /* padding: 2% 0%; */
 }
 
@@ -205,7 +206,7 @@
   width: 90px;
   border-top-right-radius: 35px;
   border-bottom-right-radius: 35px;
-  font-size: 12px;  
+  font-size: 12px;
 }
 
 .carousel-control-next {
@@ -213,9 +214,9 @@
   background-color: #97c010;
   height: 45px;
   width: 90px;
-  border-top-left-radius: 35px;  
+  border-top-left-radius: 35px;
   border-bottom-left-radius: 35px;
-  font-size: 12px;  
+  font-size: 12px;
 }
 
 .service-component {
@@ -256,7 +257,7 @@
   padding: 2% 7%;
 }
 
-@media (min-width: 1024px) and (max-width:1750px) {
+@media (min-width: 1024px) and (max-width: 1750px) {
   .sidebar-container {
     width: 17vw;
     min-height: 100vh;
@@ -274,10 +275,12 @@
 
   .carousel-body {
     height: 80vh;
+
     /* height: 85%; */
+
     /* padding: 2% 0%; */
   }
-  
+
   .carousel-bg {
     background: var(--main-color);
     height: 70vh;
@@ -286,6 +289,7 @@
 
   .card-body {
     margin-bottom: auto;
+
     /* padding: 5% 0%; */
   }
 }
@@ -295,6 +299,7 @@
     font-size: 0.9em;
     font-weight: 300;
   }
+
   .logo-img {
     margin-bottom: 2rem;
     width: 80px;
