@@ -20,16 +20,17 @@ const MyReservations = () => {
   };
 
   return (
-    <div className="reservation">
+    <div className="reservation-wrapper">
+    <div className="reservation row">
       <h2 className="mb-5">Reservations</h2>
       {deleteStatus === 'loading' && <p>Deleting...</p>}
       {reservations.length === 0 ? (
         <p>No reservations available.</p>
       ) : (
         reservations.map((reservation) => (
-          <div key={reservation.id} className="mb-5">
+          <div key={reservation.id} className="mb-5 col-lg-4 col-md-6 col-sm-6 col-xsm-12 col-12">
             <Card style={{ width: '18rem' }}>
-              <Card.Body>
+              <Card.Body className='reserve-card-body'>
                 <Card.Title>
                   Service ID:
                   {' '}
@@ -72,6 +73,7 @@ const MyReservations = () => {
           </div>
         ))
       )}
+    </div>
     </div>
   );
 };
