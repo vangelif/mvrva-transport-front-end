@@ -66,14 +66,16 @@ const ServiceList = () => {
   }
 
   const truncateDescription = (text, maxLength) => {
-    const words = text.split(' ');
-    if (words.length > maxLength) {
-      return `${words.slice(0, maxLength).join(' ')}...`;
+    if (text && text.length > 0) {
+      const words = text.split(' ');
+      if (words.length > maxLength) {
+        return `${words.slice(0, maxLength).join(' ')}...`;
+      }
+      return text;
     }
-    return text;
+    return '';  
   };
 
-  // Group services into arrays based on the specified number of services per item
   const groupedServices = [];
   for (let i = 0; i < services.length; i += servicesPerItem) {
     groupedServices.push(services.slice(i, i + servicesPerItem));
