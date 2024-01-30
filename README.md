@@ -112,8 +112,6 @@ rails s
 
 Use this project in the browsers of desktops and mobile devices
 
-```
-
 ## 👥 Author <a name="authors"></a>
 
 👤 **Victor Kanyi**
