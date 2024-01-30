@@ -101,9 +101,9 @@ cd mvrva-transport-front-end
 ### Install
 
 Install this project with:
-bundle install
-Make sure that server is running
+npm install
 
+Make sure that server is running
 rails s
 
 ### Usage
