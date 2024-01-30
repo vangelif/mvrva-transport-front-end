@@ -5,6 +5,11 @@
   --border-color: #dee2e6;
 }
 
+/*
+.burger-mobile {
+  display: none;
+} */
+
 /* Navbar CSS responsiveness for desktop */
 .nav-body {
   z-index: 9999;
@@ -15,7 +20,6 @@
   align-items: flex-start;
   justify-content: space-between;
   padding: 8px;
-  border-right: 1px solid var(--border-color);
   overflow: hidden;
 }
 
@@ -29,6 +33,11 @@
 
 .bg-green:active {
   background-color: #3e4f06 !important;
+}
+
+.sidebar {
+  border-right: 1px solid var(--border-color);
+  height: 100%;
 }
 
 .app {
@@ -160,8 +169,10 @@
   background: var(--main-color);
   height: 90vh;
   width: 100%;
+}
 
-  /* background: red; */
+.service-header {
+  margin-top: 5rem;
 }
 
 .card-body {
@@ -183,6 +194,11 @@
   color: var(--secondary-color);
 }
 
+.custom-card-text.card-text {
+  color: grey;
+  font-size: 1em;
+}
+
 .carousel-indicators .active {
   background-color: var(--primary-color);
 }
@@ -192,7 +208,6 @@
   background-color: #97c010;
   height: 45px;
   width: 90px;
-  margin-left: -6.3%;
   border-top-right-radius: 35px;
   border-bottom-right-radius: 35px;
   font-size: 12px;  /* Adjust the value as needed */
@@ -201,7 +216,7 @@
 .carousel-control-next {
   top: 50%;
   background-color: #97c010;
-  margin-right: -0.8%;
+  margin-right: -6.2%;
   height: 45px;
   width: 90px;
   border-top-left-radius: 35px;  /* Adjust the value as needed */
@@ -210,24 +225,7 @@
 }
 
 .service-component {
-  width: 80vw;
-}
-
-.card-service {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: space-around;
-}
-
-.add-service-submit {
-  margin-left: 15%;
-  margin-right: 15%;
-  display: flex;
-  flex-direction: column;
-
-  /* margin-left: 280px;
-  margin-top: 250px; */
+  width: 85vw;
 }
 
 .submit-btn {
@@ -240,96 +238,142 @@
   border-color: #97c010;
 }
 
-@media (max-width: 1200px) {
-  .logo-img {
+/* @media (max-width: 1200px) { */
+
+/* .logo-img {
     margin-bottom: 9rem;
   }
 }
 
-@media (min-width: 992px) {
-  /* Styles for large devices (large desktops) */
+.carousel-control-next {
+  top: 50%;
+  background-color: #97c010;
+  margin-right: 0%;
+  height: 35px;
+  width: 70px;
+  font-size: 10px;
 }
 
-@media (min-width: 768px) {
-  /* Styles for medium devices (desktops) */
+.custom-title-style {
+  font-size: 16px;
 }
 
-@media (min-width: 576px) {
-  /* Styles for small devices (tablets) */
+.custom-card-text.card-text {
+  font-size: 10px;
+  width: 100%;
 }
 
-@media (max-width: 575px) {
-  /* Styles for extra small devices (portrait phones) */
+.service-component {
+  width: 80vw;
 }
 
-/* Responsivness for mobile */
+.logo-img {
+  margin-bottom: 9rem;
+} */
 
-@media screen and (max-width: 768px) and (min-width: 320px) {
-  /* navbar */
+.burger-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
   .nav-body {
+    z-index: 9999;
     background: transparent;
+
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    overflow: hidden;
+  }
+
+  /*
+  .sidebar {
+    height: 2vh;
+  } */
+
+  .copy-right-text {
+    display: block;
+  }
+
+  .sc-container .icons {
+    display: block;
+  }
+
+  .app {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    width: 100vw;
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+  }
+
+  #root {
+    width: 100vw;
+  }
+
+  .sidebar-container {
+    /* width: 100vw; */
+
+    /* height: 80px; */
+  }
+
+  .main-container {
+    width: 100vw;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    border-right: none;
+    height: 100%;
+  }
+
+  /* Carousel design */
+
+  .carousel-control-prev {
+    display: none;
+  }
+
+  .carousel-control-next {
+    display: none;
+  }
+
+  .custom-title-style {
+    font-size: 16px;
+  }
+
+  .custom-card-text.card-text {
+    font-size: 10px;
+    width: 100%;
   }
 
   .navlink-text {
-    font-size: 12px;
-    font-weight: 600;
+    font-weight: 300;
+    font-size: 1.2em;
   }
 
-  button.navbar-toggler {
-    margin-right: 40rem;
-    margin-top: 3rem;
-    border: none;
+  .service-component {
+    width: 80vw;
   }
 
-  span.navlink-text {
-    margin-right: 30rem;
-  }
-
-  .nav-body a.active {
-    font-weight: bold;
-    color: #fff;
-    background-color: #97c010;
-    transition: 0.3s ease-in-out;
-  }
-
-  .nav-body a.active .navlink-text {
-    color: var(--main-color);
-  }
-
-  /* logo */
   .logo-img {
-    display: inline-block;
-    height: 150px; /* Adjust the height as needed */
-    width: auto; /* Maintain the aspect ratio */
-    margin-left: 26px;
+    margin-bottom: 2rem;
+    width: 50px;
+    height: 50px;
   }
 
-  .menu-main {
-    display: flex;
-    align-items: stretch;
-    flex-direction: row;
+  .burger-mobile {
+    display: block;
   }
 
-  /* social media icons */
-  .sc-container {
+  .desktop-navlinks {
     display: none;
-  }
-
-  .social-icon {
-    display: none;
-  }
-
-  .copy-right-text {
-    display: none;
-  }
-
-  /* Service */
-  .service-card {
-    margin-left: 350px;
-    margin-top: 50px;
-
-    .custom-title-style .card-submit {
-      margin: 10% 5%;
-    }
   }
 }
+
+/* Responsivness for mobile */
