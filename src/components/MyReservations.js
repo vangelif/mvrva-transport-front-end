@@ -20,6 +20,7 @@ const MyReservations = () => {
   };
 
   return (
+
     <div className="reservation-wrapper">
       <div className="reservation row">
         <h2 className="mb-5">Reservations</h2>
@@ -41,6 +42,7 @@ const MyReservations = () => {
                     {' '}
                     {reservation.description || 'N/A'}
                   </Card.Subtitle>
+
                   <Card.Text>
                     Pickup Address:
                     {' '}
