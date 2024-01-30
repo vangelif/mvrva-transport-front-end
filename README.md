@@ -112,7 +112,7 @@ rails s
 
 Use this project in the browsers of desktops and mobile devices
 
-## 👥 Author <a name="authors"></a>
+## 👥 Authors <a name="authors"></a>
 
 👤 **Victor Kanyi**
 
@@ -132,7 +132,7 @@ Use this project in the browsers of desktops and mobile devices
 - Twitter: [@CarlosMbugua](https://twitter.com/CarlosMbugua)
 - LinkedIn: [Robert Mbugua](https://www.linkedin.com/in/robert-mbugua-kanyoro/)
 
-👤 **Author - Md Mahadi Hasan Rifat**
+👤 **Md Mahadi Hasan Rifat**
 
 - GitHub: (https://github.com/Rifat8080)
 - Twitter: (https://twitter.com/mdmahadirifat98)
