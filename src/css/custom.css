@@ -297,7 +297,7 @@
 
   .main-container {
     width: 100vw;
-    min-height: 100vh;
+    height: 0;
   }
 
   .sidebar {
@@ -307,10 +307,36 @@
 
   /* Carousel design */
 
+  .carousel-inner {
+    /* background-color: red; */
+
+    /* padding-bottom: 55%; */
+    height: 80vh;
+
+    /* margin-bottom: 15%; */
+  }
+
+
+  /* .carousel-indicators {
+    height: 10vh;
+  } */
+
+  /*
   .carousel-bg {
-    background: var(--main-color);
+    background: transparent;
     height: 80vh;
     width: 85vw;
+  } */
+
+  .carousel-body {
+    /* height: 50vh; */
+
+    /* height: 0vh; */
+
+    /* margin-top: -20% !important; */
+    width: 100vw;
+
+    /* padding-bottom: 45%; */
   }
 
   .carousel-control-prev {
@@ -337,7 +363,10 @@
   }
 
   .service-component {
-    width: 70vw;
+    width: 100vw;
+    height: 100vh;
+
+    /* background-color: brown; */
   }
 
   .logo-img {
@@ -386,7 +415,16 @@
   }
 
   .service-header {
-    margin-top: 3rem;
+    /* padding: 0% 0% !important; */
+    margin: 0% 0% !important;
+    padding-top: 2rem !important;
+
+    /* margin-top: 0.5rem; */
+    font-size: 12px;
+
+    /* height: 0vh; */
+
+    /* display: none; */
   }
 
   .service-description {
@@ -550,7 +588,6 @@
     align-items: center;
     box-shadow: rgba(50, 50, 93, 0.25) 0 30px 70px -10px, rgba(0, 0, 0, 0.3) 0 20px 40px -20px, rgba(10, 37, 64, 0.35) 0 -1px 3px 0 inset;
   }
-  
 }
 
 
