@@ -37,7 +37,7 @@ function Sidebar() {
   const onLogout = () => {
     dispatch(logout());
     dispatch(reset());
-    navigate('/');
+    navigate('/login');
   };
 
   const localUser = JSON.parse(localStorage.getItem('user'));

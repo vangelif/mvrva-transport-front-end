@@ -257,55 +257,8 @@
   padding: 2% 7%;
 }
 
-@media (min-width: 1024px) and (max-width: 1750px) {
-  .sidebar-container {
-    width: 17vw;
-    min-height: 100vh;
-  }
 
-  .main-container {
-    width: 83vw;
-    min-height: 100vh;
-  }
-
-  .navlink-text {
-    font-size: 1.1em;
-    font-weight: 600;
-  }
-
-  .carousel-body {
-    height: 80vh;
-
-    /* height: 85%; */
-
-    /* padding: 2% 0%; */
-  }
-
-  .carousel-bg {
-    background: var(--main-color);
-    height: 70vh;
-    width: 100%;
-  }
-
-  .card-body {
-    margin-bottom: auto;
-
-    /* padding: 5% 0%; */
-  }
-}
-
-@media (max-width: 1024px) {
-  .navlink-text {
-    font-size: 0.9em;
-    font-weight: 300;
-  }
-
-  .logo-img {
-    margin-bottom: 2rem;
-    width: 80px;
-    height: 80px;
-  }
-}
+/* Mobile version */
 
 @media (max-width: 768px) {
   .nav-body {
@@ -449,5 +402,193 @@
     justify-content: center;
     align-items: center;
     box-shadow: rgba(50, 50, 93, 0.25) 0 30px 70px -10px, rgba(0, 0, 0, 0.3) 0 20px 40px -20px, rgba(10, 37, 64, 0.35) 0 -1px 3px 0 inset;
+  }
+}
+
+
+/* Medium screens */
+@media (max-width: 1198px) {
+  .nav-body {
+    z-index: 9999;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    overflow: hidden;
+  }
+
+  .copy-right-text {
+    display: block;
+  }
+
+  .sc-container .icons {
+    display: block;
+  }
+
+  .app {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    width: 100vw;
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+  }
+
+  #root {
+    width: 100vw;
+  }
+
+  .main-container {
+    width: 100vw;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    border-right: none;
+    height: 100%;
+  }
+
+  /* Carousel design */
+
+  .carousel-bg {
+    background: var(--main-color);
+    height: 80vh;
+    width: 85vw;
+  }
+
+  .carousel-control-prev {
+    display: none;
+  }
+
+  .carousel-control-next {
+    display: none;
+  }
+
+  .custom-title-style {
+    font-size: 16px;
+  }
+
+  .custom-card-text.card-text {
+    font-size: 10px;
+    width: 100%;
+  }
+
+  .navlink-text {
+    font-weight: 300;
+    font-size: 1em;
+    color: var(--secondary-color);
+  }
+
+  .service-component {
+    width: 70vw;
+  }
+
+  .logo-img {
+    margin-bottom: 2rem;
+    width: 50px;
+    height: 50px;
+  }
+
+  .burger-mobile {
+    display: block;
+    margin: 35% 35%;
+    font-size: 30px;
+  }
+
+  .desktop-navlinks {
+    display: none;
+  }
+
+  .card-service {
+    padding: 20% 2%;
+    margin-right: 4%;
+  }
+
+  .reservation {
+    padding: 20% 2%;
+    margin-right: 4%;
+  }
+
+  .reservation-form {
+    padding: 20% 2%;
+    margin-right: 4%;
+  }
+
+  .card-submit {
+    padding: 10% 1%;
+    margin-right: 7%;
+  }
+
+  .service-details {
+    padding: 20% 7% !important;
+  }
+
+  .service-details .service-image {
+    width: 100% !important;
+    height: 30vh !important;
+  }
+
+  .service-header {
+    margin-top: 3rem;
+  }
+
+  .service-description {
+    font-size: 0.8em !important;
+  }
+
+  .card-body {
+    margin-bottom: 2%;
+  }
+
+  .card-sizing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0 30px 70px -10px, rgba(0, 0, 0, 0.3) 0 20px 40px -20px, rgba(10, 37, 64, 0.35) 0 -1px 3px 0 inset;
+  }
+  
+}
+
+
+/* Extra large screens */
+
+@media (min-width: 1199px) and (max-width: 1750px) {
+  .sidebar-container {
+    width: 17vw;
+    min-height: 100vh;
+  }
+
+  .main-container {
+    width: 83vw;
+    min-height: 100vh;
+  }
+
+  .navlink-text {
+    font-size: 1.1em;
+    font-weight: 600;
+  }
+
+  .carousel-body {
+    height: 80vh;
+
+    /* height: 85%; */
+
+    /* padding: 2% 0%; */
+  }
+
+  .carousel-bg {
+    background: var(--main-color);
+    height: 70vh;
+    width: 100%;
+  }
+
+  .card-body {
+    margin-bottom: auto;
+
+    /* padding: 5% 0%; */
   }
 }
