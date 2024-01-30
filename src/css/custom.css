@@ -23,15 +23,22 @@
   overflow: hidden;
 }
 
+.bg-green {
+  background-color: #97c010 !important;
+}
+
+.bg-green:hover {
+  background-color: #65810a !important;
+}
+
+.bg-green:active {
+  background-color: #3e4f06 !important;
+}
+
 .sidebar {
   border-right: 1px solid var(--border-color);
   height: 100%;
 }
-
-/* .app-container {
-display: flex;
-overflow: hidden;
-} */
 
 .app {
   display: flex;

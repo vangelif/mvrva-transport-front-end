@@ -21,56 +21,58 @@ const MyReservations = () => {
 
   return (
     <div className="reservation">
-      <h1>Reservations</h1>
-      {deleteStatus === 'loading' && <p>Deleting...</p>}
-      {reservations.length === 0 ? (
-        <p>No reservations available.</p>
-      ) : (
-        reservations.map((reservation) => (
-          <div key={reservation.id}>
-            <Card style={{ width: '18rem' }}>
-              <Card.Body>
-                <Card.Title>
-                  Service ID:
-                  {' '}
-                  {reservation.service_id || 'N/A'}
-                </Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">
-                  Description:
-                  {' '}
-                  {reservation.description || 'N/A'}
-                </Card.Subtitle>
-                <Card.Text>
-                  Pickup Address:
-                  {' '}
-                  {reservation.pickup_address || 'N/A'}
-                </Card.Text>
-                <Card.Text>
-                  Drop Address:
-                  {' '}
-                  {reservation.drop_address || 'N/A'}
-                </Card.Text>
-                <Card.Text>
-                  Contact:
-                  {' '}
-                  {reservation.contact || 'N/A'}
-                </Card.Text>
-                <Card.Text>
-                  Pickup Date:
-                  {' '}
-                  {reservation.pickup_date || 'N/A'}
-                </Card.Text>
-                <Button
-                  variant="danger"
-                  onClick={() => handleDeleteReservation(reservation.id)}
-                >
-                  Delete
-                </Button>
-              </Card.Body>
-            </Card>
-          </div>
-        ))
-      )}
+      <h1 className="text-center">Reservations</h1>
+      {deleteStatus === 'loading' && <p className="text-center">Deleting...</p>}
+      <div className="d-flex flex-row flex-wrap g-2 p-5">
+        {reservations.length === 0 ? (
+          <h4 className="text-center">No reservations available.</h4>
+        ) : (
+          reservations.map((reservation) => (
+            <div key={reservation.id} className="col mb-3">
+              <Card style={{ width: '18rem' }}>
+                <Card.Body>
+                  <Card.Text>
+                    Service ID:
+                    {' '}
+                    {reservation.service_id || 'N/A'}
+                  </Card.Text>
+                  <Card.Text className="mb-2 text-muted">
+                    Description:
+                    {' '}
+                    {reservation.description || 'N/A'}
+                  </Card.Text>
+                  <Card.Text>
+                    Pickup Address:
+                    {' '}
+                    {reservation.pickup_address || 'N/A'}
+                  </Card.Text>
+                  <Card.Text>
+                    Drop Address:
+                    {' '}
+                    {reservation.drop_address || 'N/A'}
+                  </Card.Text>
+                  <Card.Text>
+                    Contact:
+                    {' '}
+                    {reservation.contact || 'N/A'}
+                  </Card.Text>
+                  <Card.Text>
+                    Pickup Date:
+                    {' '}
+                    {reservation.pickup_date || 'N/A'}
+                  </Card.Text>
+                  <Button
+                    variant="danger"
+                    onClick={() => handleDeleteReservation(reservation.id)}
+                  >
+                    Delete
+                  </Button>
+                </Card.Body>
+              </Card>
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
 };
