@@ -243,6 +243,10 @@
   padding: 10% 5%;
 }
 
+.logout-icon {
+  font-size: 30px;
+}
+
 @media (max-width: 768px) {
   .nav-body {
     z-index: 9999;

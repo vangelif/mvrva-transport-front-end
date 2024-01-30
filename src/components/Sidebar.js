@@ -269,11 +269,6 @@ function Sidebar() {
                   </Nav.Link>
                 </>
               )}
-              {(userRole === 'user' || userRole === 'admin') && (
-                <button type="button" onClick={onLogout}>
-                  Logout
-                </button>
-              )}
               <Nav.Link
                 href="/api/v1/services"
                 onClick={() => {
@@ -355,6 +350,15 @@ function Sidebar() {
               {/* ... More Nav.Link components ... */}
             </Nav>
             <Container className="mt-4 py-3 sc-container d-flex flex-column">
+              {(userRole === 'user' || userRole === 'admin') && (
+
+              <>
+                <IoMdExit className="logout-icon" onClick={onLogout} />
+                <span>EXIT</span>
+              </>
+
+              )}
+              <em className="mb-1" style={{ fontSize: '1em' }}>{localUser && `Logged-in user: ${localUser.user.name}`}</em>
               {/* ... Your existing Container content ... */}
               <div className="text-center icons">
                 <a
