@@ -32,6 +32,7 @@ function ReservationForm() {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.stopPropagation();
+      setValidated(true); // Only set validated to true when form validation fails
     } else {
       const formData = new FormData(form);
       let data = Object.fromEntries(formData);
@@ -43,13 +44,9 @@ function ReservationForm() {
       dispatch(createReservation(data)).then(() => {
         form.reset();
         setValidated(false);
-
-        // Use navigate to redirect to the thank you page after a successful reservation
         navigate('/my-reservations');
       });
     }
-
-    setValidated(true);
   };
 
   return (
