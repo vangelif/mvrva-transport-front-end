@@ -66,14 +66,16 @@ const ServiceList = () => {
   }
 
   const truncateDescription = (text, maxLength) => {
-    const words = text.split('');
-    if (words.length > maxLength) {
-      return `${words.slice(0, maxLength).join('')}...`;
+    if (text && text.length > 0) {
+      const words = text.split(' ');
+      if (words.length > maxLength) {
+        return `${words.slice(0, maxLength).join(' ')}...`;
+      }
+      return text;
     }
-    return text;
+    return '';
   };
 
-  // Group services into arrays based on the specified number of services per item
   const groupedServices = [];
   for (let i = 0; i < services.length; i += servicesPerItem) {
     groupedServices.push(services.slice(i, i + servicesPerItem));
@@ -92,23 +94,23 @@ const ServiceList = () => {
               <Carousel.Caption>
                 <Row className="d-flex justify-content-between card-body">
                   {group.map((service) => (
-                    <Col key={uuidv4()} xs={12} sm={6} md={2} lg={6} xl={4} xxl={4}>
+                    <Col key={uuidv4()} xs={12} sm={10} md={10} lg={6} xl={4} xxl={4}>
                       {/* Wrap each card with Link component */}
                       <Card className="card-sizing">
-                        <Link to={`/services/${service.id}`} className="card-link">
+                        <Link to={service ? `/services/${service.id}` : '/services'} className="card-link">
                           <>
                             <div className="card-space p-4">
-                              <Card.Img variant="top" src={service.image} alt={service.name} style={{ height: '200px' }} />
+                              <Card.Img variant="top" src={service?.image} alt={service?.name} style={{ height: '200px' }} />
                               <Card.Body>
                                 <Card.Title className="custom-title-style">
-                                  <strong>{service.name}</strong>
+                                  <strong>{service?.name}</strong>
                                 </Card.Title>
                                 <Card.Text className="custom-card-text">
-                                  {truncateDescription(service.description, 100)}
+                                  {truncateDescription(service?.description, 30)}
                                   <div>
                                     {' '}
-                                    {service.description.split(' ').length > 100 && (
-                                    <Link to={`/services/${service.id}`} className="learn-more-link">
+                                    {service?.description?.split(' ').length > 30 && (
+                                    <Link to={service ? `/services/${service.id}` : '/services'} className="learn-more-link">
                                       Learn More
                                     </Link>
                                     )}

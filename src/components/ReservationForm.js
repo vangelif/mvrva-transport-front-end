@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Button, Form, Row, Col, Alert, Container,
+  Button, Form, Row, Col, Alert,
 } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -50,74 +50,68 @@ function ReservationForm() {
   };
 
   return (
-    <Container className="vh-100 d-flex justify-content-center align-items-center">
-      <Form
-        noValidate
-        validated={validated}
-        onSubmit={handleSubmit}
-        className="form-background p-5 w-100"
-      >
-        <Row className="mb-3">
-          <Col>
-            <Form.Group controlId="pickupAddress">
-              <Form.Control required type="text" placeholder="Pickup Address" className="form-control form-control-lg" name="pickup_address" />
-            </Form.Group>
-          </Col>
-        </Row>
-        <Row className="mb-3">
-          <Col>
-            <Form.Group controlId="dropAddress">
-              <Form.Control required type="text" placeholder="Drop Address" className="form-control form-control-lg" name="drop_address" />
-            </Form.Group>
-          </Col>
-        </Row>
-        <Row className="mb-3">
-          <Col>
-            <Form.Group controlId="description">
-              <Form.Control required type="text" placeholder="Description" className="form-control form-control-lg" name="description" />
-            </Form.Group>
-          </Col>
-        </Row>
-        <Row className="mb-3">
-          <Col>
-            <Form.Group controlId="contact">
-              <Form.Control required type="text" placeholder="Contact" className="form-control form-control-lg" name="contact" />
-            </Form.Group>
-          </Col>
-        </Row>
-        <Row className="mb-3">
-          <Col>
-            <Form.Group controlId="pickupDate">
-              <Form.Control required type="date" placeholder="Pickup Date" className="form-control form-control-lg" name="pickup_date" />
-            </Form.Group>
-          </Col>
-        </Row>
-        <Row className="mb-3">
-          <Col>
-            <Form.Group controlId="serviceId">
-              <Form.Control as="select" required className="form-control form-control-lg" name="service_id">
-                <option value="">Select a service</option>
-                {Array.isArray(services)
-              && services.map((service) => (
-                <option value={service.id} key={service.id}>
-                  {service.name}
-                </option>
-              ))}
-              </Form.Control>
-            </Form.Group>
-          </Col>
-        </Row>
-        <Button variant="primary" type="submit" className="btn-lg bg-green">
-          Submit
-        </Button>
-        {error && <Alert variant="danger">{error}</Alert>}
-        {validated && !error && (
-        <Alert variant="danger">
-          Your reservation has not been created. Please check the details properly.
-        </Alert>
-        )}
-      </Form>
-    </Container>
+    <>
+      <section className="reservation-form">
+        <Form
+          noValidate
+          validated={validated}
+          onSubmit={handleSubmit}
+        >
+          <h2 className="mb-5">Reservation Form:</h2>
+          <Row>
+            <Col lg={4} md={7}>
+              <Form.Group className="mb-3" controlId="pickupAddress">
+                <Form.Control required type="text" placeholder="Pickup Address" className="form-control" name="pickup_address" />
+              </Form.Group>
+            </Col>
+            <Col lg={4} md={7}>
+              <Form.Group className="mb-3" controlId="dropAddress">
+                <Form.Control required type="text" placeholder="Drop Address" className="form-control" name="drop_address" />
+              </Form.Group>
+            </Col>
+            <Col lg={4} md={7}>
+              <Form.Group className="mb-3" controlId="description">
+                <Form.Control required type="text" placeholder="Description" className="form-control" name="description" />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col lg={4} md={7}>
+              <Form.Group className="mb-3" controlId="contact">
+                <Form.Control required type="text" placeholder="Contact" className="form-control" name="contact" />
+              </Form.Group>
+            </Col>
+            <Col lg={4} md={7}>
+              <Form.Group className="mb-3" controlId="pickupDate">
+                <Form.Control required type="date" placeholder="Pickup Date" className="form-control" name="pickup_date" />
+              </Form.Group>
+            </Col>
+            <Col lg={4} md={7}>
+              <Form.Group className="mb-3" controlId="serviceId">
+                <Form.Control as="select" required className="form-control" name="service_id">
+                  <option value="">Select a service</option>
+                  {Array.isArray(services)
+                && services.map((service) => (
+                  <option value={service.id} key={service.id}>
+                    {service.name}
+                  </option>
+                ))}
+                </Form.Control>
+              </Form.Group>
+            </Col>
+          </Row>
+          <Button variant="primary" className="submit-btn" type="submit">
+            Submit
+          </Button>
+          {error && <Alert variant="danger">{error}</Alert>}
+          {validated && !error && (
+          <Alert variant="danger">
+            Your reservation has not been created. Please check the details properly.
+          </Alert>
+          )}
+        </Form>
+      </section>
+    </>
   );
 }
 

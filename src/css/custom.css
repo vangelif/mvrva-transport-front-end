@@ -5,11 +5,6 @@
   --border-color: #dee2e6;
 }
 
-/*
-.burger-mobile {
-  display: none;
-} */
-
 /* Navbar CSS responsiveness for desktop */
 .nav-body {
   z-index: 9999;
@@ -23,19 +18,7 @@
   overflow: hidden;
 }
 
-.bg-green {
-  background-color: #97c010 !important;
-}
-
-.bg-green:hover {
-  background-color: #65810a !important;
-}
-
-.bg-green:active {
-  background-color: #3e4f06 !important;
-}
-
-.sidebar {
+.desktop-navlinks {
   border-right: 1px solid var(--border-color);
   height: 100%;
 }
@@ -66,9 +49,11 @@
 }
 
 .service-details {
-  padding-top: 7%;
-  padding-left: 15%;
-  margin-left: 200px;
+  /* padding-top: 7%;
+  padding-left: 4%; */
+  padding: 5% 7%;
+
+  /* margin-left: 200px; */
   color: var(--secondary-color);
 }
 
@@ -83,17 +68,24 @@
 }
 
 .bigger-stronger-heading {
-  font-size: 2em; /* Adjust the font size as needed */
+  font-size: 2em;
   font-weight: bold;
+  padding: 5% 0%;
 }
 
 .smaller-min-cost {
-  font-size: 0.8em; /* Adjust the font size as needed */
+  font-size: 0.8em;
+  padding: 5% 0%;
+}
+
+.service-description {
+  padding: 5% 0%;
 }
 
 .discover-link {
   text-decoration: none;
-  color: blue; /* Adjust the color as needed */
+  color: blue;
+  padding: 5% 0%;
 }
 
 .bigger-reserve-button {
@@ -105,7 +97,7 @@
 }
 
 .reserve-icon {
-  margin-right: 5px; /* Adjust the margin as needed */
+  margin-right: 5px;
 }
 
 .arrow-icon {
@@ -125,15 +117,13 @@
 /* MainContent.css */
 .main-content-container {
   flex-grow: 1; /* Allow main content to grow and take remaining space */
-
-  /* padding: 20px;  Example padding for main content */
 }
 
 .logo-img {
   height: 150px; /* Adjust the height as needed */
   width: auto; /* Maintain the aspect ratio */
   margin-left: 26px; /* Optional: Add margin for spacing */
-  margin-bottom: 15rem;
+  margin-bottom: 8rem;
 }
 
 .navlink-text {
@@ -162,7 +152,10 @@
 /* Services CSS  Service List */
 
 .carousel-body {
+  /* height: 60vh; */
   height: 80vh;
+
+  /* padding: 2% 0%; */
 }
 
 .carousel-bg {
@@ -172,11 +165,14 @@
 }
 
 .service-header {
-  margin-top: 5rem;
+  /* margin-top: 20em; */
+  height: 15%;
+  padding: 2% 0%;
 }
 
 .card-body {
-  margin-bottom: 15%;
+  margin-bottom: 10%;
+  padding: 2% 0%;
 }
 
 .card-sizing {
@@ -210,18 +206,17 @@
   width: 90px;
   border-top-right-radius: 35px;
   border-bottom-right-radius: 35px;
-  font-size: 12px;  /* Adjust the value as needed */
+  font-size: 12px;
 }
 
 .carousel-control-next {
   top: 50%;
   background-color: #97c010;
-  margin-right: -6.2%;
   height: 45px;
   width: 90px;
-  border-top-left-radius: 35px;  /* Adjust the value as needed */
+  border-top-left-radius: 35px;
   border-bottom-left-radius: 35px;
-  font-size: 12px;  /* Adjust the value as needed */
+  font-size: 12px;
 }
 
 .service-component {
@@ -238,49 +233,84 @@
   border-color: #97c010;
 }
 
-/* @media (max-width: 1200px) { */
-
-/* .logo-img {
-    margin-bottom: 9rem;
-  }
+.card-service {
+  padding: 10% 5%;
 }
 
-.carousel-control-next {
-  top: 50%;
-  background-color: #97c010;
-  margin-right: 0%;
-  height: 35px;
-  width: 70px;
-  font-size: 10px;
+.reservation {
+  padding: 10% 5%;
 }
-
-.custom-title-style {
-  font-size: 16px;
-}
-
-.custom-card-text.card-text {
-  font-size: 10px;
-  width: 100%;
-}
-
-.service-component {
-  width: 80vw;
-}
-
-.logo-img {
-  margin-bottom: 9rem;
-} */
 
 .burger-mobile {
   display: none;
+}
+
+.reservation-form {
+  padding: 10% 5%;
+}
+
+.logout-icon {
+  font-size: 30px;
+}
+
+.reserve-card-body {
+  padding: 2% 7%;
+}
+
+@media (min-width: 1024px) and (max-width: 1750px) {
+  .sidebar-container {
+    width: 17vw;
+    min-height: 100vh;
+  }
+
+  .main-container {
+    width: 83vw;
+    min-height: 100vh;
+  }
+
+  .navlink-text {
+    font-size: 1.1em;
+    font-weight: 600;
+  }
+
+  .carousel-body {
+    height: 80vh;
+
+    /* height: 85%; */
+
+    /* padding: 2% 0%; */
+  }
+
+  .carousel-bg {
+    background: var(--main-color);
+    height: 70vh;
+    width: 100%;
+  }
+
+  .card-body {
+    margin-bottom: auto;
+
+    /* padding: 5% 0%; */
+  }
+}
+
+@media (max-width: 1024px) {
+  .navlink-text {
+    font-size: 0.9em;
+    font-weight: 300;
+  }
+
+  .logo-img {
+    margin-bottom: 2rem;
+    width: 80px;
+    height: 80px;
+  }
 }
 
 @media (max-width: 768px) {
   .nav-body {
     z-index: 9999;
     background: transparent;
-
-    /* height: 100%; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -288,11 +318,6 @@
     font-size: 10px;
     overflow: hidden;
   }
-
-  /*
-  .sidebar {
-    height: 2vh;
-  } */
 
   .copy-right-text {
     display: block;
@@ -317,12 +342,6 @@
     width: 100vw;
   }
 
-  .sidebar-container {
-    /* width: 100vw; */
-
-    /* height: 80px; */
-  }
-
   .main-container {
     width: 100vw;
     min-height: 100vh;
@@ -334,6 +353,12 @@
   }
 
   /* Carousel design */
+
+  .carousel-bg {
+    background: var(--main-color);
+    height: 80vh;
+    width: 85vw;
+  }
 
   .carousel-control-prev {
     display: none;
@@ -354,11 +379,12 @@
 
   .navlink-text {
     font-weight: 300;
-    font-size: 1.2em;
+    font-size: 1em;
+    color: var(--secondary-color);
   }
 
   .service-component {
-    width: 80vw;
+    width: 70vw;
   }
 
   .logo-img {
@@ -369,11 +395,59 @@
 
   .burger-mobile {
     display: block;
+    margin: 35% 35%;
+    font-size: 30px;
   }
 
   .desktop-navlinks {
     display: none;
   }
-}
 
-/* Responsivness for mobile */
+  .card-service {
+    padding: 20% 2%;
+    margin-right: 4%;
+  }
+
+  .reservation {
+    padding: 20% 2%;
+    margin-right: 4%;
+  }
+
+  .reservation-form {
+    padding: 20% 2%;
+    margin-right: 4%;
+  }
+
+  .card-submit {
+    padding: 10% 1%;
+    margin-right: 7%;
+  }
+
+  .service-details {
+    padding: 20% 7% !important;
+  }
+
+  .service-details .service-image {
+    width: 100% !important;
+    height: 30vh !important;
+  }
+
+  .service-header {
+    margin-top: 3rem;
+  }
+
+  .service-description {
+    font-size: 0.8em !important;
+  }
+
+  .card-body {
+    margin-bottom: 2%;
+  }
+
+  .card-sizing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0 30px 70px -10px, rgba(0, 0, 0, 0.3) 0 20px 40px -20px, rgba(10, 37, 64, 0.35) 0 -1px 3px 0 inset;
+  }
+}

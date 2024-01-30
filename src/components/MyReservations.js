@@ -1,7 +1,7 @@
 import { Card, Button } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchReservations, deleteReservation } from '../redux/reservationsSlice'; // Import fetchReservations action
+import { fetchReservations, deleteReservation } from '../redux/reservationsSlice';
 
 const MyReservations = () => {
   const dispatch = useDispatch();
@@ -20,27 +20,29 @@ const MyReservations = () => {
   };
 
   return (
-    <div className="reservation">
-      <h1 className="text-center">Reservations</h1>
-      {deleteStatus === 'loading' && <p className="text-center">Deleting...</p>}
-      <div className="d-flex flex-row flex-wrap g-2 p-5">
+
+    <div className="reservation-wrapper">
+      <div className="reservation row">
+        <h2 className="mb-5">Reservations</h2>
+        {deleteStatus === 'loading' && <p>Deleting...</p>}
         {reservations.length === 0 ? (
-          <h4 className="text-center">No reservations available.</h4>
+          <p>No reservations available.</p>
         ) : (
           reservations.map((reservation) => (
-            <div key={reservation.id} className="col mb-3">
+            <div key={reservation.id} className="mb-5 col-lg-4 col-md-6 col-sm-6 col-xsm-12 col-12">
               <Card style={{ width: '18rem' }}>
-                <Card.Body>
-                  <Card.Text>
+                <Card.Body className="reserve-card-body">
+                  <Card.Title>
                     Service ID:
                     {' '}
                     {reservation.service_id || 'N/A'}
-                  </Card.Text>
-                  <Card.Text className="mb-2 text-muted">
+                  </Card.Title>
+                  <Card.Subtitle className="mb-2 text-muted">
                     Description:
                     {' '}
                     {reservation.description || 'N/A'}
-                  </Card.Text>
+                  </Card.Subtitle>
+
                   <Card.Text>
                     Pickup Address:
                     {' '}
@@ -62,7 +64,8 @@ const MyReservations = () => {
                     {reservation.pickup_date || 'N/A'}
                   </Card.Text>
                   <Button
-                    variant="danger"
+                    variant="primary"
+                    className="submit-btn"
                     onClick={() => handleDeleteReservation(reservation.id)}
                   >
                     Delete
