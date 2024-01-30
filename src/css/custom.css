@@ -28,7 +28,7 @@
   flex-direction: row;
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
+  overflow: auto;
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -152,7 +152,9 @@
 /* Services CSS  Service List */
 
 .carousel-body {
+  /* height: 60vh; */
   height: 80vh;
+  /* padding: 2% 0%; */
 }
 
 .carousel-bg {
@@ -162,11 +164,14 @@
 }
 
 .service-header {
-  margin-top: 5rem;
+  /* margin-top: 20em; */
+  height: 15%;
+  padding: 2% 0%;
 }
 
 .card-body {
-  margin-bottom: 15%;
+  margin-bottom: 10%;
+  padding: 2% 0%;
 }
 
 .card-sizing {
@@ -200,7 +205,7 @@
   width: 90px;
   border-top-right-radius: 35px;
   border-bottom-right-radius: 35px;
-  font-size: 12px;  /* Adjust the value as needed */
+  font-size: 12px;  
 }
 
 .carousel-control-next {
@@ -208,9 +213,9 @@
   background-color: #97c010;
   height: 45px;
   width: 90px;
-  border-top-left-radius: 35px;  /* Adjust the value as needed */
+  border-top-left-radius: 35px;  
   border-bottom-left-radius: 35px;
-  font-size: 12px;  /* Adjust the value as needed */
+  font-size: 12px;  
 }
 
 .service-component {
@@ -245,6 +250,56 @@
 
 .logout-icon {
   font-size: 30px;
+}
+
+.reserve-card-body {
+  padding: 2% 7%;
+}
+
+@media (min-width: 1024px) and (max-width:1750px) {
+  .sidebar-container {
+    width: 17vw;
+    min-height: 100vh;
+  }
+
+  .main-container {
+    width: 83vw;
+    min-height: 100vh;
+  }
+
+  .navlink-text {
+    font-size: 1.1em;
+    font-weight: 600;
+  }
+
+  .carousel-body {
+    height: 80vh;
+    /* height: 85%; */
+    /* padding: 2% 0%; */
+  }
+  
+  .carousel-bg {
+    background: var(--main-color);
+    height: 70vh;
+    width: 100%;
+  }
+
+  .card-body {
+    margin-bottom: auto;
+    /* padding: 5% 0%; */
+  }
+}
+
+@media (max-width: 1024px) {
+  .navlink-text {
+    font-size: 0.9em;
+    font-weight: 300;
+  }
+  .logo-img {
+    margin-bottom: 2rem;
+    width: 80px;
+    height: 80px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -319,7 +374,7 @@
 
   .navlink-text {
     font-weight: 300;
-    font-size: 1.2em;
+    font-size: 1em;
     color: var(--secondary-color);
   }
 
