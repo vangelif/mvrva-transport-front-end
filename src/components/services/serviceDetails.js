@@ -44,7 +44,14 @@ const ServiceDetails = () => {
   return (
     <Row className="service-details">
       <Col md={8}>
-        <img src={service.image} alt="service" className='service-image' style={{ width: '80%', height: '70vh', borderRadius: '5%', border: '3px solid #97c010' }} />
+        <img
+          src={service.image}
+          alt="service"
+          className="service-image"
+          style={{
+            width: '80%', height: '70vh', borderRadius: '5%', border: '3px solid #97c010',
+          }}
+        />
       </Col>
       <Col md={4}>
         <div className="right-side-details">
@@ -56,7 +63,7 @@ const ServiceDetails = () => {
             {' '}
             Minimum Deposit Upon Reservation of Offered Service
           </em>
-          <p className='service-description'>{service.description}</p>
+          <p className="service-description">{service.description}</p>
           <Link to="/api/v1/services" className="discover-link">Discover More Services</Link>
           <br />
           {(userRole === 'user' || userRole === 'admin') && (

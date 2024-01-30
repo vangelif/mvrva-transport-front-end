@@ -39,7 +39,7 @@ const ServiceCreationForm = () => {
 
   return (
     <div className="card-service">
-    <h2 className="mb-5">Add Service:</h2>
+      <h2 className="mb-5">Add Service:</h2>
       <Form onSubmit={handleSubmit} className="add-service-submit">
         <Form.Group controlId="name">
           <Form.Label>Name:</Form.Label>

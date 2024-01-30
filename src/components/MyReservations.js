@@ -1,7 +1,7 @@
 import { Card, Button } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchReservations, deleteReservation } from '../redux/reservationsSlice'; 
+import { fetchReservations, deleteReservation } from '../redux/reservationsSlice';
 
 const MyReservations = () => {
   const dispatch = useDispatch();

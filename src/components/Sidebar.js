@@ -8,18 +8,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { logout, reset } from '../redux/auth/authSlice';
+import { IoMdExit, IoIosPaper } from 'react-icons/io';
+import { IoListCircleSharp } from 'react-icons/io5';
+import { MdManageAccounts, MdSupervisorAccount } from 'react-icons/md';
+import { FaTruckPlane } from 'react-icons/fa6';
+import { BsDatabaseFillAdd, BsTrash3 } from 'react-icons/bs';
 import logoImg from '../assets/Logo.png';
-import { IoMdExit, IoIosPaper } from "react-icons/io";
-import { IoListCircleSharp } from "react-icons/io5";
-import { MdManageAccounts, MdSupervisorAccount } from "react-icons/md";
-import { FaTruckPlane } from "react-icons/fa6";
-import { BsDatabaseFillAdd, BsTrash3 } from "react-icons/bs";
+import { logout, reset } from '../redux/auth/authSlice';
 import '../css/custom.css';
 
 function Sidebar() {
-  const navigate = useNavigate(); // Moved useNavigate to the beginning
-
+  const navigate = useNavigate();
   const storedValue = localStorage.getItem('activeNavLink');
   const initialActiveNavLink = storedValue;
   const [activeNavLink, setActiveNavLink] = useState(initialActiveNavLink);
@@ -54,9 +53,6 @@ function Sidebar() {
   //   return null;
   // }
 
-console.log(userRole);
-console.log("EMAIL: ", localUser?.user?.email);
-
   return (
     <>
       <section className="desktop-navlinks">
@@ -78,7 +74,8 @@ console.log("EMAIL: ", localUser?.user?.email);
                     className={activeNavLink === 'register' ? 'active' : ''}
                   >
                     <span className="navlink-text">
-                      <MdManageAccounts className="register-icon" />{' '}
+                      <MdManageAccounts className="register-icon" />
+                      {' '}
                       Register
                     </span>
                   </Nav.Link>
@@ -88,16 +85,17 @@ console.log("EMAIL: ", localUser?.user?.email);
                     className={activeNavLink === 'login' ? 'active' : ''}
                   >
                     <span className="navlink-text">
-                      <MdSupervisorAccount className="login-icon" />{' '}
+                      <MdSupervisorAccount className="login-icon" />
+                      {' '}
                       Login
                     </span>
                   </Nav.Link>
                 </>
               )}
               {/* {(userRole === 'user' || userRole === 'admin') && (
-            
+
                   <IoMdExit className="logout-icon" onClick={onLogout} />
-            
+
               )} */}
               <Nav.Link
                 href="/api/v1/services"
@@ -108,7 +106,8 @@ console.log("EMAIL: ", localUser?.user?.email);
                 className={activeNavLink === 'services' ? 'active' : ''}
               >
                 <span className="navlink-text">
-                  <FaTruckPlane className="services-icon" />{' '}
+                  <FaTruckPlane className="services-icon" />
+                  {' '}
                   Services
                 </span>
               </Nav.Link>
@@ -123,7 +122,8 @@ console.log("EMAIL: ", localUser?.user?.email);
                     className={activeNavLink === 'reserve-form' ? 'active' : ''}
                   >
                     <span className="navlink-text">
-                    <IoIosPaper />{' '}
+                      <IoIosPaper />
+                      {' '}
                       Reserve Form
                     </span>
                   </Nav.Link>
@@ -136,7 +136,8 @@ console.log("EMAIL: ", localUser?.user?.email);
                     className={activeNavLink === 'my-reservations' ? 'active' : ''}
                   >
                     <span className="navlink-text">
-                    <IoListCircleSharp />{' '}
+                      <IoListCircleSharp />
+                      {' '}
                       My Reservations
                     </span>
                   </Nav.Link>
@@ -153,8 +154,9 @@ console.log("EMAIL: ", localUser?.user?.email);
                     className={activeNavLink === 'add-reservation' ? 'active' : ''}
                   >
                     <span className="navlink-text">
-                    <BsDatabaseFillAdd />{' '}
-                    Add Services
+                      <BsDatabaseFillAdd />
+                      {' '}
+                      Add Services
                     </span>
                   </Nav.Link>
                   <Nav.Link
@@ -166,8 +168,10 @@ console.log("EMAIL: ", localUser?.user?.email);
                     className={activeNavLink === 'delete-reservation' ? 'active' : ''}
                   >
                     <span className="navlink-text">
-                    <BsTrash3 />{' '}
-                    Delete Services</span>
+                      <BsTrash3 />
+                      {' '}
+                      Delete Services
+                    </span>
                   </Nav.Link>
                 </>
               )}
@@ -175,12 +179,15 @@ console.log("EMAIL: ", localUser?.user?.email);
             {/* </Navbar.Collapse> */}
           </Container>
           <Container className="mt-1 py-3 sc-container d-flex flex-column">
-          {(userRole === 'user' || userRole === 'admin') && (
-            
-            <><IoMdExit className="logout-icon" onClick={onLogout} /><span>EXIT</span></>
-      
-        )}
-          <em className="mb-1" style={{ fontSize: '1em' }}>{localUser && `Logged-in user: ${localUser.user.name}`}</em>
+            {(userRole === 'user' || userRole === 'admin') && (
+
+            <>
+              <IoMdExit className="logout-icon" onClick={onLogout} />
+              <span>EXIT</span>
+            </>
+
+            )}
+            <em className="mb-1" style={{ fontSize: '1em' }}>{localUser && `Logged-in user: ${localUser.user.name}`}</em>
             <div className="text-center icons">
               <a
                 href="https://twitter.com"
@@ -243,14 +250,22 @@ console.log("EMAIL: ", localUser?.user?.email);
                     onClick={() => handleNavLinkClick('register')}
                     className={activeNavLink === 'register' ? 'active' : ''}
                   >
-                    <span className="navlink-text">Register</span>
+                    <span className="navlink-text">
+                      <MdManageAccounts className="register-icon" />
+                      {' '}
+                      Register
+                    </span>
                   </Nav.Link>
                   <Nav.Link
                     href="/login"
                     onClick={() => handleNavLinkClick('login')}
                     className={activeNavLink === 'login' ? 'active' : ''}
                   >
-                    <span className="navlink-text">Login</span>
+                    <span className="navlink-text">
+                      <MdSupervisorAccount className="login-icon" />
+                      {' '}
+                      Login
+                    </span>
                   </Nav.Link>
                 </>
               )}
@@ -268,6 +283,8 @@ console.log("EMAIL: ", localUser?.user?.email);
                 className={activeNavLink === 'services' ? 'active' : ''}
               >
                 <span className="navlink-text">
+                  <FaTruckPlane className="services-icon" />
+                  {' '}
                   Services
                 </span>
               </Nav.Link>
@@ -282,6 +299,8 @@ console.log("EMAIL: ", localUser?.user?.email);
                     className={activeNavLink === 'reserve-form' ? 'active' : ''}
                   >
                     <span className="navlink-text">
+                      <IoIosPaper />
+                      {' '}
                       Reserve Form
                     </span>
                   </Nav.Link>
@@ -294,6 +313,8 @@ console.log("EMAIL: ", localUser?.user?.email);
                     className={activeNavLink === 'my-reservations' ? 'active' : ''}
                   >
                     <span className="navlink-text">
+                      <IoListCircleSharp />
+                      {' '}
                       My Reservations
                     </span>
                   </Nav.Link>
@@ -309,7 +330,11 @@ console.log("EMAIL: ", localUser?.user?.email);
                     }}
                     className={activeNavLink === 'add-reservation' ? 'active' : ''}
                   >
-                    <span className="navlink-text">Add Services</span>
+                    <span className="navlink-text">
+                      <BsDatabaseFillAdd />
+                      {' '}
+                      Add Services
+                    </span>
                   </Nav.Link>
                   <Nav.Link
                     href="/delete-reservation"
@@ -319,7 +344,11 @@ console.log("EMAIL: ", localUser?.user?.email);
                     }}
                     className={activeNavLink === 'delete-reservation' ? 'active' : ''}
                   >
-                    <span className="navlink-text">Delete Services</span>
+                    <span className="navlink-text">
+                      <BsTrash3 />
+                      {' '}
+                      Delete Services
+                    </span>
                   </Nav.Link>
                 </>
               )}

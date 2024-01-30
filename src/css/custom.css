@@ -293,7 +293,7 @@
 
   .carousel-bg {
     background: var(--main-color);
-    height: 70vh;
+    height: 80vh;
     width: 100%;
   }
   
@@ -320,7 +320,7 @@
   }
 
   .service-component {
-    width: 80vw;
+    width: 70vw;
   }
 
   .logo-img {
@@ -340,14 +340,22 @@
   }
 
   .card-service{
-    padding: 20% 5%;
+    padding: 20% 2%;
+    margin-right: 4%;
   }
 
   .reservation{
-    padding: 20% 5%;
+    padding: 20% 2%;
+    margin-right: 4%;
   }
   .reservation-form {
-    padding: 20% 5%;
+    padding: 20% 2%;
+    margin-right: 4%;
+  }
+
+  .card-submit {
+    padding: 10% 1%;
+    margin-right: 7%;
   }
 
   .service-details {
@@ -359,9 +367,56 @@
     height: 30vh !important;
   }
 
+  .service-header {
+    margin-top:3rem;
+  }
+
   .service-description {
     font-size: 0.8em !important;
   }
+
+  .card-body {
+    margin-bottom: 2%;
+  }
+
+  .card-sizing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0 30px 70px -10px, rgba(0, 0, 0, 0.3) 0 20px 40px -20px, rgba(10, 37, 64, 0.35) 0 -1px 3px 0 inset;
+  }
+
+
+  .carousel-control-prev {
+    top: 50%;
+    background-color: #97c010;
+    height: 25px;
+    width: 40px;
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
+    font-size: 12px;  /* Adjust the value as needed */
+  }
+  
+  .carousel-control-next {
+    top: 50%;
+    background-color: #97c010;
+    height: 25px;
+    width: 40px;
+    border-top-left-radius: 35px;  /* Adjust the value as needed */
+    border-bottom-left-radius: 35px;
+    font-size: 12px;  /* Adjust the value as needed */
+  }
+  /* .nav-body a.active {
+    font-weight: bold;
+    color: var(--main-color);
+    background-color: var(--primary-color);
+    width: calc(100% + 2 * 132px);
+    transition: 0.3s ease-in-out;
+  }
+  
+  .nav-body a.active .navlink-text {
+    color: var(--main-color);
+  } */
 
 }
 

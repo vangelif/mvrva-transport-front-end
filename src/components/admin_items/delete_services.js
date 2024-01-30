@@ -22,8 +22,6 @@ const ServiceDeletion = () => {
     setDeletedServiceId(serviceId);
   };
 
-  console.log(services);
-
   return (
     <div className="card-submit">
       {deletedServiceId && (
