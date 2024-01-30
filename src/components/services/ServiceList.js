@@ -66,9 +66,9 @@ const ServiceList = () => {
   }
 
   const truncateDescription = (text, maxLength) => {
-    const words = text.split('');
+    const words = text.split(' ');
     if (words.length > maxLength) {
-      return `${words.slice(0, maxLength).join('')}...`;
+      return `${words.slice(0, maxLength).join(' ')}...`;
     }
     return text;
   };
@@ -95,20 +95,20 @@ const ServiceList = () => {
                     <Col key={uuidv4()} xs={12} sm={10} md={10} lg={6} xl={4} xxl={4}>
                       {/* Wrap each card with Link component */}
                       <Card className="card-sizing">
-                        <Link to={`/services/${service.id}`} className="card-link">
+                        <Link to={service ? `/services/${service.id}` : '/services'} className="card-link">
                           <>
                             <div className="card-space p-4">
-                              <Card.Img variant="top" src={service.image} alt={service.name} style={{ height: '200px' }} />
+                              <Card.Img variant="top" src={service?.image} alt={service?.name} style={{ height: '200px' }} />
                               <Card.Body>
                                 <Card.Title className="custom-title-style">
-                                  <strong>{service.name}</strong>
+                                  <strong>{service?.name}</strong>
                                 </Card.Title>
                                 <Card.Text className="custom-card-text">
-                                  {truncateDescription(service.description, 100)}
+                                  {truncateDescription(service?.description, 100)}
                                   <div>
                                     {' '}
-                                    {service.description.split(' ').length > 100 && (
-                                    <Link to={`/services/${service.id}`} className="learn-more-link">
+                                    {service?.description?.split(' ').length > 100 && (
+                                    <Link to={service ? `/services/${service.id}` : '/services'} className="learn-more-link">
                                       Learn More
                                     </Link>
                                     )}
