@@ -73,7 +73,7 @@ const ServiceList = () => {
       }
       return text;
     }
-    return '';  
+    return '';
   };
 
   const groupedServices = [];
