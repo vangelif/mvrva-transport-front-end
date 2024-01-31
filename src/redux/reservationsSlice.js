@@ -1,4 +1,3 @@
-// reservationsSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -56,7 +55,7 @@ export const deleteReservation = createAsyncThunk(
           Authorization: `Bearer ${token}`,
         },
       });
-      return reservationId; // Assuming you want to return the deleted reservation ID
+      return reservationId; 
     } catch (err) {
       return rejectWithValue(err.response.data);
     }

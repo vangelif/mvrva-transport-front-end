@@ -1,4 +1,3 @@
-// service details:
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
@@ -23,7 +22,6 @@ const ServiceDetails = () => {
           await dispatch(fetchServiceDetails(id));
         }
       } catch (error) {
-        // Handle error if needed
       }
     };
 
@@ -83,32 +81,6 @@ const ServiceDetails = () => {
       </Col>
 
     </Row>
-  // <div className="showcase">
-  //   <Link to="/api/v1/services">
-  //     <button type="button">Go Back</button>
-  //   </Link>
-  //   <h1>Show here</h1>
-  //   <h2>{service.name}</h2>
-  //   <p>
-  //     Description:
-  //     {service.description}
-  //   </p>
-  //   <p>
-  //     Min Cost: $
-  //     {service.min_cost}
-  //   </p>
-  //   <img src={service.image} alt="service" />
-  //   {/* Use Link to navigate to the reservation form route */}
-  //   {userRole === 'user' && (
-  //   <Button
-  //     type="button"
-  //     variant="primary"
-  //     onClick={handleReserveClick}
-  //   >
-  //     Reserve
-  //   </Button>
-  //   )}
-  // </div>
   );
 };
 
