@@ -6,7 +6,6 @@ import { Row, Col, Button } from 'react-bootstrap';
 import { FaRegArrowAltCircleRight } from 'react-icons/fa';
 import { GoGear } from 'react-icons/go';
 import { fetchServiceDetails } from '../../redux/service/serviceDetailsSlice';
-import { setSelectedService } from '../../redux/service/selectedServiceSlice';
 
 const ServiceDetails = () => {
   const dispatch = useDispatch();
@@ -30,7 +29,6 @@ const ServiceDetails = () => {
   }, [dispatch, id]);
 
   const handleReserveClick = () => {
-    dispatch(setSelectedService(service));
     navigate(`/service/${id}/reservation`);
   };
 

@@ -1,21 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   Button, Form, Row, Col, Alert, Container,
 } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
 import { createReservation } from '../redux/reservationsSlice';
 
 function SelectedReservation() {
   const [validated, setValidated] = useState(false);
   const dispatch = useDispatch();
   const error = useSelector((state) => state.reservations.error);
-  const { isSuccess, isError, message } = useSelector((state) => state.reservations);
   const navigate = useNavigate();
   const { id } = useParams();
+
   const localUser = JSON.parse(localStorage.getItem('user'));
   const userName = localUser.user.name;
+
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const dateString = tomorrow.toISOString().split('T')[0];
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -33,18 +36,10 @@ function SelectedReservation() {
       dispatch(createReservation(data)).then(() => {
         form.reset();
         setValidated(false);
+        navigate('/my-reservations');
       });
     }
   };
-
-  useEffect(() => {
-    if (isError && message && !isSuccess) {
-      toast.error(message);
-    } else if (isSuccess && message) {
-      toast.success(message);
-      navigate('/my-reservations');
-    }
-  }, [isSuccess, isError, message, navigate]);
 
   return (
     <Container className="vh-100 d-flex justify-content-center align-items-center p-5 form-container">
@@ -79,7 +74,7 @@ function SelectedReservation() {
           </Col>
           <Col xs={12}>
             <Form.Group className="mb-3" controlId="pickupDate">
-              <Form.Control required type="date" placeholder="Pickup Date" className="form-control form-control-lg" name="pickup_date" />
+              <Form.Control required type="date" min={dateString} placeholder="Pickup Date" className="form-control form-control-lg" name="pickup_date" />
             </Form.Group>
           </Col>
         </Row>

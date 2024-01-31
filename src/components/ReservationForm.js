@@ -4,7 +4,6 @@ import {
 } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
 import { createReservation, fetchReservations } from '../redux/reservationsSlice';
 import { fetchServices } from '../redux/service/servicesSlice';
 
@@ -12,9 +11,13 @@ function ReservationForm() {
   const [validated, setValidated] = useState(false);
   const [services, setServices] = useState([]);
   const dispatch = useDispatch();
-  const error = useSelector((state) => state.reservations.error);
-  const { isSuccess, isError, message } = useSelector((state) => state.reservations);
+  const { error, isSuccess } = useSelector((state) => state.reservations);
   const navigate = useNavigate();
+
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const dateString = tomorrow.toISOString().split('T')[0];
+
   const localUser = JSON.parse(localStorage.getItem('user'));
   const userName = localUser.user.name;
 
@@ -46,18 +49,14 @@ function ReservationForm() {
       dispatch(createReservation(data)).then(() => {
         form.reset();
         setValidated(false);
+        if (isSuccess) {
+          navigate('/my-reservations');
+        } else {
+          navigate('/reservation');
+        }
       });
     }
   };
-
-  useEffect(() => {
-    if (isError && message && !isSuccess) {
-      toast.error(message);
-    } else if (isSuccess && message) {
-      toast.success(message);
-      navigate('/my-reservations');
-    }
-  }, [isSuccess, isError, message, navigate]);
 
   return (
     <>
@@ -93,7 +92,7 @@ function ReservationForm() {
             </Col>
             <Col lg={4} md={7}>
               <Form.Group className="mb-3" controlId="pickupDate">
-                <Form.Control required type="date" placeholder="Pickup Date" className="form-control" name="pickup_date" />
+                <Form.Control required type="date" min={dateString} placeholder="Pickup Date" className="form-control" name="pickup_date" />
               </Form.Group>
             </Col>
             <Col lg={4} md={7}>
