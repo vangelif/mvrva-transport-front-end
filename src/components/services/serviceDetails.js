@@ -23,6 +23,7 @@ const ServiceDetails = () => {
         }
       } catch (error) {
         // handle error
+        console.error('Error fetching service details:', error);
       }
     };
 
