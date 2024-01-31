@@ -347,8 +347,6 @@ padding: 2% 7%;
 .service-component {
   width: 100vw;
   height: 100vh;
-
-  /* background-color: brown; */
 }
 
 .logo-img {
@@ -473,6 +471,20 @@ padding: 2% 7%;
   width: 85vw;
 }
 
+.carousel-indicators {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-right: 15%;
+  margin-bottom: 1rem;
+  margin-left: 7%;
+}
+
 .carousel-control-prev {
   display: none;
 }
@@ -497,7 +509,7 @@ padding: 2% 7%;
 }
 
 .service-component {
-  width: 70vw;
+  width: 90vw;
 }
 
 .logo-img {
@@ -547,6 +559,7 @@ padding: 2% 7%;
 
 .service-header {
   margin-top: 3rem;
+  padding: 0% 0%;
 }
 
 .service-description {
