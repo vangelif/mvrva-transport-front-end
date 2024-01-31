@@ -249,9 +249,7 @@
   padding: 2% 7%;
 }
 
-
 /* Mobile version */
-
 @media (max-width: 768px) {
   .nav-body {
     z-index: 9999;
@@ -610,9 +608,7 @@
   }
 }
 
-
 /* Extra large screens */
-
 @media (min-width: 1199px) and (max-width: 1750px) {
   .sidebar-container {
     width: 17vw;
