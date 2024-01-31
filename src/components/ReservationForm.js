@@ -32,7 +32,7 @@ function ReservationForm() {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.stopPropagation();
-      setValidated(true); // Only set validated to true when form validation fails
+      setValidated(true);
     } else {
       const formData = new FormData(form);
       let data = Object.fromEntries(formData);

@@ -6,7 +6,6 @@ import { fetchReservations, deleteReservation } from '../redux/reservationsSlice
 const MyReservations = () => {
   const dispatch = useDispatch();
 
-  // Fetch reservations when the component mounts
   useEffect(() => {
     dispatch(fetchReservations());
   }, [dispatch]);

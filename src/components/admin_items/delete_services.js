@@ -1,4 +1,3 @@
-// ServicesList.js
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Accordion } from 'react-bootstrap';
@@ -45,8 +44,6 @@ const ServiceDeletion = () => {
                   {' '}
                   {service.created_at}
                   {' '}
-                  {/* by admin with ID:
-                  {service.user_id} */}
                   {' '}
                   and costs $
                   {service.min_cost}
