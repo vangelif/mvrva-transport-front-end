@@ -11,7 +11,7 @@ function ReservationForm() {
   const [validated, setValidated] = useState(false);
   const [services, setServices] = useState([]);
   const dispatch = useDispatch();
-  const { error, isSuccess } = useSelector((state) => state.reservations);
+  const { error } = useSelector((state) => state.reservations);
   const navigate = useNavigate();
 
   const tomorrow = new Date();
@@ -49,11 +49,7 @@ function ReservationForm() {
       dispatch(createReservation(data)).then(() => {
         form.reset();
         setValidated(false);
-        if (isSuccess) {
-          navigate('/my-reservations');
-        } else {
-          navigate('/reservation');
-        }
+        navigate('/my-reservations');
       });
     }
   };
