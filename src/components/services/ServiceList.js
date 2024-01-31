@@ -86,7 +86,8 @@ const ServiceList = () => {
           {groupedServices.map((group) => (
             <Carousel.Item key={uuidv4()} className="carousel-bg">
               <Carousel.Caption>
-                <Row className="d-flex justify-content-between card-body">
+
+                <Row className="d-flex card-body">
                   {group.map((service) => (
                     <Col key={uuidv4()} xs={12} sm={10} md={10} lg={6} xl={4} xxl={4}>
                       <Card className="card-sizing">
