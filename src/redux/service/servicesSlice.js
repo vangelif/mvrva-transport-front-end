@@ -20,7 +20,7 @@ export const createService = createAsyncThunk('services/createService', async (s
       Authorization: `Bearer ${token}`,
     },
   });
-  return response.data.service; 
+  return response.data.service;
 });
 
 export const deleteService = createAsyncThunk('services/deleteService', async (serviceId) => {
@@ -54,7 +54,7 @@ const servicesSlice = createSlice({
         state.error = action.error.message;
       })
       .addCase(createService.fulfilled, (state, action) => {
-        state.data.push(action.payload); 
+        state.data.push(action.payload);
       })
       .addCase(deleteService.fulfilled, (state, action) => {
         state.data = state.data.filter((service) => service.id !== action.payload);

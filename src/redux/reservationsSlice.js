@@ -55,7 +55,7 @@ export const deleteReservation = createAsyncThunk(
           Authorization: `Bearer ${token}`,
         },
       });
-      return reservationId; 
+      return reservationId;
     } catch (err) {
       return rejectWithValue(err.response.data);
     }

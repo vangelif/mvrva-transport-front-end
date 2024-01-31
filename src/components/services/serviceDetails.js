@@ -22,6 +22,7 @@ const ServiceDetails = () => {
           await dispatch(fetchServiceDetails(id));
         }
       } catch (error) {
+        // handle error
       }
     };
 
