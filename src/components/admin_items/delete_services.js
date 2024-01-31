@@ -1,4 +1,3 @@
-// ServicesList.js
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
@@ -46,9 +45,6 @@ const ServiceDeletion = () => {
                   Created at
                   {' '}
                   {service.created_at}
-                  {' '}
-                  {/* by admin with ID:
-                  {service.user_id} */}
                   {' '}
                   and costs $
                   {service.min_cost}

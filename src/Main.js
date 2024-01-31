@@ -13,7 +13,6 @@ import ReservationForm from './components/ReservationForm';
 import ServiceDeletion from './components/admin_items/delete_services';
 import ServiceCreationForm from './components/admin_items/add_services';
 import SelectedReservation from './components/selectedReservation';
-import SuccessComponent from './components/messages/serviceSuccess';
 import ServiceDetails from './components/services/serviceDetails';
 import './css/custom.css';
 import Sidebar from './components/Sidebar';
@@ -31,14 +30,13 @@ function Main() {
             <Routes>
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/api/v1/services" element={<ServiceList />} />
+              <Route path="/services" element={<ServiceList />} />
               <Route path="/services/:id" element={<ServiceDetails />} />
               <Route path="/service/:id/reservation" element={<SelectedReservation />} />
               <Route path="/reserve-form" element={<ReservationForm />} />
               <Route path="/my-reservations" element={<MyReservations />} />
-              <Route path="/add-reservation" element={<ServiceCreationForm />} />
-              <Route path="/delete-reservation" element={<ServiceDeletion />} />
-              <Route path="/reservation-confirmation" element={<SuccessComponent />} />
+              <Route path="/add-service" element={<ServiceCreationForm />} />
+              <Route path="/delete-service" element={<ServiceDeletion />} />
               <Route path="/*" element={<ServiceList />} />
             </Routes>
           </section>

@@ -37,7 +37,7 @@ function Sidebar() {
   const onLogout = () => {
     dispatch(logout());
     dispatch(reset());
-    navigate('/');
+    navigate('/login');
   };
 
   const localUser = JSON.parse(localStorage.getItem('user'));
@@ -46,12 +46,6 @@ function Sidebar() {
   useEffect(() => {
     localStorage.removeItem('activeNavLink');
   }, []);
-
-  // if (!userRole) {
-  //   // Redirect to login page or handle not logged in state
-  //   navigate('/login');
-  //   return null;
-  // }
 
   return (
     <>
@@ -92,16 +86,11 @@ function Sidebar() {
                   </Nav.Link>
                 </>
               )}
-              {/* {(userRole === 'user' || userRole === 'admin') && (
-
-                  <IoMdExit className="logout-icon" onClick={onLogout} />
-
-              )} */}
               <Nav.Link
-                href="/api/v1/services"
+                href="/services"
                 onClick={() => {
                   handleNavLinkClick('services');
-                  navigate('/api/v1/services');
+                  navigate('/services');
                 }}
                 className={activeNavLink === 'services' ? 'active' : ''}
               >
@@ -146,10 +135,10 @@ function Sidebar() {
               {userRole === 'admin' && (
                 <>
                   <Nav.Link
-                    href="/add-reservation"
+                    href="/add-service"
                     onClick={() => {
                       handleNavLinkClick('add-reservation');
-                      navigate('/add-reservation');
+                      navigate('/add-service');
                     }}
                     className={activeNavLink === 'add-reservation' ? 'active' : ''}
                   >
@@ -160,10 +149,10 @@ function Sidebar() {
                     </span>
                   </Nav.Link>
                   <Nav.Link
-                    href="/delete-reservation"
+                    href="/delete-service"
                     onClick={() => {
                       handleNavLinkClick('delete-reservation');
-                      navigate('/delete-reservation');
+                      navigate('/delete-service');
                     }}
                     className={activeNavLink === 'delete-reservation' ? 'active' : ''}
                   >
@@ -176,7 +165,6 @@ function Sidebar() {
                 </>
               )}
             </Nav>
-            {/* </Navbar.Collapse> */}
           </Container>
           <Container className="mt-1 py-3 sc-container d-flex flex-column">
             {(userRole === 'user' || userRole === 'admin') && (
@@ -242,7 +230,6 @@ function Sidebar() {
 
           <Offcanvas.Body>
             <Nav className="me-auto d-flex flex-column">
-              {/* ... Your existing Nav.Link components ... */}
               {(!userRole) && (
                 <>
                   <Nav.Link
@@ -270,10 +257,10 @@ function Sidebar() {
                 </>
               )}
               <Nav.Link
-                href="/api/v1/services"
+                href="/services"
                 onClick={() => {
                   handleNavLinkClick('services');
-                  navigate('/api/v1/services');
+                  navigate('/services');
                 }}
                 className={activeNavLink === 'services' ? 'active' : ''}
               >
@@ -318,10 +305,10 @@ function Sidebar() {
               {userRole === 'admin' && (
                 <>
                   <Nav.Link
-                    href="/add-reservation"
+                    href="/add-service"
                     onClick={() => {
                       handleNavLinkClick('add-reservation');
-                      navigate('/add-reservation');
+                      navigate('/add-service');
                     }}
                     className={activeNavLink === 'add-reservation' ? 'active' : ''}
                   >
@@ -332,10 +319,10 @@ function Sidebar() {
                     </span>
                   </Nav.Link>
                   <Nav.Link
-                    href="/delete-reservation"
+                    href="/delete-service"
                     onClick={() => {
                       handleNavLinkClick('delete-reservation');
-                      navigate('/delete-reservation');
+                      navigate('/delete-service');
                     }}
                     className={activeNavLink === 'delete-reservation' ? 'active' : ''}
                   >
@@ -347,7 +334,6 @@ function Sidebar() {
                   </Nav.Link>
                 </>
               )}
-              {/* ... More Nav.Link components ... */}
             </Nav>
             <Container className="mt-4 py-3 sc-container d-flex flex-column">
               {(userRole === 'user' || userRole === 'admin') && (
@@ -359,7 +345,6 @@ function Sidebar() {
 
               )}
               <em className="mb-1" style={{ fontSize: '1em' }}>{localUser && `Logged-in user: ${localUser.user.name}`}</em>
-              {/* ... Your existing Container content ... */}
               <div className="text-center icons">
                 <a
                   href="https://twitter.com"

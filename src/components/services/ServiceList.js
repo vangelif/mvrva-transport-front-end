@@ -1,4 +1,3 @@
-// ServiceList.js
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
@@ -15,22 +14,21 @@ const ServiceList = () => {
   const dispatch = useDispatch();
   const { data: services, status, error } = useSelector((state) => state.services);
   const [index, setIndex] = useState(0);
-  const [servicesPerItem, setServicesPerItem] = useState(3); // Initial value for servicesPerItem
+  const [servicesPerItem, setServicesPerItem] = useState(3);
 
   const handleResize = () => {
-    // Adjust servicesPerItem based on screen width
     const screenWidth = window.innerWidth;
 
     if (screenWidth < 576) {
-      setServicesPerItem(1); // Show 1 service per item for extra small screens
+      setServicesPerItem(1);
     } else if (screenWidth < 768) {
-      setServicesPerItem(1); // Show 2 services per item for small screens
+      setServicesPerItem(1);
     } else if (screenWidth < 992) {
-      setServicesPerItem(1); // Show 2 services per item for small screens
+      setServicesPerItem(1);
     } else if (screenWidth < 1200) {
-      setServicesPerItem(2); // Show 2 services per item for small screens
+      setServicesPerItem(2);
     } else {
-      setServicesPerItem(3); // Show 3 services per item for medium and larger screens
+      setServicesPerItem(3);
     }
   };
 
@@ -39,16 +37,12 @@ const ServiceList = () => {
   };
 
   useEffect(() => {
-    // Add an event listener for window resize
     window.addEventListener('resize', handleResize);
 
-    // Initial call to handleResize
     handleResize();
 
-    // Fetch services on component mount
     dispatch(fetchServices());
 
-    // Clean up the event listener on component unmount
     return () => window.removeEventListener('resize', handleResize);
   }, [dispatch]);
 
@@ -95,7 +89,6 @@ const ServiceList = () => {
                 <Row className="d-flex justify-content-between card-body">
                   {group.map((service) => (
                     <Col key={uuidv4()} xs={12} sm={10} md={10} lg={6} xl={4} xxl={4}>
-                      {/* Wrap each card with Link component */}
                       <Card className="card-sizing">
                         <Link to={service ? `/services/${service.id}` : '/services'} className="card-link">
                           <>
