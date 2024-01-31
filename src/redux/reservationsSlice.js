@@ -1,6 +1,15 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+const initialState = {
+  entities: [],
+  loading: 'idle',
+  error: null,
+  isSuccess: false,
+  isError: false,
+  message: '',
+};
+
 export const createReservation = createAsyncThunk(
   'reservations/create',
   async (reservation, { rejectWithValue }) => {
@@ -64,7 +73,7 @@ export const deleteReservation = createAsyncThunk(
 
 export const reservationsSlice = createSlice({
   name: 'reservations',
-  initialState: { entities: [], loading: 'idle', error: null },
+  initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
@@ -74,10 +83,15 @@ export const reservationsSlice = createSlice({
       .addCase(createReservation.fulfilled, (state, action) => {
         state.loading = 'idle';
         state.entities.push(action.payload);
+        state.isSuccess = true;
+        state.message = 'Reservation created successfully';
       })
       .addCase(createReservation.rejected, (state, action) => {
         state.loading = 'idle';
         state.error = action.payload;
+        state.isError = true;
+        state.message = action.payload.message;
+        state.isSuccess = false;
       })
       .addCase(fetchReservations.pending, (state) => {
         state.loading = 'loading';
@@ -95,12 +109,16 @@ export const reservationsSlice = createSlice({
       })
       .addCase(deleteReservation.fulfilled, (state, action) => {
         state.loading = 'idle';
-        // Remove the deleted reservation from entities
         state.entities = state.entities.filter((reservation) => reservation.id !== action.payload);
+        state.isSuccess = true;
+        state.message = 'Reservation deleted successfully';
       })
       .addCase(deleteReservation.rejected, (state, action) => {
         state.loading = 'idle';
         state.error = action.payload;
+        state.isError = true;
+        state.message = action.payload.message;
+        state.isSuccess = false;
       });
   },
 });

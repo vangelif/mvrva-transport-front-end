@@ -11,8 +11,13 @@ function ReservationForm() {
   const [validated, setValidated] = useState(false);
   const [services, setServices] = useState([]);
   const dispatch = useDispatch();
-  const error = useSelector((state) => state.reservations.error);
+  const { error, isSuccess } = useSelector((state) => state.reservations);
   const navigate = useNavigate();
+
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const dateString = tomorrow.toISOString().split('T')[0];
+
   const localUser = JSON.parse(localStorage.getItem('user'));
   const userName = localUser.user.name;
 
@@ -44,7 +49,11 @@ function ReservationForm() {
       dispatch(createReservation(data)).then(() => {
         form.reset();
         setValidated(false);
-        navigate('/my-reservations');
+        if (isSuccess) {
+          navigate('/my-reservations');
+        } else {
+          navigate('/reservation');
+        }
       });
     }
   };
@@ -83,7 +92,7 @@ function ReservationForm() {
             </Col>
             <Col lg={4} md={7}>
               <Form.Group className="mb-3" controlId="pickupDate">
-                <Form.Control required type="date" placeholder="Pickup Date" className="form-control" name="pickup_date" />
+                <Form.Control required type="date" min={dateString} placeholder="Pickup Date" className="form-control" name="pickup_date" />
               </Form.Group>
             </Col>
             <Col lg={4} md={7}>

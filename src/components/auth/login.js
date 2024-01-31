@@ -22,12 +22,7 @@ function Login() {
   } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    if (isError) {
-      toast.error(message);
-      dispatch(reset());
-    }
-
-    if (isSuccess || user) {
+    if (isSuccess && user) {
       toast.success(message);
       navigate('/');
       dispatch(reset());

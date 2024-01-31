@@ -37,7 +37,7 @@ function Sidebar() {
   const onLogout = () => {
     dispatch(logout());
     dispatch(reset());
-    navigate('/login');
+    navigate('/');
   };
 
   const localUser = JSON.parse(localStorage.getItem('user'));
@@ -87,10 +87,10 @@ function Sidebar() {
                 </>
               )}
               <Nav.Link
-                href="/api/v1/services"
+                href="/services"
                 onClick={() => {
                   handleNavLinkClick('services');
-                  navigate('/api/v1/services');
+                  navigate('/services');
                 }}
                 className={activeNavLink === 'services' ? 'active' : ''}
               >
@@ -135,10 +135,10 @@ function Sidebar() {
               {userRole === 'admin' && (
                 <>
                   <Nav.Link
-                    href="/add-reservation"
+                    href="/add-service"
                     onClick={() => {
                       handleNavLinkClick('add-reservation');
-                      navigate('/add-reservation');
+                      navigate('/add-service');
                     }}
                     className={activeNavLink === 'add-reservation' ? 'active' : ''}
                   >
@@ -149,10 +149,10 @@ function Sidebar() {
                     </span>
                   </Nav.Link>
                   <Nav.Link
-                    href="/delete-reservation"
+                    href="/delete-service"
                     onClick={() => {
                       handleNavLinkClick('delete-reservation');
-                      navigate('/delete-reservation');
+                      navigate('/delete-service');
                     }}
                     className={activeNavLink === 'delete-reservation' ? 'active' : ''}
                   >
@@ -257,10 +257,10 @@ function Sidebar() {
                 </>
               )}
               <Nav.Link
-                href="/api/v1/services"
+                href="/services"
                 onClick={() => {
                   handleNavLinkClick('services');
-                  navigate('/api/v1/services');
+                  navigate('/services');
                 }}
                 className={activeNavLink === 'services' ? 'active' : ''}
               >
@@ -305,10 +305,10 @@ function Sidebar() {
               {userRole === 'admin' && (
                 <>
                   <Nav.Link
-                    href="/add-reservation"
+                    href="/add-service"
                     onClick={() => {
                       handleNavLinkClick('add-reservation');
-                      navigate('/add-reservation');
+                      navigate('/add-service');
                     }}
                     className={activeNavLink === 'add-reservation' ? 'active' : ''}
                   >
@@ -319,10 +319,10 @@ function Sidebar() {
                     </span>
                   </Nav.Link>
                   <Nav.Link
-                    href="/delete-reservation"
+                    href="/delete-service"
                     onClick={() => {
                       handleNavLinkClick('delete-reservation');
-                      navigate('/delete-reservation');
+                      navigate('/delete-service');
                     }}
                     className={activeNavLink === 'delete-reservation' ? 'active' : ''}
                   >

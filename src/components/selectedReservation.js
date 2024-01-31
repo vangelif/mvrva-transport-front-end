@@ -12,8 +12,13 @@ function SelectedReservation() {
   const error = useSelector((state) => state.reservations.error);
   const navigate = useNavigate();
   const { id } = useParams();
+
   const localUser = JSON.parse(localStorage.getItem('user'));
   const userName = localUser.user.name;
+
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const dateString = tomorrow.toISOString().split('T')[0];
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -69,7 +74,7 @@ function SelectedReservation() {
           </Col>
           <Col xs={12}>
             <Form.Group className="mb-3" controlId="pickupDate">
-              <Form.Control required type="date" placeholder="Pickup Date" className="form-control form-control-lg" name="pickup_date" />
+              <Form.Control required type="date" min={dateString} placeholder="Pickup Date" className="form-control form-control-lg" name="pickup_date" />
             </Form.Group>
           </Col>
         </Row>
