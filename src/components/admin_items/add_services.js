@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { Form, Button } from 'react-bootstrap';
-import SuccessComponent from '../messages/serviceSuccess';
 import { createService } from '../../redux/service/servicesSlice';
 
 const ServiceCreationForm = () => {
-  const [serviceAdded, setServiceAdded] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const {
+    isSuccess, message,
+  } = useSelector((state) => state.services);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -29,13 +31,14 @@ const ServiceCreationForm = () => {
     setFormData({
       name: '', description: '', image: '', min_cost: 0,
     });
-
-    setTimeout(() => {
-      setServiceAdded(true);
-    }, 1000);
-
-    navigate('/');
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      toast.success(message);
+      navigate('/');
+    }
+  }, [isSuccess, message, navigate]);
 
   return (
     <div className="card-service">
@@ -88,8 +91,6 @@ const ServiceCreationForm = () => {
         <Button variant="primary" className="submit-btn" type="submit">
           Create Service
         </Button>
-
-        {serviceAdded && <SuccessComponent message="✅ Service added successfully!" />}
       </Form>
     </div>
 

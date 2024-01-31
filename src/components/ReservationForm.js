@@ -4,6 +4,7 @@ import {
 } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import { createReservation, fetchReservations } from '../redux/reservationsSlice';
 import { fetchServices } from '../redux/service/servicesSlice';
 
@@ -12,6 +13,7 @@ function ReservationForm() {
   const [services, setServices] = useState([]);
   const dispatch = useDispatch();
   const error = useSelector((state) => state.reservations.error);
+  const { isSuccess, isError, message } = useSelector((state) => state.reservations);
   const navigate = useNavigate();
   const localUser = JSON.parse(localStorage.getItem('user'));
   const userName = localUser.user.name;
@@ -44,10 +46,18 @@ function ReservationForm() {
       dispatch(createReservation(data)).then(() => {
         form.reset();
         setValidated(false);
-        navigate('/my-reservations');
       });
     }
   };
+
+  useEffect(() => {
+    if (isError && message && !isSuccess) {
+      toast.error(message);
+    } else if (isSuccess && message) {
+      toast.success(message);
+      navigate('/my-reservations');
+    }
+  }, [isSuccess, isError, message, navigate]);
 
   return (
     <>

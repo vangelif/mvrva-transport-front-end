@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Button, Form, Row, Col, Alert, Container,
 } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import { createReservation } from '../redux/reservationsSlice';
 
 function SelectedReservation() {
   const [validated, setValidated] = useState(false);
   const dispatch = useDispatch();
   const error = useSelector((state) => state.reservations.error);
+  const { isSuccess, isError, message } = useSelector((state) => state.reservations);
   const navigate = useNavigate();
   const { id } = useParams();
   const localUser = JSON.parse(localStorage.getItem('user'));
@@ -31,10 +33,18 @@ function SelectedReservation() {
       dispatch(createReservation(data)).then(() => {
         form.reset();
         setValidated(false);
-        navigate('/my-reservations');
       });
     }
   };
+
+  useEffect(() => {
+    if (isError && message && !isSuccess) {
+      toast.error(message);
+    } else if (isSuccess && message) {
+      toast.success(message);
+      navigate('/my-reservations');
+    }
+  }, [isSuccess, isError, message, navigate]);
 
   return (
     <Container className="vh-100 d-flex justify-content-center align-items-center p-5 form-container">

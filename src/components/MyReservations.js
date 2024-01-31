@@ -1,12 +1,13 @@
 import { Card, Button } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import { toast } from 'react-toastify';
 import { fetchReservations, deleteReservation } from '../redux/reservationsSlice';
 
 const MyReservations = () => {
   const dispatch = useDispatch();
+  const { isSuccess, isError, message } = useSelector((state) => state.reservations);
 
-  // Fetch reservations when the component mounts
   useEffect(() => {
     dispatch(fetchReservations());
   }, [dispatch]);
@@ -18,6 +19,14 @@ const MyReservations = () => {
   const handleDeleteReservation = (reservationId) => {
     dispatch(deleteReservation(reservationId));
   };
+
+  useEffect(() => {
+    if (isError && message && !isSuccess) {
+      toast.error(message);
+    } else if (isSuccess && message) {
+      toast.success(message);
+    }
+  }, [isSuccess, isError, message]);
 
   return (
 

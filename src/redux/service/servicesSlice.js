@@ -3,6 +3,14 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+const initialState = {
+  data: [],
+  status: 'idle',
+  isSuccess: false,
+  error: null,
+  message: '',
+};
+
 const localuser = JSON.parse(localStorage.getItem('user'));
 const token = localuser && localuser.Authorization;
 // Thunk to fetch services from Rails API
@@ -38,11 +46,7 @@ export const deleteService = createAsyncThunk('services/deleteService', async (s
 
 const servicesSlice = createSlice({
   name: 'services',
-  initialState: {
-    data: [],
-    status: 'idle',
-    error: null,
-  },
+  initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
@@ -58,11 +62,19 @@ const servicesSlice = createSlice({
         state.error = action.error.message;
       })
       .addCase(createService.fulfilled, (state, action) => {
-        state.data.push(action.payload); // Add the newly created service to the state
+        state.data.push(action.payload);
+        state.message = 'Service created successfully';
+        state.isSuccess = true;
       })
       .addCase(deleteService.fulfilled, (state, action) => {
-        // Remove the deleted service from the state
         state.data = state.data.filter((service) => service.id !== action.payload);
+        state.isSuccess = true;
+        state.message = 'Service deleted successfully';
+      })
+      .addCase(deleteService.rejected, (state, action) => {
+        state.error = action.error.message;
+        state.isSuccess = false;
+        state.message = 'This service already has reservations. You cannot delete it.';
       });
   },
 });

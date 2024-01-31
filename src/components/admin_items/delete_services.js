@@ -1,15 +1,16 @@
 // ServicesList.js
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import { Accordion } from 'react-bootstrap';
-import DeleteMessage from '../messages/deleteServiceSuccess';
 import { fetchServices, deleteService } from '../../redux/service/servicesSlice';
 
 const ServiceDeletion = () => {
   const dispatch = useDispatch();
-  const services = useSelector((state) => state.services.data);
+  const {
+    data, isSuccess, message,
+  } = useSelector((state) => state.services);
   const status = useSelector((state) => state.services.status);
-  const [deletedServiceId, setDeletedServiceId] = useState(null);
 
   useEffect(() => {
     if (status === 'idle') {
@@ -19,21 +20,22 @@ const ServiceDeletion = () => {
 
   const handleDelete = (serviceId) => {
     dispatch(deleteService(serviceId));
-    setDeletedServiceId(serviceId);
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      toast.success(message);
+    } else if (message) {
+      toast.error(message);
+    }
+  }, [isSuccess, message]);
 
   return (
     <div className="card-submit">
-      {deletedServiceId && (
-      <DeleteMessage message={`Service with ID ${deletedServiceId} deleted successfully!❌`} />
-      )}
-      {status === 'loading' && <p>Loading...</p>}
-      {status === 'failed' && <p>Error loading services</p>}
-      {status === 'succeeded' && (
       <div>
         <h2 style={{ marginBottom: '5%' }}>Services List</h2>
         <Accordion defaultActiveKey="0">
-          {services.map((service) => (
+          {data.map((service) => (
             <Accordion.Item
               key={service.id}
               eventKey={service.id.toString()}
@@ -68,7 +70,6 @@ const ServiceDeletion = () => {
           ))}
         </Accordion>
       </div>
-      )}
     </div>
   );
 };
