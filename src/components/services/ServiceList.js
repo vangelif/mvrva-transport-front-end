@@ -14,21 +14,21 @@ const ServiceList = () => {
   const dispatch = useDispatch();
   const { data: services, status, error } = useSelector((state) => state.services);
   const [index, setIndex] = useState(0);
-  const [servicesPerItem, setServicesPerItem] = useState(3); 
+  const [servicesPerItem, setServicesPerItem] = useState(3);
 
   const handleResize = () => {
     const screenWidth = window.innerWidth;
 
     if (screenWidth < 576) {
-      setServicesPerItem(1); 
+      setServicesPerItem(1);
     } else if (screenWidth < 768) {
-      setServicesPerItem(1); 
+      setServicesPerItem(1);
     } else if (screenWidth < 992) {
-      setServicesPerItem(1); 
+      setServicesPerItem(1);
     } else if (screenWidth < 1200) {
-      setServicesPerItem(2); 
+      setServicesPerItem(2);
     } else {
-      setServicesPerItem(3); 
+      setServicesPerItem(3);
     }
   };
 
