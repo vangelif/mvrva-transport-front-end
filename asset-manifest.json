@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/mvrva-transport-front-end/static/css/main.f6dc8380.css",
-    "main.js": "/mvrva-transport-front-end/static/js/main.0f22ae4d.js",
-    "static/media/Logo.png": "/mvrva-transport-front-end/static/media/Logo.e261e405964e0b2eca29.png",
-    "index.html": "/mvrva-transport-front-end/index.html",
-    "main.f6dc8380.css.map": "/mvrva-transport-front-end/static/css/main.f6dc8380.css.map",
-    "main.0f22ae4d.js.map": "/mvrva-transport-front-end/static/js/main.0f22ae4d.js.map"
+    "main.css": "/mvrva-transport-front-end/public/static/css/main.f6dc8380.css",
+    "main.js": "/mvrva-transport-front-end/public/static/js/main.5af7d9e8.js",
+    "static/media/Logo.png": "/mvrva-transport-front-end/public/static/media/Logo.e261e405964e0b2eca29.png",
+    "index.html": "/mvrva-transport-front-end/public/index.html",
+    "main.f6dc8380.css.map": "/mvrva-transport-front-end/public/static/css/main.f6dc8380.css.map",
+    "main.5af7d9e8.js.map": "/mvrva-transport-front-end/public/static/js/main.5af7d9e8.js.map"
   },
   "entrypoints": [
     "static/css/main.f6dc8380.css",
-    "static/js/main.0f22ae4d.js"
+    "static/js/main.5af7d9e8.js"
   ]
 }
